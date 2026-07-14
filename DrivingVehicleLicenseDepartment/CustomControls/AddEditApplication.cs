@@ -7,19 +7,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace DrivingVehicleLicenseDepartment.CustomControls
 {
     public partial class AddEditApplication : UserControl
     {
+
+        private Users _User;
+        public Users User
+        {
+            get 
+            {
+                return _User;
+            }
+            set 
+            {
+                lblUser.Text = value.UserName;
+                _User = value;
+            }
+        }
+        public int LicenseClassID { get; set; } = 3;
+        public int ApplicantPersonID { get; set; }
+
+        private Applications _Application = new Applications();
+        public Applications Application
+        {
+            get
+            {
+
+                _Application.ApplicantPersonID = ApplicantPersonID;
+                _Application.ApplicationDate = DateTime.Now;
+                _Application.ApplicationTypeID = 1; //This is the Application type id of new local DL
+                _Application.ApplicationStatus = ((int)Applications.enStatus.New); // New by default in here
+                _Application.LastStatusDate = DateTime.Now;
+                _Application.PaidFees = 15;
+                _Application.CreatedByUserID = User.UserID;
+
+                return _Application;
+            }
+
+            set
+            {
+                lblID.Text = value.ApplicationID.ToString();
+                lblDate.Text = value.ApplicationDate.ToString("dd/MM/yyyy");
+            }
+        }
+
         public AddEditApplication()
         {
             InitializeComponent();
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            cmbClasses.SelectedIndex = 2;
         }
 
-        private void kryptonGroup1_Panel_Paint(object sender, PaintEventArgs e)
+        public void refresh()
         {
-            cmbClasses.SelectedIndex = 2;
+            lblID.Text = _Application.ApplicationID.ToString();
+            lblUser.Text = _User.UserName.ToString();
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+        private void cmbClasses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LicenseClassID = ((int)cmbClasses.SelectedIndex) + 1;
         }
     }
 }

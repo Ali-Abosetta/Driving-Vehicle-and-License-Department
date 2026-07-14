@@ -62,7 +62,6 @@
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel3);
             this.kryptonGroup1.Panel.Controls.Add(this.lblID);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel1);
-            this.kryptonGroup1.Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonGroup1_Panel_Paint);
             this.kryptonGroup1.Size = new System.Drawing.Size(662, 363);
             this.kryptonGroup1.TabIndex = 0;
             // 
@@ -78,9 +77,10 @@
             "Class 7 - Truck and heavy vehicle"});
             this.cmbClasses.Location = new System.Drawing.Point(238, 156);
             this.cmbClasses.Name = "cmbClasses";
-            this.cmbClasses.Size = new System.Drawing.Size(396, 29);
+            this.cmbClasses.Size = new System.Drawing.Size(396, 20);
             this.cmbClasses.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbClasses.TabIndex = 9;
+            this.cmbClasses.SelectedIndexChanged += new System.EventHandler(this.cmbClasses_SelectedIndexChanged);
             // 
             // kryptonLabel2
             // 
@@ -112,7 +112,7 @@
             this.lblFees.Name = "lblFees";
             this.lblFees.Size = new System.Drawing.Size(179, 27);
             this.lblFees.TabIndex = 5;
-            this.lblFees.Values.Text = "[???]";
+            this.lblFees.Values.Text = "15";
             // 
             // kryptonLabel4
             // 

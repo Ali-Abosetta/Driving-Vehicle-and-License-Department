@@ -12,6 +12,7 @@ namespace BLL
     {
 
         enum enMode { AddNew = 0, Update = 1 };
+        public enum enStatus { New = 1, Canceled  = 2, Completed = 3 };
         private enMode Mode = enMode.AddNew;
 
         public int ApplicationID { get; set; }

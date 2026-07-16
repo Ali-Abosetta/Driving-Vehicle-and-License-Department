@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DAL
 {
@@ -63,8 +64,6 @@ namespace DAL
 
         }
         public static bool IsExistsInLocalDrivingLicenseApplicationsByLocalDrivingLicenseApplicationID(int LocalDrivingLicenseApplicationID)
-
-
         {
 
             int isExists = -1;
@@ -257,7 +256,6 @@ namespace DAL
 
         }
         public static DataTable GetAllFromLocalDrivingLicenseApplications()
-
         {
 
             SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString);
@@ -300,6 +298,123 @@ namespace DAL
 
             return dataTable;
 
+        }
+
+        public static DataTable GetLocalDrivingLicenseApplicationsSummary()
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT l.LocalDrivingLicenseApplicationID AS [L.D.L Application ID],
+		                        c.ClassName AS [Driving Class], p.NationalNo [National No.],
+		                        [Full name] = p.FirstName + ' ' + p.SecondName + ' ' + 
+			                        CASE 
+                                    WHEN p.ThirdName is not null
+				                        THEN p.ThirdName + ' '
+                                    ELSE ''
+                                    END + p.LastName,
+		                        FORMAT(a.ApplicationDate, 'dd/MM/yyyy') AS [Application Date],
+		                        [Passed tests] = 
+		                        (
+			                        SELECT COUNT(*)
+			                        FROM Tests t
+			                            JOIN TestAppointments ta
+				                            ON t.TestAppointmentID = ta.TestAppointmentID
+			                            WHERE l.LocalDrivingLicenseApplicationID = ta.LocalDrivingLicenseApplicationID
+				                            and t.TestResult = 1
+		                        ),
+		                        [Status] = CASE 
+			                    WHEN a.ApplicationStatus = 1
+				                    THEN 'New'
+			                    WHEN a.ApplicationStatus = 2
+				                    THEN 'Cancelled'
+			                    WHEN a.ApplicationStatus = 3
+				                    THEN 'Completed'
+			                    END
+
+                                FROM 
+	                            LocalDrivingLicenseApplications l
+	                                JOIN Applications a
+		                                ON a.ApplicationID = l.ApplicationID
+	                                JOIN LicenseClasses c
+		                                ON c.LicenseClassID = l.LicenseClassID
+	                                JOIN People p
+		                                ON p.PersonID = a.ApplicantPersonID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    try
+                    {
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dataTable.Load(reader);
+                            }
+                            reader.Close();
+                        }
+
+                        foreach (DataColumn column in dataTable.Columns)
+                        {
+                            column.ReadOnly = false;
+                        }
+
+                        dataTable.PrimaryKey = new DataColumn[]
+                        {
+                                dataTable.Columns["L.D.L Application ID"]
+                        };
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return dataTable;
+        }
+
+        public static int HasActiveApplicationForClass(int ApplicantPersonID, int LicenseClassID)
+        {
+            int FoundApplicationID = -1;
+
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT top 1 l.LocalDrivingLicenseApplicationID
+                                FROM Applications a
+	                                JOIN LocalDrivingLicenseApplications l
+	                                	ON l.ApplicationID = a.ApplicationID
+                                WHERE a.ApplicationTypeID = 1
+                                AND a.ApplicationStatus = 1
+                                AND a.ApplicantPersonID = @ApplicantPersonID
+                                AND l.LicenseClassID = @LicenseClassID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                    command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+                    try
+                    {
+
+                        connection.Open();
+
+                        FoundApplicationID = Convert.ToInt32(command.ExecuteScalar());
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return FoundApplicationID;
         }
 
     }

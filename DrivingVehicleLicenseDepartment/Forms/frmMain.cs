@@ -11,7 +11,7 @@ using BLL;
 using DrivingVehicleLicenseDepartment.Forms;
 using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
 using DrivingVehicleLicenseDepartment.Forms.Licenses;
-using DrivingVehicleLicenseDepartment.Forms.Licenses.Applications;
+using DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense;
 using DrivingVehicleLicenseDepartment.Forms.Tests;
 using Krypton.Toolkit;
 
@@ -113,7 +113,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmLocalDrivingLicenseApplication frm = new frmLocalDrivingLicenseApplication())
+            using (frmLocalDrivingLicenseApplication frm = new frmLocalDrivingLicenseApplication(_CurrentUser))
             {
                 frm.ShowDialog();
             }

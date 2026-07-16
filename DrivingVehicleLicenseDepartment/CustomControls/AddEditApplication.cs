@@ -23,8 +23,8 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             }
             set 
             {
-                lblUser.Text = value.UserName;
                 _User = value;
+                lblUser.Text = value.UserName;
             }
         }
         public int LicenseClassID { get; set; } = 3;
@@ -57,6 +57,7 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
         public AddEditApplication()
         {
             InitializeComponent();
+
             lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cmbClasses.SelectedIndex = 2;
         }

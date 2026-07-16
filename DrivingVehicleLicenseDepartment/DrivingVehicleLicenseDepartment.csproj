@@ -75,6 +75,18 @@
     <Compile Include="CustomControls\AddEditApplication.Designer.cs">
       <DependentUpon>AddEditApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ctrlApplicationBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlApplicationBasicInfo.Designer.cs">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ctrlDrivingLicenseApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlDrivingLicenseApplicationInfo.Designer.cs">
+      <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ctrlPersonCardEditable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,16 +117,16 @@
     <Compile Include="Forms\ApplicationTypes\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Licenses\Applications\frmLocalDrivingLicenseApplication.cs">
+    <Compile Include="Forms\Licenses\LocalDrivingLicense\frmLocalDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Licenses\Applications\frmLocalDrivingLicenseApplication.Designer.cs">
+    <Compile Include="Forms\Licenses\LocalDrivingLicense\frmLocalDrivingLicenseApplication.Designer.cs">
       <DependentUpon>frmLocalDrivingLicenseApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Licenses\frmAddNewLocalLicense.cs">
+    <Compile Include="Forms\Licenses\LocalDrivingLicense\frmAddNewLocalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Licenses\frmAddNewLocalLicense.Designer.cs">
+    <Compile Include="Forms\Licenses\LocalDrivingLicense\frmAddNewLocalLicense.Designer.cs">
       <DependentUpon>frmAddNewLocalLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\People\frmAddEditPerson.cs">
@@ -191,6 +203,12 @@
     <EmbeddedResource Include="CustomControls\AddEditUser.resx">
       <DependentUpon>AddEditUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlApplicationBasicInfo.resx">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlDrivingLicenseApplicationInfo.resx">
+      <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlPersonCardEditable.resx">
       <DependentUpon>ctrlPersonCardEditable.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,10 +224,10 @@
     <EmbeddedResource Include="Forms\ApplicationTypes\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Licenses\Applications\frmLocalDrivingLicenseApplication.resx">
+    <EmbeddedResource Include="Forms\Licenses\LocalDrivingLicense\frmLocalDrivingLicenseApplication.resx">
       <DependentUpon>frmLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Licenses\frmAddNewLocalLicense.resx">
+    <EmbeddedResource Include="Forms\Licenses\LocalDrivingLicense\frmAddNewLocalLicense.resx">
       <DependentUpon>frmAddNewLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\People\frmAddEditPerson.resx">
@@ -451,6 +469,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\International 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Application 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Application 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete 32 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vision Test Schdule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Written Test 32 Sechdule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Street Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IssueDrivingLicense 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\License View 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Licenses\Applications\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

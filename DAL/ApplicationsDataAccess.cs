@@ -43,7 +43,7 @@ namespace DAL
 
                             ApplicationTypeID = (int)reader["ApplicationTypeID"];
 
-                            ApplicationStatus = (int)reader["ApplicationStatus"];
+                            ApplicationStatus = Convert.ToInt32(reader["ApplicationStatus"]);
 
                             LastStatusDate = (DateTime)reader["LastStatusDate"];
 

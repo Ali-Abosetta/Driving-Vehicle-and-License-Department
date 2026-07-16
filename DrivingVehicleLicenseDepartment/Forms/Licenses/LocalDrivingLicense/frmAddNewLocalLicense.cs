@@ -12,17 +12,19 @@ using BLL;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms.Licenses
+namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 {
     public partial class frmAddNewLocalLicense : KryptonForm
     {
-        //public delegate void DataBackEventHandler(object sender, );
-        //public event DataBackEventHandler DataBack;
+        public delegate void DataBackEventHandler();
+        public event DataBackEventHandler DataBack;
 
-        private Users user = null;
+
+        private Users user;
         public frmAddNewLocalLicense()
         {
             InitializeComponent();
+            addEditApplication1.User = user;
         }
 
         public frmAddNewLocalLicense(int UserID)
@@ -35,6 +37,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses
             personInfroWithFilter1.ctrlPersonCardEditable1.Person = person;
 
             btnNext.Enabled = true;
+            addEditApplication1.User = user;
         }
 
         public frmAddNewLocalLicense(Users user)
@@ -42,6 +45,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses
             InitializeComponent();
 
             this.user = user;
+            addEditApplication1.User = user;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -77,39 +81,51 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses
 
         private void Save(object sender, EventArgs e)
         {
-
-            if (addEditApplication1.Application.Save())
+            int FoundApplicationID = LocalDrivingLicenseApplications
+                .HasActiveApplicationForClass
+                (personInfroWithFilter1.PersonID, addEditApplication1.LicenseClassID);
+            if (!(FoundApplicationID > 0))
             {
-
-                LocalDrivingLicenseApplications LocalApp 
-                    = new LocalDrivingLicenseApplications();
-
-                LocalApp.ApplicationID = addEditApplication1.Application.ApplicationID;
-                LocalApp.LicenseClassID = addEditApplication1.LicenseClassID;
-
-                if(LocalApp.Save())
+                if (addEditApplication1.Application.Save())
                 {
-                    KryptonMessageBox.Show("Data Saved Successfully.",
-                    "Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information,false);
 
-                    addEditApplication1.refresh();
-                    //DataBack?.Invoke(this, ctrlPersonCardEditable1.Person);
-                    //InitializeUpdateMode(ctrlPersonCardEditable1.Person.PersonID);
+                    LocalDrivingLicenseApplications LocalApp
+                        = new LocalDrivingLicenseApplications();
+
+                    LocalApp.ApplicationID = addEditApplication1.Application.ApplicationID;
+                    LocalApp.LicenseClassID = addEditApplication1.LicenseClassID;
+
+                    if (LocalApp.Save())
+                    {
+                        DataBack?.Invoke();
+
+                        KryptonMessageBox.Show("Data Saved Successfully.",
+                        "Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false);
+
+                        addEditApplication1.refresh();
+                    }
+
+                    else
+                    {
+                        KryptonMessageBox.Show("Error: Data Is not Saved Successfully.",
+                            "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
+                    }
                 }
 
                 else
                 {
                     KryptonMessageBox.Show("Error: Data Is not Saved Successfully.",
-                        "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                        "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
                 }
             }
-
             else
             {
-                KryptonMessageBox.Show("Error: Data Is not Saved Successfully.",
-                    "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                string message = "Choose another License Class, the selected Person" +
+                     " already has an active application for the selected " +
+                    $"class with ID = {FoundApplicationID}";
+                KryptonMessageBox.Show(message,
+                    "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
             }
-
 
         }
 

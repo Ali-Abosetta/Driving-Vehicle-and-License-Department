@@ -44,7 +44,7 @@ namespace BLL
             ApplicantPersonID = -1;
             ApplicationDate = DateTime.Now;
             ApplicationTypeID = -1;
-            ApplicationStatus = -1;
+            ApplicationStatus = (int)enStatus.New;
             LastStatusDate = DateTime.Now;
             PaidFees = -1;
             CreatedByUserID = -1;
@@ -56,7 +56,7 @@ namespace BLL
             int ApplicantPersonID = -1;
             DateTime ApplicationDate = DateTime.Now;
             int ApplicationTypeID = -1;
-            int ApplicationStatus = -1;
+            int ApplicationStatus = (int)enStatus.New;
             DateTime LastStatusDate = DateTime.Now;
             decimal PaidFees = -1;
             int CreatedByUserID = -1;

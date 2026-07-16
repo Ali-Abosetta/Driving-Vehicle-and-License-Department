@@ -18,6 +18,16 @@ namespace BLL
         public int ApplicationID { get; set; }
         public int LicenseClassID { get; set; }
 
+        public static List<string> GetSearchFilters()
+        {
+            return new List<string>
+            {
+                "L.D.L Application ID",
+                "National No.",
+                "Full name",
+                "Status"
+            };
+        }
 
         private LocalDrivingLicenseApplications(int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID)
         {
@@ -106,6 +116,16 @@ namespace BLL
 
         }
 
+        public static DataTable GetLocalDrivingLicenseApplicationsSummary()
+        {
+            return LocalDrivingLicenseApplicationsDataAccess
+                .GetLocalDrivingLicenseApplicationsSummary();
+        }
 
+        public static int HasActiveApplicationForClass(int ApplicantPersonID, int LicenseClassID)
+        {
+            return LocalDrivingLicenseApplicationsDataAccess
+                .HasActiveApplicationForClass(ApplicantPersonID, LicenseClassID);
+        }
     }
 }

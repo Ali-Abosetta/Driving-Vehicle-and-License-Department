@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.Forms.Licenses
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 {
     partial class frmAddNewLocalLicense
     {

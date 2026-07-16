@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
+using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms.Tests
+namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps
 {
-    public partial class frmTestTypes : Form
+    public partial class frmTestTypes : KryptonForm
     {
 
         private int _SelectedID

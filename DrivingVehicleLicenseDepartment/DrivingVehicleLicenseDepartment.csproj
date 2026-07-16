@@ -141,16 +141,70 @@
     <Compile Include="Forms\People\frmAddEditPerson.Designer.cs">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tests\frmEditTestTypes.cs">
+    <Compile Include="Forms\Tests\TestAppointments\frmScheduleStreetTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Tests\frmEditTestTypes.Designer.cs">
+    <Compile Include="Forms\Tests\TestAppointments\frmScheduleStreetTest.Designer.cs">
+      <DependentUpon>frmScheduleStreetTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmScheduleVisionTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmScheduleVisionTest.Designer.cs">
+      <DependentUpon>frmScheduleVisionTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmScheduleWrittenTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmScheduleWrittenTest.Designer.cs">
+      <DependentUpon>frmScheduleWrittenTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmStreetTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmStreetTestAppointment.Designer.cs">
+      <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmTakeStreetTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmTakeStreetTest.Designer.cs">
+      <DependentUpon>frmTakeStreetTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmTakeVisionTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmTakeVisionTest.Designer.cs">
+      <DependentUpon>frmTakeVisionTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmTakeWrittenTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmTakeWrittenTest.Designer.cs">
+      <DependentUpon>frmTakeWrittenTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmVisionTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmVisionTestAppointment.Designer.cs">
+      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmWrittenTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestAppointments\frmWrittenTestAppointment.Designer.cs">
+      <DependentUpon>frmWrittenTestAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tests\TestTypes\frmEditTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tests\TestTypes\frmEditTestTypes.Designer.cs">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tests\frmTestTypes.cs">
+    <Compile Include="Forms\Tests\TestTypes\frmTestTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Tests\frmTestTypes.Designer.cs">
+    <Compile Include="Forms\Tests\TestTypes\frmTestTypes.Designer.cs">
       <DependentUpon>frmTestTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmAddEditUser.cs">
@@ -242,10 +296,37 @@
     <EmbeddedResource Include="Forms\People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\frmEditTestTypes.resx">
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmScheduleStreetTest.resx">
+      <DependentUpon>frmScheduleStreetTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmScheduleVisionTest.resx">
+      <DependentUpon>frmScheduleVisionTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmScheduleWrittenTest.resx">
+      <DependentUpon>frmScheduleWrittenTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmStreetTestAppointment.resx">
+      <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTakeStreetTest.resx">
+      <DependentUpon>frmTakeStreetTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTakeVisionTest.resx">
+      <DependentUpon>frmTakeVisionTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTakeWrittenTest.resx">
+      <DependentUpon>frmTakeWrittenTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmVisionTestAppointment.resx">
+      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmWrittenTestAppointment.resx">
+      <DependentUpon>frmWrittenTestAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tests\TestTypes\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\frmTestTypes.resx">
+    <EmbeddedResource Include="Forms\Tests\TestTypes\frmTestTypes.resx">
       <DependentUpon>frmTestTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmAddEditUser.resx">
@@ -511,6 +592,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Licenses\Applications\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule Test 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments;
 using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
@@ -117,6 +118,30 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                 frm = new frmLocalDrivingLicenseApplicationCard(SelectedApplicationID))
 
                 frm.ShowDialog();
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmVisionTestAppointment frm = new frmVisionTestAppointment(SelectedApplicationID))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmWrittenTestAppointment frm = new frmWrittenTestAppointment(SelectedApplicationID))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmStreetTestAppointment frm = new frmStreetTestAppointment(SelectedApplicationID))
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

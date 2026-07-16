@@ -45,5 +45,12 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             InitializeComponent();
         }
 
+        private void kryptonLinkLabel1_LinkClicked(object sender, EventArgs e)
+        {
+            using (frmPersonCard frm = new frmPersonCard(_application.ApplicantPersonID))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

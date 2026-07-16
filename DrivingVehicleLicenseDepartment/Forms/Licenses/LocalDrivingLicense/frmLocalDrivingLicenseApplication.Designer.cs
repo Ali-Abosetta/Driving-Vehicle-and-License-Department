@@ -62,7 +62,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(395, 365);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(329, 30);
+            this.txtSearch.Size = new System.Drawing.Size(329, 21);
             this.txtSearch.TabIndex = 23;
             this.txtSearch.TextChanged += new System.EventHandler(this.Search);
             // 
@@ -94,7 +94,7 @@
             // 
             this.cmbFilter.Location = new System.Drawing.Point(141, 366);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(248, 29);
+            this.cmbFilter.Size = new System.Drawing.Size(248, 20);
             this.cmbFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbFilter.TabIndex = 22;
             this.cmbFilter.Text = "cmbLocalLicenseApplications";
@@ -125,7 +125,7 @@
             this.showLicenseToolStripMenuItem,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsLocalLicenses.Name = "cmsPeople";
-            this.cmsLocalLicenses.Size = new System.Drawing.Size(262, 326);
+            this.cmsLocalLicenses.Size = new System.Drawing.Size(262, 348);
             // 
             // showUserDetailsToolStripMenuItem
             // 
@@ -186,6 +186,7 @@
             this.scheduleVisionTestToolStripMenuItem.Name = "scheduleVisionTestToolStripMenuItem";
             this.scheduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(203, 38);
             this.scheduleVisionTestToolStripMenuItem.Text = "Schedule Vision Test";
+            this.scheduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.scheduleVisionTestToolStripMenuItem_Click);
             // 
             // scheduleWrittenTestToolStripMenuItem
             // 
@@ -194,6 +195,7 @@
             this.scheduleWrittenTestToolStripMenuItem.Name = "scheduleWrittenTestToolStripMenuItem";
             this.scheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(203, 38);
             this.scheduleWrittenTestToolStripMenuItem.Text = "Schedule Written Test";
+            this.scheduleWrittenTestToolStripMenuItem.Click += new System.EventHandler(this.scheduleWrittenTestToolStripMenuItem_Click);
             // 
             // scheduleStreetTestToolStripMenuItem
             // 
@@ -202,6 +204,7 @@
             this.scheduleStreetTestToolStripMenuItem.Name = "scheduleStreetTestToolStripMenuItem";
             this.scheduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(203, 38);
             this.scheduleStreetTestToolStripMenuItem.Text = "Schedule Street Test";
+            this.scheduleStreetTestToolStripMenuItem.Click += new System.EventHandler(this.scheduleStreetTestToolStripMenuItem_Click);
             // 
             // IssueLicenseToolStripMenuItem
             // 

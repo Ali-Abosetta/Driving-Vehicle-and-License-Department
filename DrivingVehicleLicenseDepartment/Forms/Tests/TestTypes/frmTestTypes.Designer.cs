@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.Forms.Tests
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps
 {
     partial class frmTestTypes
     {

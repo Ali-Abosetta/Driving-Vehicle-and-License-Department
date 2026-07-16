@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms.Tests
+namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps
 {
     public partial class frmEditTestTypes : KryptonForm
     {

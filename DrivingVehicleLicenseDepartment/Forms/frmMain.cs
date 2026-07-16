@@ -12,7 +12,7 @@ using DrivingVehicleLicenseDepartment.Forms;
 using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
 using DrivingVehicleLicenseDepartment.Forms.Licenses;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense;
-using DrivingVehicleLicenseDepartment.Forms.Tests;
+using DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps;
 using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment

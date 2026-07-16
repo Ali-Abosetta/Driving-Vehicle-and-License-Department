@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.kryptonGroup1 = new Krypton.Toolkit.KryptonGroup();
-            this.kryptonLinkLabel1 = new Krypton.Toolkit.KryptonLinkLabel();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
-            this.lblID = new Krypton.Toolkit.KryptonLabel();
-            this.lblClass = new Krypton.Toolkit.KryptonLabel();
-            this.lblPassedTests = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.lblPassedTests = new Krypton.Toolkit.KryptonLabel();
+            this.lblClass = new Krypton.Toolkit.KryptonLabel();
+            this.lblID = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLinkLabel1 = new Krypton.Toolkit.KryptonLinkLabel();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).BeginInit();
             this.kryptonGroup1.Panel.SuspendLayout();
@@ -58,64 +58,8 @@
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel3);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel2);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel1);
-            this.kryptonGroup1.Size = new System.Drawing.Size(784, 166);
+            this.kryptonGroup1.Size = new System.Drawing.Size(784, 136);
             this.kryptonGroup1.TabIndex = 0;
-            // 
-            // kryptonLinkLabel1
-            // 
-            this.kryptonLinkLabel1.Location = new System.Drawing.Point(586, 130);
-            this.kryptonLinkLabel1.Name = "kryptonLinkLabel1";
-            this.kryptonLinkLabel1.Size = new System.Drawing.Size(169, 27);
-            this.kryptonLinkLabel1.TabIndex = 2;
-            this.kryptonLinkLabel1.Values.Text = "Show License Info";
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(53, 59);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(178, 27);
-            this.kryptonLabel1.TabIndex = 0;
-            this.kryptonLabel1.Values.Text = "D.L Application ID:";
-            // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(53, 97);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(192, 27);
-            this.kryptonLabel2.TabIndex = 1;
-            this.kryptonLabel2.Values.Text = "Applied For License:";
-            // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(53, 130);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(130, 27);
-            this.kryptonLabel3.TabIndex = 1;
-            this.kryptonLabel3.Values.Text = "Passed Tests:";
-            // 
-            // lblID
-            // 
-            this.lblID.Location = new System.Drawing.Point(251, 59);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(115, 27);
-            this.lblID.TabIndex = 3;
-            this.lblID.Values.Text = "ID";
-            // 
-            // lblClass
-            // 
-            this.lblClass.Location = new System.Drawing.Point(251, 97);
-            this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(115, 27);
-            this.lblClass.TabIndex = 4;
-            this.lblClass.Values.Text = "Class";
-            // 
-            // lblPassedTests
-            // 
-            this.lblPassedTests.Location = new System.Drawing.Point(251, 130);
-            this.lblPassedTests.Name = "lblPassedTests";
-            this.lblPassedTests.Size = new System.Drawing.Size(123, 27);
-            this.lblPassedTests.TabIndex = 5;
-            this.lblPassedTests.Values.Text = "0/3";
             // 
             // kryptonLabel4
             // 
@@ -126,13 +70,72 @@
             this.kryptonLabel4.TabIndex = 6;
             this.kryptonLabel4.Values.Text = "Driving license application info";
             // 
+            // lblPassedTests
+            // 
+            this.lblPassedTests.Location = new System.Drawing.Point(586, 59);
+            this.lblPassedTests.Name = "lblPassedTests";
+            this.lblPassedTests.Size = new System.Drawing.Size(123, 27);
+            this.lblPassedTests.TabIndex = 5;
+            this.lblPassedTests.Values.Text = "0/3";
+            // 
+            // lblClass
+            // 
+            this.lblClass.Location = new System.Drawing.Point(251, 97);
+            this.lblClass.Name = "lblClass";
+            this.lblClass.Size = new System.Drawing.Size(115, 27);
+            this.lblClass.TabIndex = 4;
+            this.lblClass.Values.Text = "Class";
+            // 
+            // lblID
+            // 
+            this.lblID.Location = new System.Drawing.Point(251, 59);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(115, 27);
+            this.lblID.TabIndex = 3;
+            this.lblID.Values.Text = "ID";
+            // 
+            // kryptonLinkLabel1
+            // 
+            this.kryptonLinkLabel1.Location = new System.Drawing.Point(586, 97);
+            this.kryptonLinkLabel1.Name = "kryptonLinkLabel1";
+            this.kryptonLinkLabel1.Size = new System.Drawing.Size(169, 27);
+            this.kryptonLinkLabel1.TabIndex = 2;
+            this.kryptonLinkLabel1.Values.Text = "Show License Info";
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel3.Location = new System.Drawing.Point(388, 59);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(130, 27);
+            this.kryptonLabel3.TabIndex = 1;
+            this.kryptonLabel3.Values.Text = "Passed Tests:";
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel2.Location = new System.Drawing.Point(53, 97);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(192, 27);
+            this.kryptonLabel2.TabIndex = 1;
+            this.kryptonLabel2.Values.Text = "Applied For License:";
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel1.Location = new System.Drawing.Point(53, 59);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(178, 27);
+            this.kryptonLabel1.TabIndex = 0;
+            this.kryptonLabel1.Values.Text = "D.L Application ID:";
+            // 
             // ctrlDrivingLicenseApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.kryptonGroup1);
             this.Name = "ctrlDrivingLicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(784, 166);
+            this.Size = new System.Drawing.Size(784, 136);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             this.kryptonGroup1.Panel.ResumeLayout(false);
             this.kryptonGroup1.Panel.PerformLayout();

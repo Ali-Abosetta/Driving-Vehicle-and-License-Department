@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments;
 using Krypton.Toolkit;
+using static BLL.TestTypes;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 {
@@ -120,25 +121,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                 frm.ShowDialog();
         }
 
-        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        private void scheduleTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmVisionTestAppointment frm = new frmVisionTestAppointment(SelectedApplicationID))
-            {
-                frm.ShowDialog();
-            }
-        }
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
 
-        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (frmWrittenTestAppointment frm = new frmWrittenTestAppointment(SelectedApplicationID))
-            {
-                frm.ShowDialog();
-            }
-        }
+            enTestType testType = (enTestType)Convert.ToInt32(clickedItem.Tag);
 
-        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (frmStreetTestAppointment frm = new frmStreetTestAppointment(SelectedApplicationID))
+            using (frmTestAppointments frm = new frmTestAppointments(SelectedApplicationID, testType))
             {
                 frm.ShowDialog();
             }

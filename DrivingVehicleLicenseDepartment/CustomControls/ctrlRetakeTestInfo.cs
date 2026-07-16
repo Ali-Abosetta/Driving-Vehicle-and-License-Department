@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
+namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    public partial class frmScheduleStreetTest : KryptonForm
+    public partial class ctrlRetakeTestInfo : UserControl
     {
-        public frmScheduleStreetTest()
+        public ctrlRetakeTestInfo()
         {
             InitializeComponent();
         }
+
     }
 }

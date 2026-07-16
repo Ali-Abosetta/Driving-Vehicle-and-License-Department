@@ -1,6 +1,6 @@
 ﻿namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 {
-    partial class frmStreetTestAppointment
+    partial class frmTestAppointments
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.kryptonDataGridView1 = new Krypton.Toolkit.KryptonDataGridView();
+            this.dgvAppointments = new Krypton.Toolkit.KryptonDataGridView();
             this.PaletteDGVs = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.lblTitle = new Krypton.Toolkit.KryptonLabel();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
             this.btnSchedule = new Krypton.Toolkit.KryptonButton();
             this.ctrlApplicationBasicInfo1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlApplicationBasicInfo();
@@ -40,22 +40,22 @@
             this.cmsAppointments = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
+            this.pbPicture = new Krypton.Toolkit.KryptonPictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.cmsAppointments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // kryptonDataGridView1
+            // dgvAppointments
             // 
-            this.kryptonDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.kryptonDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.kryptonDataGridView1.Location = new System.Drawing.Point(6, 644);
-            this.kryptonDataGridView1.Name = "kryptonDataGridView1";
-            this.kryptonDataGridView1.Palette = this.PaletteDGVs;
-            this.kryptonDataGridView1.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.kryptonDataGridView1.Size = new System.Drawing.Size(784, 162);
-            this.kryptonDataGridView1.TabIndex = 23;
+            this.dgvAppointments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointments.Location = new System.Drawing.Point(6, 644);
+            this.dgvAppointments.Name = "dgvAppointments";
+            this.dgvAppointments.Palette = this.PaletteDGVs;
+            this.dgvAppointments.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            this.dgvAppointments.Size = new System.Drawing.Size(784, 162);
+            this.dgvAppointments.TabIndex = 23;
             // 
             // PaletteDGVs
             // 
@@ -70,14 +70,14 @@
             this.kryptonLabel2.TabIndex = 22;
             this.kryptonLabel2.Values.Text = "Appointments:";
             // 
-            // kryptonLabel1
+            // lblTitle
             // 
-            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.kryptonLabel1.Location = new System.Drawing.Point(269, 144);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(237, 35);
-            this.kryptonLabel1.TabIndex = 19;
-            this.kryptonLabel1.Values.Text = "Street Test Appointments";
+            this.lblTitle.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
+            this.lblTitle.Location = new System.Drawing.Point(269, 144);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(237, 35);
+            this.lblTitle.TabIndex = 19;
+            this.lblTitle.Values.Text = "Vision Test Appointments";
             // 
             // btnClose
             // 
@@ -92,7 +92,7 @@
             // 
             // btnSchedule
             // 
-            this.btnSchedule.Location = new System.Drawing.Point(639, 590);
+            this.btnSchedule.Location = new System.Drawing.Point(639, 594);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(151, 44);
             this.btnSchedule.TabIndex = 24;
@@ -104,7 +104,7 @@
             // ctrlApplicationBasicInfo1
             // 
             this.ctrlApplicationBasicInfo1.application = null;
-            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(6, 331);
+            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(4, 331);
             this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
             this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(784, 247);
             this.ctrlApplicationBasicInfo1.TabIndex = 21;
@@ -141,33 +141,35 @@
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
             this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(136, 38);
             this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
-            // kryptonPictureBox1
+            // pbPicture
             // 
-            this.kryptonPictureBox1.Location = new System.Drawing.Point(301, 10);
-            this.kryptonPictureBox1.Name = "kryptonPictureBox1";
-            this.kryptonPictureBox1.Size = new System.Drawing.Size(170, 128);
-            this.kryptonPictureBox1.TabIndex = 18;
-            this.kryptonPictureBox1.TabStop = false;
+            this.pbPicture.Location = new System.Drawing.Point(301, 10);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(170, 128);
+            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPicture.TabIndex = 18;
+            this.pbPicture.TabStop = false;
             // 
-            // frmStreetTestAppointment
+            // frmTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 875);
-            this.Controls.Add(this.kryptonDataGridView1);
+            this.Controls.Add(this.dgvAppointments);
             this.Controls.Add(this.kryptonLabel2);
-            this.Controls.Add(this.kryptonLabel1);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSchedule);
             this.Controls.Add(this.ctrlApplicationBasicInfo1);
             this.Controls.Add(this.ctrlDrivingLicenseApplicationInfo1);
-            this.Controls.Add(this.kryptonPictureBox1);
-            this.Name = "frmStreetTestAppointment";
-            this.Text = "frmStreetTestAppointment";
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).EndInit();
+            this.Controls.Add(this.pbPicture);
+            this.Name = "frmTestAppointments";
+            this.Text = "frmTestAppointments";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
             this.cmsAppointments.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,10 +177,10 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
+        private Krypton.Toolkit.KryptonDataGridView dgvAppointments;
         public Krypton.Toolkit.KryptonCustomPaletteBase PaletteDGVs;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonLabel lblTitle;
         private Krypton.Toolkit.KryptonButton btnClose;
         private Krypton.Toolkit.KryptonButton btnSchedule;
         private CustomControls.ctrlApplicationBasicInfo ctrlApplicationBasicInfo1;
@@ -186,6 +188,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsAppointments;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem takeTestToolStripMenuItem;
-        private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
+        private Krypton.Toolkit.KryptonPictureBox pbPicture;
     }
 }

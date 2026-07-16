@@ -417,5 +417,40 @@ namespace DAL
             return FoundApplicationID;
         }
 
+
+        public static int GetPassedTestsCount(int LocalDrivingLicenseApplicationID)
+        {
+            int passedTestsCount = 0;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT COUNT(*)
+                                    FROM Tests t
+                                        JOIN TestAppointments ta
+                                            ON t.TestAppointmentID = ta.TestAppointmentID
+                                    WHERE t.TestResult = 1 
+                                        AND ta.LocalDrivingLicenseApplicationID
+                                            = @LocalDrivingLicenseApplicationID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        command.Parameters.AddWithValue(
+                            "@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                        connection.Open();
+
+                        passedTestsCount = Convert.ToInt32(command.ExecuteScalar());
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return passedTestsCount;
+        }
+
     }
 }

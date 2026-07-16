@@ -24,7 +24,9 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             set 
             {
                 _User = value;
-                lblUser.Text = value.UserName;
+
+                if(value != null)
+                    lblUser.Text = value.UserName;
             }
         }
         public int LicenseClassID { get; set; } = 3;

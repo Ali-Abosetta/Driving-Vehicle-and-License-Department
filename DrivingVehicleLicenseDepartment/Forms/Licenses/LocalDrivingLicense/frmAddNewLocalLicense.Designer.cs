@@ -31,12 +31,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new Krypton.Toolkit.KryptonButton();
+            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.CustomControls.PersonInfoWithFilter();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
+            this.addEditApplication1 = new DrivingVehicleLicenseDepartment.CustomControls.AddEditApplication();
             this.btnPrevious = new Krypton.Toolkit.KryptonButton();
             this.btnSave = new Krypton.Toolkit.KryptonButton();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
-            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.CustomControls.PersonInfoWithFilter();
-            this.addEditApplication1 = new DrivingVehicleLicenseDepartment.CustomControls.AddEditApplication();
             this.tabControl1.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpApplicationInfo.SuspendLayout();
@@ -78,6 +78,16 @@
             this.btnNext.Values.Text = "Next";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // personInfroWithFilter1
+            // 
+            this.personInfroWithFilter1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.personInfroWithFilter1.Location = new System.Drawing.Point(3, 3);
+            this.personInfroWithFilter1.Name = "personInfroWithFilter1";
+            this.personInfroWithFilter1.Size = new System.Drawing.Size(897, 485);
+            this.personInfroWithFilter1.TabIndex = 0;
+            this.personInfroWithFilter1.OnPersonSelected += new System.EventHandler(this.personInfroWithFilter1_OnPersonSelected);
+            this.personInfroWithFilter1.OnPersonNotFound += new System.EventHandler(this.personInfroWithFilter1_OnPersonNotFound);
+            // 
             // tpApplicationInfo
             // 
             this.tpApplicationInfo.Controls.Add(this.addEditApplication1);
@@ -89,6 +99,16 @@
             this.tpApplicationInfo.TabIndex = 1;
             this.tpApplicationInfo.Text = "Application Info";
             this.tpApplicationInfo.UseVisualStyleBackColor = true;
+            // 
+            // addEditApplication1
+            // 
+            this.addEditApplication1.ApplicantPersonID = 0;
+            this.addEditApplication1.LicenseClassID = 3;
+            this.addEditApplication1.Location = new System.Drawing.Point(128, 77);
+            this.addEditApplication1.Name = "addEditApplication1";
+            this.addEditApplication1.Size = new System.Drawing.Size(668, 369);
+            this.addEditApplication1.TabIndex = 16;
+            this.addEditApplication1.User = null;
             // 
             // btnPrevious
             // 
@@ -103,6 +123,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(2, 587);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(216, 52);
@@ -123,23 +144,6 @@
             this.btnClose.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Close_32;
             this.btnClose.Values.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // personInfroWithFilter1
-            // 
-            this.personInfroWithFilter1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.personInfroWithFilter1.Location = new System.Drawing.Point(3, 3);
-            this.personInfroWithFilter1.Name = "personInfroWithFilter1";
-            this.personInfroWithFilter1.Size = new System.Drawing.Size(897, 485);
-            this.personInfroWithFilter1.TabIndex = 0;
-            this.personInfroWithFilter1.OnPersonSelected += new System.EventHandler(this.personInfroWithFilter1_OnPersonSelected);
-            this.personInfroWithFilter1.OnPersonNotFound += new System.EventHandler(this.personInfroWithFilter1_OnPersonNotFound);
-            // 
-            // addEditApplication1
-            // 
-            this.addEditApplication1.Location = new System.Drawing.Point(128, 77);
-            this.addEditApplication1.Name = "addEditApplication1";
-            this.addEditApplication1.Size = new System.Drawing.Size(668, 369);
-            this.addEditApplication1.TabIndex = 16;
             // 
             // frmAddNewLocalLicense
             // 

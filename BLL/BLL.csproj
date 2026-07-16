@@ -46,6 +46,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Countries.cs" />
     <Compile Include="Enum\PersonCardModes.cs" />
+    <Compile Include="LicenseClasses.cs" />
     <Compile Include="LocalDrivingLicenseApplications.cs" />
     <Compile Include="People.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,7 +17,7 @@ namespace BLL
         public int LocalDrivingLicenseApplicationID { get; set; }
         public int ApplicationID { get; set; }
         public int LicenseClassID { get; set; }
-
+        public LicenseClasses LicenseClassInfo { get; set; }
         public static List<string> GetSearchFilters()
         {
             return new List<string>
@@ -34,6 +34,8 @@ namespace BLL
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.ApplicationID = ApplicationID;
             this.LicenseClassID = LicenseClassID;
+
+            LicenseClassInfo = LicenseClasses.Find(LicenseClassID);
 
             this.Mode = enMode.Update;
         }
@@ -126,6 +128,11 @@ namespace BLL
         {
             return LocalDrivingLicenseApplicationsDataAccess
                 .HasActiveApplicationForClass(ApplicantPersonID, LicenseClassID);
+        }
+
+        public static int GetPassedTestsCount(int LocalDrivingLicenseApplicationID)
+        {
+            return LocalDrivingLicenseApplicationsDataAccess.GetPassedTestsCount(LocalDrivingLicenseApplicationID);
         }
     }
 }

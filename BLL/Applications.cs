@@ -24,6 +24,10 @@ namespace BLL
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
 
+        public ApplicationsTypes ApplicationTypeInfo { get; set; }
+        public People ApplicantPersonInfo { get; set; }
+        public Users CreatedByUserInfo { get; set; }
+
 
         private Applications(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, int ApplicationStatus, DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
         {
@@ -35,6 +39,10 @@ namespace BLL
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
+
+            this.ApplicationTypeInfo = ApplicationsTypes.Find(ApplicationTypeID);
+            this.ApplicantPersonInfo = People.Find(ApplicantPersonID);
+            this.CreatedByUserInfo = Users.Find(CreatedByUserID);
 
             this.Mode = enMode.Update;
         }

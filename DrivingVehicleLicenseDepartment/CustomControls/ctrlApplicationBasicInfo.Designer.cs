@@ -30,12 +30,23 @@
         {
             this.kryptonGroup1 = new Krypton.Toolkit.KryptonGroup();
             this.kryptonLinkLabel1 = new Krypton.Toolkit.KryptonLinkLabel();
+            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            this.lblID = new Krypton.Toolkit.KryptonLabel();
+            this.lblStatus = new Krypton.Toolkit.KryptonLabel();
+            this.lblFees = new Krypton.Toolkit.KryptonLabel();
+            this.lblType = new Krypton.Toolkit.KryptonLabel();
+            this.lblApplicant = new Krypton.Toolkit.KryptonLabel();
+            this.lblDate = new Krypton.Toolkit.KryptonLabel();
+            this.lblStatusDate = new Krypton.Toolkit.KryptonLabel();
+            this.lblUser = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).BeginInit();
             this.kryptonGroup1.Panel.SuspendLayout();
@@ -49,6 +60,17 @@
             // 
             // kryptonGroup1.Panel
             // 
+            this.kryptonGroup1.Panel.Controls.Add(this.lblApplicant);
+            this.kryptonGroup1.Panel.Controls.Add(this.lblType);
+            this.kryptonGroup1.Panel.Controls.Add(this.lblUser);
+            this.kryptonGroup1.Panel.Controls.Add(this.lblFees);
+            this.kryptonGroup1.Panel.Controls.Add(this.lblStatusDate);
+            this.kryptonGroup1.Panel.Controls.Add(this.lblStatus);
+            this.kryptonGroup1.Panel.Controls.Add(this.lblDate);
+            this.kryptonGroup1.Panel.Controls.Add(this.lblID);
+            this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel9);
+            this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel8);
+            this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel7);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLinkLabel1);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel6);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel5);
@@ -56,64 +78,153 @@
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel3);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel2);
             this.kryptonGroup1.Panel.Controls.Add(this.kryptonLabel1);
-            this.kryptonGroup1.Size = new System.Drawing.Size(784, 377);
+            this.kryptonGroup1.Size = new System.Drawing.Size(784, 300);
             this.kryptonGroup1.TabIndex = 1;
             // 
             // kryptonLinkLabel1
             // 
-            this.kryptonLinkLabel1.Location = new System.Drawing.Point(55, 274);
+            this.kryptonLinkLabel1.Location = new System.Drawing.Point(587, 252);
             this.kryptonLinkLabel1.Name = "kryptonLinkLabel1";
-            this.kryptonLinkLabel1.Size = new System.Drawing.Size(109, 25);
+            this.kryptonLinkLabel1.Size = new System.Drawing.Size(162, 27);
             this.kryptonLinkLabel1.TabIndex = 2;
-            this.kryptonLinkLabel1.Values.Text = "Show License Info";
+            this.kryptonLinkLabel1.Values.Text = "Show Person info";
+            // 
+            // kryptonLabel6
+            // 
+            this.kryptonLabel6.Location = new System.Drawing.Point(409, 162);
+            this.kryptonLabel6.Name = "kryptonLabel6";
+            this.kryptonLabel6.Size = new System.Drawing.Size(123, 27);
+            this.kryptonLabel6.TabIndex = 1;
+            this.kryptonLabel6.Values.Text = "Created By:";
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(55, 162);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(123, 27);
+            this.kryptonLabel5.TabIndex = 1;
+            this.kryptonLabel5.Values.Text = "Fees:";
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(409, 117);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(123, 27);
+            this.kryptonLabel4.TabIndex = 1;
+            this.kryptonLabel4.Values.Text = "Status Date:";
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(55, 87);
+            this.kryptonLabel3.Location = new System.Drawing.Point(55, 117);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(123, 25);
+            this.kryptonLabel3.Size = new System.Drawing.Size(123, 27);
             this.kryptonLabel3.TabIndex = 1;
             this.kryptonLabel3.Values.Text = "Status:";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(55, 56);
+            this.kryptonLabel2.Location = new System.Drawing.Point(409, 72);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(123, 25);
+            this.kryptonLabel2.Size = new System.Drawing.Size(123, 27);
             this.kryptonLabel2.TabIndex = 1;
             this.kryptonLabel2.Values.Text = "Date:";
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(55, 25);
+            this.kryptonLabel1.Location = new System.Drawing.Point(55, 72);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(115, 25);
+            this.kryptonLabel1.Size = new System.Drawing.Size(115, 27);
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "ID:";
             // 
-            // kryptonLabel4
+            // kryptonLabel7
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(55, 128);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(123, 25);
-            this.kryptonLabel4.TabIndex = 1;
-            this.kryptonLabel4.Values.Text = "Status Date:";
+            this.kryptonLabel7.Location = new System.Drawing.Point(55, 207);
+            this.kryptonLabel7.Name = "kryptonLabel7";
+            this.kryptonLabel7.Size = new System.Drawing.Size(123, 27);
+            this.kryptonLabel7.TabIndex = 3;
+            this.kryptonLabel7.Values.Text = "Type:";
             // 
-            // kryptonLabel5
+            // kryptonLabel8
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(55, 177);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(123, 25);
-            this.kryptonLabel5.TabIndex = 1;
-            this.kryptonLabel5.Values.Text = "Fees:";
+            this.kryptonLabel8.Location = new System.Drawing.Point(55, 252);
+            this.kryptonLabel8.Name = "kryptonLabel8";
+            this.kryptonLabel8.Size = new System.Drawing.Size(123, 27);
+            this.kryptonLabel8.TabIndex = 4;
+            this.kryptonLabel8.Values.Text = "Applicant:";
             // 
-            // kryptonLabel6
+            // kryptonLabel9
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(55, 220);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(123, 25);
-            this.kryptonLabel6.TabIndex = 1;
-            this.kryptonLabel6.Values.Text = "Created By:";
+            this.kryptonLabel9.Location = new System.Drawing.Point(15, 19);
+            this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(418, 37);
+            this.kryptonLabel9.StateCommon.ShortText.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel9.TabIndex = 7;
+            this.kryptonLabel9.Values.Text = "Application basic info";
+            // 
+            // lblID
+            // 
+            this.lblID.Location = new System.Drawing.Point(176, 72);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(115, 27);
+            this.lblID.TabIndex = 8;
+            this.lblID.Values.Text = "[????]";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Location = new System.Drawing.Point(176, 117);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(115, 27);
+            this.lblStatus.TabIndex = 8;
+            this.lblStatus.Values.Text = "[????]";
+            // 
+            // lblFees
+            // 
+            this.lblFees.Location = new System.Drawing.Point(176, 162);
+            this.lblFees.Name = "lblFees";
+            this.lblFees.Size = new System.Drawing.Size(115, 27);
+            this.lblFees.TabIndex = 8;
+            this.lblFees.Values.Text = "[????]";
+            // 
+            // lblType
+            // 
+            this.lblType.Location = new System.Drawing.Point(176, 207);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(115, 27);
+            this.lblType.TabIndex = 8;
+            this.lblType.Values.Text = "[????]";
+            // 
+            // lblApplicant
+            // 
+            this.lblApplicant.Location = new System.Drawing.Point(176, 252);
+            this.lblApplicant.Name = "lblApplicant";
+            this.lblApplicant.Size = new System.Drawing.Size(115, 27);
+            this.lblApplicant.TabIndex = 8;
+            this.lblApplicant.Values.Text = "[????]";
+            // 
+            // lblDate
+            // 
+            this.lblDate.Location = new System.Drawing.Point(538, 72);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(115, 27);
+            this.lblDate.TabIndex = 8;
+            this.lblDate.Values.Text = "[????]";
+            // 
+            // lblStatusDate
+            // 
+            this.lblStatusDate.Location = new System.Drawing.Point(538, 117);
+            this.lblStatusDate.Name = "lblStatusDate";
+            this.lblStatusDate.Size = new System.Drawing.Size(115, 27);
+            this.lblStatusDate.TabIndex = 8;
+            this.lblStatusDate.Values.Text = "[????]";
+            // 
+            // lblUser
+            // 
+            this.lblUser.Location = new System.Drawing.Point(538, 162);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(115, 27);
+            this.lblUser.TabIndex = 8;
+            this.lblUser.Values.Text = "[????]";
             // 
             // ctrlApplicationBasicInfo
             // 
@@ -121,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.kryptonGroup1);
             this.Name = "ctrlApplicationBasicInfo";
-            this.Size = new System.Drawing.Size(784, 377);
+            this.Size = new System.Drawing.Size(784, 300);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             this.kryptonGroup1.Panel.ResumeLayout(false);
             this.kryptonGroup1.Panel.PerformLayout();
@@ -141,5 +252,16 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private Krypton.Toolkit.KryptonLabel lblApplicant;
+        private Krypton.Toolkit.KryptonLabel lblType;
+        private Krypton.Toolkit.KryptonLabel lblUser;
+        private Krypton.Toolkit.KryptonLabel lblFees;
+        private Krypton.Toolkit.KryptonLabel lblStatusDate;
+        private Krypton.Toolkit.KryptonLabel lblStatus;
+        private Krypton.Toolkit.KryptonLabel lblDate;
+        private Krypton.Toolkit.KryptonLabel lblID;
     }
 }

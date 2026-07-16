@@ -62,7 +62,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(395, 365);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(329, 21);
+            this.txtSearch.Size = new System.Drawing.Size(329, 30);
             this.txtSearch.TabIndex = 23;
             this.txtSearch.TextChanged += new System.EventHandler(this.Search);
             // 
@@ -94,7 +94,7 @@
             // 
             this.cmbFilter.Location = new System.Drawing.Point(141, 366);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(248, 20);
+            this.cmbFilter.Size = new System.Drawing.Size(248, 29);
             this.cmbFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbFilter.TabIndex = 22;
             this.cmbFilter.Text = "cmbLocalLicenseApplications";
@@ -125,7 +125,7 @@
             this.showLicenseToolStripMenuItem,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsLocalLicenses.Name = "cmsPeople";
-            this.cmsLocalLicenses.Size = new System.Drawing.Size(262, 348);
+            this.cmsLocalLicenses.Size = new System.Drawing.Size(262, 326);
             // 
             // showUserDetailsToolStripMenuItem
             // 
@@ -135,6 +135,7 @@
             this.showUserDetailsToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.showUserDetailsToolStripMenuItem.Text = "Show user details";
             this.showUserDetailsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.showUserDetailsToolStripMenuItem.Click += new System.EventHandler(this.ShowApplicatoinCard);
             // 
             // EditApplicationToolStripMenuItem
             // 
@@ -243,6 +244,7 @@
             this.dgvLocalLicenseApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLocalLicenseApplications.Size = new System.Drawing.Size(1443, 230);
             this.dgvLocalLicenseApplications.TabIndex = 19;
+            this.dgvLocalLicenseApplications.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ShowApplicatoinCard);
             // 
             // kryptonLabel1
             // 

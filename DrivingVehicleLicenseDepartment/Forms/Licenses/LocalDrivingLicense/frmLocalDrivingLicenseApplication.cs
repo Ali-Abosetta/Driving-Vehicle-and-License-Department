@@ -110,5 +110,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
             dgvLocalLicenseApplications.DataSource 
                 = LocalDrivingLicenseApplications.GetLocalDrivingLicenseApplicationsSummary();
         }
+
+        private void ShowApplicatoinCard(object sender, EventArgs e)
+        {
+            using (frmLocalDrivingLicenseApplicationCard
+                frm = new frmLocalDrivingLicenseApplicationCard(SelectedApplicationID))
+
+                frm.ShowDialog();
+        }
     }
 }

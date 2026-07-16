@@ -43,9 +43,9 @@
   <ItemGroup>
     <Compile Include="ApplicationsDataAccess.cs" />
     <Compile Include="ApplicationTypesDataAccess.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="clsConnectionString.cs" />
     <Compile Include="CountriesDataAccess.cs" />
+    <Compile Include="LicenseClassesDataAccess.cs" />
     <Compile Include="LocalDrivingLicenseApplicationsDataAccess.cs" />
     <Compile Include="PeopleDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

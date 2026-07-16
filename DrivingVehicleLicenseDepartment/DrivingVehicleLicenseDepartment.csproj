@@ -129,6 +129,12 @@
     <Compile Include="Forms\Licenses\LocalDrivingLicense\frmAddNewLocalLicense.Designer.cs">
       <DependentUpon>frmAddNewLocalLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Licenses\LocalDrivingLicense\frmLocalDrivingLicenseApplicationCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Licenses\LocalDrivingLicense\frmLocalDrivingLicenseApplicationCard.Designer.cs">
+      <DependentUpon>frmLocalDrivingLicenseApplicationCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Licenses\LocalDrivingLicense\frmAddNewLocalLicense.resx">
       <DependentUpon>frmAddNewLocalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Licenses\LocalDrivingLicense\frmLocalDrivingLicenseApplicationCard.resx">
+      <DependentUpon>frmLocalDrivingLicenseApplicationCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>

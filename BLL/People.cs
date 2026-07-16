@@ -21,6 +21,17 @@ namespace BLL
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+        public string FullName { 
+            get
+            {
+                string tempFullName = FirstName + " " + SecondName + " ";
+                if (!string.IsNullOrWhiteSpace(ThirdName))
+                    tempFullName += ThirdName + " ";
+                tempFullName += LastName;
+
+                return tempFullName;
+            }
+        }
         public DateTime DateOfBirth { get; set; }
         public int Gendor { get; set; }
         public string Address { get; set; }

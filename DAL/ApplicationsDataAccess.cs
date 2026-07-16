@@ -72,6 +72,7 @@ namespace DAL
             return isFound;
 
         }
+
         public static bool IsExistsInApplicationsByApplicationID(int ApplicationID)
 
 

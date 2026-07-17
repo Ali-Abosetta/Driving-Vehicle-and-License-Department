@@ -198,7 +198,6 @@
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
             this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(259, 70);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
-            this.manageApplicationsToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationsToolStripMenuItem_Click);
             // 
             // localDrivingLicenseApplicationsToolStripMenuItem
             // 
@@ -233,7 +232,6 @@
             this.detainedToolStripMenuItem.Name = "detainedToolStripMenuItem";
             this.detainedToolStripMenuItem.Size = new System.Drawing.Size(259, 70);
             this.detainedToolStripMenuItem.Text = "Detained Licenses";
-            this.detainedToolStripMenuItem.Click += new System.EventHandler(this.detainedToolStripMenuItem_Click);
             // 
             // manageDetainedLicensesToolStripMenuItem
             // 

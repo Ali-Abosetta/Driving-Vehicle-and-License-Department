@@ -18,7 +18,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
     public partial class frmTestAppointments : KryptonForm
     {
         private enTestType _TestTypeID;
-        private int _LocalApplicatoinID;
+        private int _LocalApplicationID;
 
         private int SelectedAppointmentID
         {
@@ -42,10 +42,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             LocalDrivingLicenseApplications LocalApp = LocalDrivingLicenseApplications.Find(LocalApplicationID);
             ctrlDrivingLicenseApplicationInfo1.LocalApp = LocalApp;
 
-            ctrlApplicationBasicInfo1.application = Applications.Find(LocalApp.ApplicationID);
+            ctrlApplicationBasicInfo1.application = LocalApp.ApplicationInfo;
 
             _TestTypeID = TestType;
-            _LocalApplicatoinID = LocalApplicationID;
+            _LocalApplicationID = LocalApplicationID;
 
 
             switch (TestType)
@@ -85,7 +85,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            using (frmScheduleTest frm = new frmScheduleTest(_LocalApplicatoinID, _TestTypeID))
+            using (frmScheduleTest frm = new frmScheduleTest(_LocalApplicationID, _TestTypeID))
             {
                 frm.ShowDialog();
             }

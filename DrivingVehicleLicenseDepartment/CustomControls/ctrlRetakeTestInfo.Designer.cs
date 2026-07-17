@@ -67,7 +67,7 @@
             // 
             // lblClass
             // 
-            this.lblClass.Location = new System.Drawing.Point(229, 59);
+            this.lblClass.Location = new System.Drawing.Point(265, 59);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(115, 27);
             this.lblClass.TabIndex = 10;
@@ -95,7 +95,7 @@
             this.kryptonLabel2.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel2.Location = new System.Drawing.Point(3, 59);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(192, 27);
+            this.kryptonLabel2.Size = new System.Drawing.Size(256, 27);
             this.kryptonLabel2.TabIndex = 8;
             this.kryptonLabel2.Values.Text = "Retake application test ID:";
             // 
@@ -104,7 +104,7 @@
             this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel1.Location = new System.Drawing.Point(3, 26);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(178, 27);
+            this.kryptonLabel1.Size = new System.Drawing.Size(235, 27);
             this.kryptonLabel1.TabIndex = 6;
             this.kryptonLabel1.Values.Text = "Retake application fees:";
             // 

@@ -39,8 +39,8 @@ namespace DrivingVehicleLicenseDepartment
                 {
                     using (frmMain Main = new frmMain(User))
                     {
-                        Main.ShowDialog();
                         this.Hide();
+                        Main.ShowDialog();
                     }
                 }
                 else

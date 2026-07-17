@@ -83,13 +83,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                 if (localApp != null)
                 {
                     Applications app = null;
-                    app = Applications.Find(localApp.ApplicationID);
+                    app = localApp.ApplicationInfo;
+
                     if (app != null)
                     {
                         app.ApplicationStatus = (int)Applications.enStatus.Canceled;
                         app.Save();
                         refreshDgv();
-
                     }
                     else
                     {

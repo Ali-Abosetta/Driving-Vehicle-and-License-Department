@@ -98,14 +98,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                 (personInfroWithFilter1.PersonID, addEditApplication1.LicenseClassID);
             if (!(FoundApplicationID > 0))
             {
-                //Applications app = new Applications();
-                //app.ApplicationStatus = addEditApplication1.Application.ApplicationStatus;
-                //app.ApplicationDate = addEditApplication1.Application.ApplicationDate;
-                //app.LastStatusDate = addEditApplication1.Application.LastStatusDate;
-                //app.ApplicantPersonID = addEditApplication1.Application.ApplicantPersonID;
-                //app.CreatedByUserID = addEditApplication1.Application.CreatedByUserID;
-                //app.ApplicationTypeID = addEditApplication1.Application.ApplicationTypeID;
-                //app.PaidFees = addEditApplication1.Application.PaidFees;
 
                 if (addEditApplication1.Application.Save())
                 {
@@ -124,6 +116,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                         "Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false);
 
                         addEditApplication1.refresh();
+                        this.Close();
                     }
 
                     else

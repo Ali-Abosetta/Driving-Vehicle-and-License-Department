@@ -57,6 +57,7 @@ namespace DrivingVehicleLicenseDepartment
 
                 DataBack?.Invoke(this, ctrlPersonCardEditable1.Person);
                 InitializeUpdateMode(ctrlPersonCardEditable1.Person.PersonID);
+                this.Close();
             }
 
             else

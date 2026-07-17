@@ -85,65 +85,73 @@
             // 
             this.lblApplicant.Location = new System.Drawing.Point(176, 204);
             this.lblApplicant.Name = "lblApplicant";
-            this.lblApplicant.Size = new System.Drawing.Size(115, 27);
+            this.lblApplicant.Size = new System.Drawing.Size(115, 34);
             this.lblApplicant.TabIndex = 8;
-            this.lblApplicant.Values.Text = "[????]";
+            this.lblApplicant.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Person_32;
+            this.lblApplicant.Values.Text = "N/A";
             // 
             // lblType
             // 
             this.lblType.Location = new System.Drawing.Point(176, 171);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(115, 27);
+            this.lblType.Size = new System.Drawing.Size(115, 34);
             this.lblType.TabIndex = 8;
-            this.lblType.Values.Text = "[????]";
+            this.lblType.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Notes_32;
+            this.lblType.Values.Text = "N/A";
             // 
             // lblUser
             // 
             this.lblUser.Location = new System.Drawing.Point(635, 138);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(115, 27);
+            this.lblUser.Size = new System.Drawing.Size(115, 34);
             this.lblUser.TabIndex = 8;
-            this.lblUser.Values.Text = "[????]";
+            this.lblUser.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.User_32__2;
+            this.lblUser.Values.Text = "N/A";
             // 
             // lblFees
             // 
             this.lblFees.Location = new System.Drawing.Point(176, 139);
             this.lblFees.Name = "lblFees";
-            this.lblFees.Size = new System.Drawing.Size(115, 27);
+            this.lblFees.Size = new System.Drawing.Size(115, 34);
             this.lblFees.TabIndex = 8;
-            this.lblFees.Values.Text = "[????]";
+            this.lblFees.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.money_32;
+            this.lblFees.Values.Text = "N/A";
             // 
             // lblStatusDate
             // 
             this.lblStatusDate.Location = new System.Drawing.Point(635, 105);
             this.lblStatusDate.Name = "lblStatusDate";
-            this.lblStatusDate.Size = new System.Drawing.Size(115, 27);
+            this.lblStatusDate.Size = new System.Drawing.Size(115, 34);
             this.lblStatusDate.TabIndex = 8;
-            this.lblStatusDate.Values.Text = "[????]";
+            this.lblStatusDate.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Calendar_32;
+            this.lblStatusDate.Values.Text = "N/A";
             // 
             // lblStatus
             // 
             this.lblStatus.Location = new System.Drawing.Point(176, 105);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(115, 27);
+            this.lblStatus.Size = new System.Drawing.Size(115, 34);
             this.lblStatus.TabIndex = 8;
-            this.lblStatus.Values.Text = "[????]";
+            this.lblStatus.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.List_32;
+            this.lblStatus.Values.Text = "N/A";
             // 
             // lblDate
             // 
             this.lblDate.Location = new System.Drawing.Point(635, 72);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(115, 27);
+            this.lblDate.Size = new System.Drawing.Size(115, 34);
             this.lblDate.TabIndex = 8;
-            this.lblDate.Values.Text = "[????]";
+            this.lblDate.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Calendar_32;
+            this.lblDate.Values.Text = "N/A";
             // 
             // lblID
             // 
             this.lblID.Location = new System.Drawing.Point(176, 72);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(115, 27);
+            this.lblID.Size = new System.Drawing.Size(115, 34);
             this.lblID.TabIndex = 8;
-            this.lblID.Values.Text = "[????]";
+            this.lblID.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Number_32;
+            this.lblID.Values.Text = "N/A";
             // 
             // kryptonLabel9
             // 
@@ -204,7 +212,7 @@
             this.kryptonLabel4.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel4.Location = new System.Drawing.Point(506, 105);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(123, 27);
+            this.kryptonLabel4.Size = new System.Drawing.Size(124, 27);
             this.kryptonLabel4.TabIndex = 1;
             this.kryptonLabel4.Values.Text = "Status Date:";
             // 

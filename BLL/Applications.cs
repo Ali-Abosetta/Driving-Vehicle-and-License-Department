@@ -28,6 +28,12 @@ namespace BLL
         public People ApplicantPersonInfo { get; set; }
         public Users CreatedByUserInfo { get; set; }
 
+        private void _LoadCompositions()
+        {
+            this.ApplicationTypeInfo = ApplicationsTypes.Find(this.ApplicationTypeID);
+            this.ApplicantPersonInfo = People.Find(this.ApplicantPersonID);
+            this.CreatedByUserInfo = Users.Find(this.CreatedByUserID);
+        }
 
         private Applications(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, int ApplicationStatus, DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
         {
@@ -40,9 +46,7 @@ namespace BLL
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
 
-            this.ApplicationTypeInfo = ApplicationsTypes.Find(ApplicationTypeID);
-            this.ApplicantPersonInfo = People.Find(ApplicantPersonID);
-            this.CreatedByUserInfo = Users.Find(CreatedByUserID);
+            _LoadCompositions();
 
             this.Mode = enMode.Update;
         }
@@ -112,6 +116,7 @@ namespace BLL
 
                     if (_AddNewToApplications())
                     {
+                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -121,6 +126,7 @@ namespace BLL
 
                     if (_UpdateApplications())
                     {
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;

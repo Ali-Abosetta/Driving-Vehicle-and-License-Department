@@ -21,8 +21,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
             LocalDrivingLicenseApplications LocalApp = LocalDrivingLicenseApplications.Find(LocalApplicationID);
             ctrlDrivingLicenseApplicationInfo1.LocalApp = LocalApp;
 
-            ctrlApplicationBasicInfo1.application = Applications.Find(LocalApp.ApplicationID);
-
+            ctrlApplicationBasicInfo1.application = LocalApp.ApplicationInfo;
         }
 
         public frmLocalDrivingLicenseApplicationCard(

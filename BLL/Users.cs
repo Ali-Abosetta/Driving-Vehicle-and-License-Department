@@ -26,6 +26,10 @@ namespace BLL
                 "Full name", "Username", "Is active" };
         }
 
+        private void _LoadCompositions()
+        {
+            this.PersonInfo = People.Find(this.PersonID);
+        }
 
         private Users(int UserID, int PersonID, string UserName, string Password, bool IsActive)
         {
@@ -34,7 +38,8 @@ namespace BLL
             this.UserName = UserName;
             this.Password = Password;
             this.IsActive = IsActive;
-            this.PersonInfo = People.Find(this.PersonID);
+
+            _LoadCompositions();
 
             this.Mode = enMode.Update;
 
@@ -57,7 +62,7 @@ namespace BLL
             string Password = string.Empty;
             bool IsActive = false;
 
-            if (UsersDataAccess.FindFromUsersByUserID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive))
+            if (UsersDataAccess.FindFromUsersByUserID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive)) 
                 return new Users(UserID, PersonID, UserName, Password, IsActive);
             else
                 return null;
@@ -119,6 +124,7 @@ namespace BLL
                     if (_AddNewToUsers())
                     {
                         Mode = enMode.Update;
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;
@@ -127,6 +133,7 @@ namespace BLL
 
                     if (_UpdateUsers())
                     {
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;

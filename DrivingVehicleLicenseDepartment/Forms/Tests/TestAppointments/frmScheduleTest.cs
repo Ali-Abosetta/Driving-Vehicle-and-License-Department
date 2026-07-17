@@ -18,13 +18,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
     public partial class frmScheduleTest : KryptonForm
     {
         private int _TestTypeID;
-        private int _LocalApplicatoinID;
+        private int _LocalApplicationID;
         public frmScheduleTest(int LocalApplicationID, enTestType TestType)
         {
             InitializeComponent();
 
             _TestTypeID = (int)TestType;
-            _LocalApplicatoinID = LocalApplicationID;
+            _LocalApplicationID = LocalApplicationID;
 
 
             switch (TestType)

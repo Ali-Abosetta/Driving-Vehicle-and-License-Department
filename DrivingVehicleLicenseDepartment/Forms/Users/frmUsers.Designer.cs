@@ -223,7 +223,6 @@
             this.Controls.Add(this.pbMainUserPhoto);
             this.Name = "frmUsers";
             this.Text = "frmUsers";
-            this.Load += new System.EventHandler(this.frmUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.cmsUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();

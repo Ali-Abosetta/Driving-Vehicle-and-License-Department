@@ -22,6 +22,12 @@ namespace BLL
         public TestAppointments TestAppointmentInfo { get; set; }
         public Users CreatedByUserInfo { get; set; }
 
+        private void _LoadCompositions()
+        {
+            this.TestAppointmentInfo = TestAppointments.Find(this.TestAppointmentID);
+            this.CreatedByUserInfo = Users.Find(this.CreatedByUserID);
+        }
+
         private Tests(int TestID, int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
         {
             this.TestID = TestID;
@@ -30,8 +36,8 @@ namespace BLL
             this.Notes = Notes;
             this.CreatedByUserID = CreatedByUserID;
 
-            TestAppointmentInfo = TestAppointments.Find(TestAppointmentID);
-            CreatedByUserInfo = Users.Find(CreatedByUserID);
+            _LoadCompositions();
+
         }
         public Tests()
         {
@@ -95,6 +101,7 @@ namespace BLL
 
                     if (_AddNewToTests())
                     {
+                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -104,6 +111,7 @@ namespace BLL
 
                     if (_UpdateTests())
                     {
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;

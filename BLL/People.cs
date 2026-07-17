@@ -24,12 +24,12 @@ namespace BLL
         public string FullName { 
             get
             {
-                string tempFullName = FirstName + " " + SecondName + " ";
+                StringBuilder sb = new StringBuilder(FirstName + " " + SecondName + " ");
                 if (!string.IsNullOrWhiteSpace(ThirdName))
-                    tempFullName += ThirdName + " ";
-                tempFullName += LastName;
+                    sb.Append(ThirdName + " ");
+                sb.Append(LastName);
 
-                return tempFullName;
+                return sb.ToString();
             }
         }
         public DateTime DateOfBirth { get; set; }
@@ -47,6 +47,10 @@ namespace BLL
                 "Nationality", "Gender", "Phone Number", "Email" };
         }
 
+        private void _LoadCompositions()
+        {
+            this.CountryInfo = Countries.Find(this.NationalityCountryID);
+        }
 
         private People(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName, DateTime DateOfBirth, int Gendor, string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
@@ -63,7 +67,8 @@ namespace BLL
             this.Email = Email;
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
-            CountryInfo = Countries.Find(NationalityCountryID);
+
+            _LoadCompositions();
         }
         public People()
         {
@@ -168,6 +173,7 @@ namespace BLL
 
                     if (_AddNewToPeople())
                     {
+                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -177,6 +183,7 @@ namespace BLL
 
                     if (_UpdatePeople())
                     {
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;

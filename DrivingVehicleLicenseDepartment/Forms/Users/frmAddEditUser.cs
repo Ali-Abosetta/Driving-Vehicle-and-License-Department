@@ -67,10 +67,13 @@ namespace DrivingVehicleLicenseDepartment.Forms
 
             if (user.Save())
             {
+                addEditUser1.User = user;
+
                 KryptonMessageBox.Show("Data Saved Successfully.",
-                "Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                "Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information,false);
 
                 DataBack?.Invoke(this, user);
+                this.Close();
             }
 
             else

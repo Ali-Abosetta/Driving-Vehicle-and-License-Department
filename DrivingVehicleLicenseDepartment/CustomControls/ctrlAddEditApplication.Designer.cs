@@ -77,7 +77,7 @@
             "Class 7 - Truck and heavy vehicle"});
             this.cmbClasses.Location = new System.Drawing.Point(238, 156);
             this.cmbClasses.Name = "cmbClasses";
-            this.cmbClasses.Size = new System.Drawing.Size(396, 20);
+            this.cmbClasses.Size = new System.Drawing.Size(396, 29);
             this.cmbClasses.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbClasses.TabIndex = 9;
             this.cmbClasses.SelectedIndexChanged += new System.EventHandler(this.cmbClasses_SelectedIndexChanged);
@@ -96,7 +96,7 @@
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(179, 27);
             this.lblUser.TabIndex = 7;
-            this.lblUser.Values.Text = "[???]";
+            this.lblUser.Values.Text = "N/A";
             // 
             // kryptonLabel5
             // 
@@ -128,7 +128,7 @@
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(179, 27);
             this.lblDate.TabIndex = 3;
-            this.lblDate.Values.Text = "[???]";
+            this.lblDate.Values.Text = "N/A";
             // 
             // kryptonLabel3
             // 
@@ -144,7 +144,7 @@
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(179, 27);
             this.lblID.TabIndex = 1;
-            this.lblID.Values.Text = "[???]";
+            this.lblID.Values.Text = "N/A";
             // 
             // kryptonLabel1
             // 
@@ -154,11 +154,11 @@
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "D.L.Application ID:";
             // 
-            // AddEditApplication
+            // ctrlAddEditApplication
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.kryptonGroup1);
-            this.Name = "AddEditApplication";
+            this.Name = "ctrlAddEditApplication";
             this.Size = new System.Drawing.Size(668, 369);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             this.kryptonGroup1.Panel.ResumeLayout(false);

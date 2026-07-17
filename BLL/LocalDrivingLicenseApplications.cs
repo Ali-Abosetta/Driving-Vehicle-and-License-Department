@@ -18,6 +18,7 @@ namespace BLL
         public int ApplicationID { get; set; }
         public int LicenseClassID { get; set; }
         public LicenseClasses LicenseClassInfo { get; set; }
+        public Applications ApplicationInfo { get; set; }
         public static List<string> GetSearchFilters()
         {
             return new List<string>
@@ -29,13 +30,19 @@ namespace BLL
             };
         }
 
+        private void _LoadCompositions()
+        {
+            this.LicenseClassInfo = LicenseClasses.Find(this.LicenseClassID);
+            this.ApplicationInfo = Applications.Find(this.ApplicationID);
+        }
+
         private LocalDrivingLicenseApplications(int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID)
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.ApplicationID = ApplicationID;
             this.LicenseClassID = LicenseClassID;
 
-            LicenseClassInfo = LicenseClasses.Find(LicenseClassID);
+            _LoadCompositions();
 
             this.Mode = enMode.Update;
         }
@@ -44,6 +51,9 @@ namespace BLL
             LocalDrivingLicenseApplicationID = -1;
             ApplicationID = -1;
             LicenseClassID = -1;
+
+            LicenseClassInfo = null;
+            ApplicationInfo = null;
 
         }
         public static LocalDrivingLicenseApplications Find(int LocalDrivingLicenseApplicationID)
@@ -95,6 +105,7 @@ namespace BLL
 
                     if (_AddNewToLocalDrivingLicenseApplications())
                     {
+                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -104,6 +115,7 @@ namespace BLL
 
                     if (_UpdateLocalDrivingLicenseApplications())
                     {
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;

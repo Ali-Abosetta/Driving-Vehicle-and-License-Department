@@ -77,11 +77,6 @@ namespace DrivingVehicleLicenseDepartment
             }
         }
 
-        private void detainedToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (frmApplicationTypes frmApp = new frmApplicationTypes()) 
@@ -104,11 +99,6 @@ namespace DrivingVehicleLicenseDepartment
             {
                 localLicense.ShowDialog();
             }
-        }
-
-        private void manageApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)

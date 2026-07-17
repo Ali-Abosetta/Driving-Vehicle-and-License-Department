@@ -65,7 +65,7 @@
             this.lblActive.Name = "lblActive";
             this.lblActive.Size = new System.Drawing.Size(122, 27);
             this.lblActive.TabIndex = 18;
-            this.lblActive.Values.Text = "[????]";
+            this.lblActive.Values.Text = "N/A";
             // 
             // kryptonLabel5
             // 
@@ -81,7 +81,7 @@
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(122, 27);
             this.lblUserName.TabIndex = 16;
-            this.lblUserName.Values.Text = "[????]";
+            this.lblUserName.Values.Text = "N/A";
             // 
             // kryptonLabel3
             // 
@@ -97,7 +97,7 @@
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(122, 27);
             this.lblUserID.TabIndex = 14;
-            this.lblUserID.Values.Text = "[????]";
+            this.lblUserID.Values.Text = "N/A";
             // 
             // kryptonLabel6
             // 
@@ -112,6 +112,7 @@
             this.ctrlPersonCardEditable1.Location = new System.Drawing.Point(3, 0);
             this.ctrlPersonCardEditable1.Name = "ctrlPersonCardEditable1";
             people1.Address = "";
+            people1.CountryInfo = null;
             people1.DateOfBirth = new System.DateTime(2008, 6, 30, 7, 44, 34, 57);
             people1.Email = "";
             people1.FirstName = "";
@@ -128,12 +129,12 @@
             this.ctrlPersonCardEditable1.Size = new System.Drawing.Size(881, 377);
             this.ctrlPersonCardEditable1.TabIndex = 0;
             // 
-            // UserCardEditable
+            // ctrlUserCardEditable
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.kryptonGroupBox1);
             this.Controls.Add(this.ctrlPersonCardEditable1);
-            this.Name = "UserCardEditable";
+            this.Name = "ctrlUserCardEditable";
             this.Size = new System.Drawing.Size(881, 500);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);

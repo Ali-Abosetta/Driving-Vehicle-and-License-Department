@@ -34,11 +34,6 @@ namespace DrivingVehicleLicenseDepartment
             cmbFilter.DataSource = Users.GetSearchFilters();
         }
 
-        private void frmUsers_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmUserCard card = new frmUserCard(SelectedUserID); 
@@ -129,9 +124,7 @@ namespace DrivingVehicleLicenseDepartment
             row["Person ID"] = user.PersonID;
             row["User ID"] = user.UserID;
 
-            row["Full name"] = Person.FirstName + " " + Person.SecondName
-                + " " +  Person.ThirdName + " " + Person.LastName;
-
+            row["Full name"] = Person.FullName;
             row["Username"] = user.UserName;
 
             row["Is active"] = user.IsActive;

@@ -19,7 +19,8 @@ namespace BLL
         public bool TestResult { get; set; }
         public string Notes { get; set; }
         public int CreatedByUserID { get; set; }
-
+        public TestAppointments TestAppointmentInfo { get; set; }
+        public Users CreatedByUserInfo { get; set; }
 
         private Tests(int TestID, int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
         {
@@ -29,7 +30,8 @@ namespace BLL
             this.Notes = Notes;
             this.CreatedByUserID = CreatedByUserID;
 
-
+            TestAppointmentInfo = TestAppointments.Find(TestAppointmentID);
+            CreatedByUserInfo = Users.Find(CreatedByUserID);
         }
         public Tests()
         {
@@ -39,7 +41,8 @@ namespace BLL
             Notes = string.Empty;
             CreatedByUserID = -1;
 
-
+            TestAppointmentInfo = null;
+            CreatedByUserInfo = null;
         }
         public static Tests Find(int TestID)
         {

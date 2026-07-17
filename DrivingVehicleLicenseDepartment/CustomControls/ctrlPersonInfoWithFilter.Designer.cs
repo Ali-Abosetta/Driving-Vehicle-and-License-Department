@@ -1,6 +1,6 @@
 ﻿namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    partial class PersonInfoWithFilter
+    partial class ctrlPersonInfoWithFilter 
     {
         /// <summary> 
         /// Required designer variable.

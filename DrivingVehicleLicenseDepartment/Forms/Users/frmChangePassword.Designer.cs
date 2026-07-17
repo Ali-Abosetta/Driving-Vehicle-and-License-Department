@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             BLL.Users users2 = new BLL.Users();
-            this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.UserCardEditable();
+            this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlUserCardEditable();
             this.txtNewPassword = new Krypton.Toolkit.KryptonTextBox();
             this.txtConfirmPassword = new Krypton.Toolkit.KryptonTextBox();
             this.txtCurrentPassword = new Krypton.Toolkit.KryptonTextBox();
@@ -144,7 +144,7 @@
 
         #endregion
 
-        private CustomControls.UserCardEditable userCardEditable1;
+        private CustomControls.ctrlUserCardEditable userCardEditable1;
         private Krypton.Toolkit.KryptonTextBox txtNewPassword;
         private Krypton.Toolkit.KryptonTextBox txtConfirmPassword;
         private Krypton.Toolkit.KryptonTextBox txtCurrentPassword;

@@ -21,6 +21,18 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
 
         private Users user;
+        private People _person
+        {
+            get
+            {
+                return _person; 
+            }
+            set
+            {
+                addEditApplication1.ApplyInitApplicationInfo();
+                _person = value;
+            }
+        }
         public frmAddNewLocalLicense()
         {
             InitializeComponent();
@@ -31,10 +43,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         {
             InitializeComponent();
 
-            Users user = Users.Find(UserID);
+            user = Users.Find(UserID);
 
-            People person = People.Find(user.PersonID);
-            personInfroWithFilter1.ctrlPersonCardEditable1.Person = person;
+            _person = user.PersonInfo;
+            personInfroWithFilter1.ctrlPersonCardEditable1.Person = _person;
 
             btnNext.Enabled = true;
             addEditApplication1.User = user;
@@ -50,7 +62,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if(user != null)
+            if (user != null)
                 addEditApplication1.User = user;
 
             tabControl1.SelectedIndex = 1;
@@ -86,6 +98,15 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                 (personInfroWithFilter1.PersonID, addEditApplication1.LicenseClassID);
             if (!(FoundApplicationID > 0))
             {
+                //Applications app = new Applications();
+                //app.ApplicationStatus = addEditApplication1.Application.ApplicationStatus;
+                //app.ApplicationDate = addEditApplication1.Application.ApplicationDate;
+                //app.LastStatusDate = addEditApplication1.Application.LastStatusDate;
+                //app.ApplicantPersonID = addEditApplication1.Application.ApplicantPersonID;
+                //app.CreatedByUserID = addEditApplication1.Application.CreatedByUserID;
+                //app.ApplicationTypeID = addEditApplication1.Application.ApplicationTypeID;
+                //app.PaidFees = addEditApplication1.Application.PaidFees;
+
                 if (addEditApplication1.Application.Save())
                 {
 

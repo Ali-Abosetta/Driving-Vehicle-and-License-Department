@@ -12,7 +12,7 @@ using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    public partial class AddEditUser : UserControl
+    public partial class ctrlAddEditUser : UserControl
     {
 
         public delegate void DataBackEventHandler(object sender, People Person);
@@ -34,7 +34,9 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             set 
             {
 
-                lblUserID.Text = value.UserID.ToString();
+                lblUserID.Text = value.PersonID == -1? //Magic number
+                    "N/A" : value.UserID.ToString();
+
                 txtUsername.Text = value.UserName;
                 chkActive.Checked = value.IsActive;
 
@@ -42,7 +44,7 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             }
         }
 
-        public AddEditUser()
+        public ctrlAddEditUser()
         {
             InitializeComponent();
         }
@@ -62,6 +64,13 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             }
         }
 
+        public void ApplyInitUserInfo()
+        {
+            lblUserID.Text = "N/A";
+            txtUsername.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+            txtConfirmPassword.Text = string.Empty;
+        }
 
 
     }

@@ -19,6 +19,7 @@ namespace BLL
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
+        public People PersonInfo { get; set; }
         public static List<string> GetSearchFilters()
         {
             return new List<string> { "User ID", "Person ID", 
@@ -33,6 +34,7 @@ namespace BLL
             this.UserName = UserName;
             this.Password = Password;
             this.IsActive = IsActive;
+            this.PersonInfo = People.Find(this.PersonID);
 
             this.Mode = enMode.Update;
 
@@ -45,7 +47,7 @@ namespace BLL
             Password = string.Empty;
             IsActive = false;
 
-
+            PersonInfo = null;
         }
         public static Users Find(int UserID)
         {

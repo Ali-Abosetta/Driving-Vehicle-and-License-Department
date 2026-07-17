@@ -11,7 +11,7 @@ using BLL;
 
 namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    public partial class UserCardEditable : UserControl
+    public partial class ctrlUserCardEditable : UserControl
     {
         private Users _user = new Users();
         public Users User
@@ -28,13 +28,13 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                     lblUserName.Text = value.UserName;
                     lblActive.Text = value.IsActive ? "Active" : "Not active";
 
-                    ctrlPersonCardEditable1.Person = People.Find(value.PersonID);
+                    ctrlPersonCardEditable1.Person = value.PersonInfo;
 
                     _user = value;
                 }
             }
         }
-        public UserCardEditable()
+        public ctrlUserCardEditable()
         {
             InitializeComponent();
         }

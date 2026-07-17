@@ -63,17 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\AddEditUser.cs">
+    <Compile Include="CustomControls\ctrlAddEditUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\AddEditUser.Designer.cs">
-      <DependentUpon>AddEditUser.cs</DependentUpon>
+    <Compile Include="CustomControls\ctrlAddEditUser.Designer.cs">
+      <DependentUpon>ctrlAddEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\AddEditApplication.cs">
+    <Compile Include="CustomControls\ctrlAddEditApplication.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\AddEditApplication.Designer.cs">
-      <DependentUpon>AddEditApplication.cs</DependentUpon>
+    <Compile Include="CustomControls\ctrlAddEditApplication.Designer.cs">
+      <DependentUpon>ctrlAddEditApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ctrlApplicationBasicInfo.cs">
       <SubType>UserControl</SubType>
@@ -99,17 +99,17 @@
     <Compile Include="CustomControls\ctrlRetakeTestInfo.Designer.cs">
       <DependentUpon>ctrlRetakeTestInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\PersonInfoWithFilter.cs">
+    <Compile Include="CustomControls\ctrlPersonInfoWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\PersonInfoWithFilter.Designer.cs">
-      <DependentUpon>PersonInfoWithFilter.cs</DependentUpon>
+    <Compile Include="CustomControls\ctrlPersonInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\UserCardEditable.cs">
+    <Compile Include="CustomControls\ctrlUserCardEditable.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\UserCardEditable.Designer.cs">
-      <DependentUpon>UserCardEditable.cs</DependentUpon>
+    <Compile Include="CustomControls\ctrlUserCardEditable.Designer.cs">
+      <DependentUpon>ctrlUserCardEditable.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ApplicationTypes\frmApplicationTypes.cs">
       <SubType>Form</SubType>
@@ -147,41 +147,11 @@
     <Compile Include="Forms\People\frmAddEditPerson.Designer.cs">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmScheduleStreetTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmScheduleStreetTest.Designer.cs">
-      <DependentUpon>frmScheduleStreetTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Tests\TestAppointments\frmScheduleTest.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Tests\TestAppointments\frmScheduleTest.Designer.cs">
       <DependentUpon>frmScheduleTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmScheduleVisionTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmScheduleVisionTest.Designer.cs">
-      <DependentUpon>frmScheduleVisionTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmScheduleWrittenTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmScheduleWrittenTest.Designer.cs">
-      <DependentUpon>frmScheduleWrittenTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmStreetTestAppointment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmStreetTestAppointment.Designer.cs">
-      <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmTakeStreetTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmTakeStreetTest.Designer.cs">
-      <DependentUpon>frmTakeStreetTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Tests\TestAppointments\frmTakeTest.cs">
       <SubType>Form</SubType>
@@ -189,35 +159,11 @@
     <Compile Include="Forms\Tests\TestAppointments\frmTakeTest.Designer.cs">
       <DependentUpon>frmTakeTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmTakeVisionTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmTakeVisionTest.Designer.cs">
-      <DependentUpon>frmTakeVisionTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmTakeWrittenTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmTakeWrittenTest.Designer.cs">
-      <DependentUpon>frmTakeWrittenTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Tests\TestAppointments\frmTestAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Tests\TestAppointments\frmTestAppointments.Designer.cs">
       <DependentUpon>frmTestAppointments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmVisionTestAppointment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmVisionTestAppointment.Designer.cs">
-      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmWrittenTestAppointment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Tests\TestAppointments\frmWrittenTestAppointment.Designer.cs">
-      <DependentUpon>frmWrittenTestAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Tests\TestTypes\frmEditTestTypes.cs">
       <SubType>Form</SubType>
@@ -281,11 +227,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CustomControls\AddEditApplication.resx">
-      <DependentUpon>AddEditApplication.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\ctrlAddEditApplication.resx">
+      <DependentUpon>ctrlAddEditApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\AddEditUser.resx">
-      <DependentUpon>AddEditUser.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\ctrlAddEditUser.resx">
+      <DependentUpon>ctrlAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlApplicationBasicInfo.resx">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
@@ -299,11 +245,11 @@
     <EmbeddedResource Include="CustomControls\ctrlRetakeTestInfo.resx">
       <DependentUpon>ctrlRetakeTestInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\PersonInfoWithFilter.resx">
-      <DependentUpon>PersonInfoWithFilter.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\ctrlPersonInfoWithFilter.resx">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\UserCardEditable.resx">
-      <DependentUpon>UserCardEditable.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\ctrlUserCardEditable.resx">
+      <DependentUpon>ctrlUserCardEditable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApplicationTypes\frmApplicationTypes.resx">
       <DependentUpon>frmApplicationTypes.cs</DependentUpon>
@@ -323,41 +269,14 @@
     <EmbeddedResource Include="Forms\People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmScheduleStreetTest.resx">
-      <DependentUpon>frmScheduleStreetTest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tests\TestAppointments\frmScheduleTest.resx">
       <DependentUpon>frmScheduleTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmScheduleVisionTest.resx">
-      <DependentUpon>frmScheduleVisionTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmScheduleWrittenTest.resx">
-      <DependentUpon>frmScheduleWrittenTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmStreetTestAppointment.resx">
-      <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTakeStreetTest.resx">
-      <DependentUpon>frmTakeStreetTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTakeTest.resx">
       <DependentUpon>frmTakeTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTakeVisionTest.resx">
-      <DependentUpon>frmTakeVisionTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTakeWrittenTest.resx">
-      <DependentUpon>frmTakeWrittenTest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tests\TestAppointments\frmTestAppointments.resx">
       <DependentUpon>frmTestAppointments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmVisionTestAppointment.resx">
-      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Tests\TestAppointments\frmWrittenTestAppointment.resx">
-      <DependentUpon>frmWrittenTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tests\TestTypes\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>

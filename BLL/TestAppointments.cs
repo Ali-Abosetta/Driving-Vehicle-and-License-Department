@@ -22,7 +22,10 @@ namespace BLL
         public int CreatedByUserID { get; set; }
         public bool IsLocked { get; set; }
         public int RetakeTestApplicationID { get; set; }
-        public TestTypes TestTypsInfo { get; set; }
+        public TestTypes TestTypesInfo { get; set; }
+        public LocalDrivingLicenseApplications LocalApplicationInfo { get; set; }
+
+        public Users CreatedByUserInfo { get; set; }
 
 
         private TestAppointments(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, object AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked, int RetakeTestApplicationID)
@@ -36,7 +39,9 @@ namespace BLL
             this.IsLocked = IsLocked;
             this.RetakeTestApplicationID = RetakeTestApplicationID;
 
-            TestTypsInfo = TestTypes.Find(TestTypeID);
+            TestTypesInfo = TestTypes.Find(TestTypeID);
+            LocalApplicationInfo = LocalDrivingLicenseApplications.Find(LocalDrivingLicenseApplicationID);
+            CreatedByUserInfo = Users.Find(CreatedByUserID);
 
             Mode = enMode.Update;
         }
@@ -52,6 +57,9 @@ namespace BLL
             RetakeTestApplicationID = -1;
 
 
+            TestTypesInfo = null;
+            LocalApplicationInfo = null;
+            CreatedByUserInfo = null;
         }
         public static TestAppointments Find(int TestAppointmentID)
         {

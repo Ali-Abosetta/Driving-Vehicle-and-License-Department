@@ -124,7 +124,7 @@ namespace DrivingVehicleLicenseDepartment
         {
             DataRow row = _UsersTable.NewRow();
 
-            People Person = People.Find(user.PersonID);
+            People Person = user.PersonInfo;
 
             row["Person ID"] = user.PersonID;
             row["User ID"] = user.UserID;
@@ -145,7 +145,7 @@ namespace DrivingVehicleLicenseDepartment
             if (rowToEdit != null)
             {
 
-            People Person = People.Find(user.PersonID);
+            People Person = user.PersonInfo; 
 
             rowToEdit["Person ID"] = user.PersonID;
             rowToEdit["User ID"] = user.UserID;

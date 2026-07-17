@@ -12,21 +12,20 @@ using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    public partial class PersonInfoWithFilter : UserControl
+    public partial class ctrlPersonInfoWithFilter  : UserControl
     {
 
         public event EventHandler OnPersonSelected;
         public event EventHandler OnPersonNotFound;
         List<string> ComboBoxItems { get; set; } = new List<string>();
         public int PersonID { 
-            
             get 
             {
                 return ctrlPersonCardEditable1.Person.PersonID;
             }
             
         }
-        public PersonInfoWithFilter()
+        public ctrlPersonInfoWithFilter ()
         {
             InitializeComponent();
             ctrlPersonCardEditable1.Enabled = false;

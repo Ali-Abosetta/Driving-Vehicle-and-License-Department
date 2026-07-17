@@ -1,6 +1,6 @@
 ﻿namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    partial class UserCardEditable
+    partial class ctrlUserCardEditable
     {
         /// <summary> 
         /// Required designer variable.

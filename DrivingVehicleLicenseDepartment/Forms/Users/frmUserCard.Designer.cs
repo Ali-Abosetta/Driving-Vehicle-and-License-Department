@@ -30,7 +30,7 @@
         {
             BLL.Users users2 = new BLL.Users();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
-            this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.UserCardEditable();
+            this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlUserCardEditable();
             this.SuspendLayout();
             // 
             // btnClose
@@ -74,7 +74,7 @@
 
         #endregion
 
-        private CustomControls.UserCardEditable userCardEditable1;
+        private CustomControls.ctrlUserCardEditable userCardEditable1;
         private Krypton.Toolkit.KryptonButton btnClose;
     }
 }

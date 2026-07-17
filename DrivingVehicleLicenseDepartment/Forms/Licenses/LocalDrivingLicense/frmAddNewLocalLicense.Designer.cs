@@ -31,9 +31,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new Krypton.Toolkit.KryptonButton();
-            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.CustomControls.PersonInfoWithFilter();
+            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonInfoWithFilter();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
-            this.addEditApplication1 = new DrivingVehicleLicenseDepartment.CustomControls.AddEditApplication();
+            this.addEditApplication1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlAddEditApplication();
             this.btnPrevious = new Krypton.Toolkit.KryptonButton();
             this.btnSave = new Krypton.Toolkit.KryptonButton();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
@@ -167,11 +167,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpPersonalInfo;
         private Krypton.Toolkit.KryptonButton btnNext;
-        private CustomControls.PersonInfoWithFilter personInfroWithFilter1;
+        private CustomControls.ctrlPersonInfoWithFilter personInfroWithFilter1;
         private System.Windows.Forms.TabPage tpApplicationInfo;
         private Krypton.Toolkit.KryptonButton btnPrevious;
         private Krypton.Toolkit.KryptonButton btnSave;
         private Krypton.Toolkit.KryptonButton btnClose;
-        private CustomControls.AddEditApplication addEditApplication1;
+        private CustomControls.ctrlAddEditApplication addEditApplication1;
     }
 }

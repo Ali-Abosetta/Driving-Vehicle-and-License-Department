@@ -11,7 +11,7 @@ using BLL;
 
 namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    public partial class AddEditApplication : UserControl
+    public partial class ctrlAddEditApplication : UserControl
     {
 
         private Users _User;
@@ -56,7 +56,7 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             }
         }
 
-        public AddEditApplication()
+        public ctrlAddEditApplication()
         {
             InitializeComponent();
 
@@ -73,6 +73,14 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
         private void cmbClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
             LicenseClassID = ((int)cmbClasses.SelectedIndex) + 1;
+        }
+
+
+        public void ApplyInitApplicationInfo()
+        {
+            lblID.Text = "N/A";
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblFees.Text = "15";
         }
     }
 }

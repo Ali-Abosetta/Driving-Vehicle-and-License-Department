@@ -39,6 +39,7 @@ namespace BLL
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
+        public Countries CountryInfo { get; set; }
         public static List<string> GetSearchFilters()
         {
             return new List<string> { "Person ID", "National No.",
@@ -62,7 +63,7 @@ namespace BLL
             this.Email = Email;
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
-
+            CountryInfo = Countries.Find(NationalityCountryID);
         }
         public People()
         {
@@ -79,7 +80,7 @@ namespace BLL
             Email = string.Empty;
             NationalityCountryID = -1;
             ImagePath = string.Empty;
-
+            CountryInfo = null;
 
         }
         public static People Find(int PersonID)

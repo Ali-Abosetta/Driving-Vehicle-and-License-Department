@@ -1,6 +1,6 @@
 ﻿namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    partial class AddEditUser
+    partial class ctrlAddEditUser
     {
         /// <summary> 
         /// Required designer variable.

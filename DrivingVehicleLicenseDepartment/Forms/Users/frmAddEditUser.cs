@@ -19,6 +19,7 @@ namespace DrivingVehicleLicenseDepartment.Forms
         public delegate void DataBackEventHandler(object sender, Users user);
         public event DataBackEventHandler DataBack;
 
+        private Users user;
         public frmAddEditUser()
         {
             InitializeComponent();
@@ -27,10 +28,10 @@ namespace DrivingVehicleLicenseDepartment.Forms
         {
             InitializeComponent();
 
-            Users user = Users.Find(UserID);
+            user = Users.Find(UserID);
             addEditUser1.User = user;
 
-            People person = People.Find(user.PersonID);
+            People person = user.PersonInfo;
             personInfroWithFilter1.ctrlPersonCardEditable1.Person = person;
 
 
@@ -39,6 +40,9 @@ namespace DrivingVehicleLicenseDepartment.Forms
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            if (user != null)
+                addEditUser1.User = user;
+
             tabControl1.SelectedIndex = 1;
         }
         private void btnPrevious_Click(object sender, EventArgs e)

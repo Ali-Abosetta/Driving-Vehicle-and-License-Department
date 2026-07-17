@@ -137,7 +137,7 @@ namespace DrivingVehicleLicenseDepartment
             row["Birth Date"] = Person.DateOfBirth.ToString("dd/MM/yyyy");
             row["Gender"] = (Person.Gendor == 0) ? "Male" : "Female";
 
-            row["Nationality"] = Countries.Find(Person.NationalityCountryID).CountryName;
+            row["Nationality"] = Person.CountryInfo.CountryName;
 
             row["Phone Number"] = Person.Phone;
             row["Email"] = Person.Email;
@@ -161,8 +161,7 @@ namespace DrivingVehicleLicenseDepartment
 
                 rowToEdit["Gender"] = (Person.Gendor == 0) ? "Male" : "Female";
 
-                rowToEdit["Nationality"] = Countries.Find(Person.
-                    NationalityCountryID).CountryName;
+                rowToEdit["Nationality"] = Person.CountryInfo.CountryName;
 
                 rowToEdit["Phone Number"] = Person.Phone;
                 rowToEdit["Email"] = Person.Email;

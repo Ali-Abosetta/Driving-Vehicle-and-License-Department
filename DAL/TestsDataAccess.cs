@@ -150,7 +150,7 @@ namespace DAL
             command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
             command.Parameters.AddWithValue("@TestResult", TestResult);
 
-            if (Notes != "")
+            if (!string.IsNullOrWhiteSpace(Notes))
                 command.Parameters.AddWithValue("@Notes", Notes);
             else
                 command.Parameters.AddWithValue("@Notes", System.DBNull.Value);
@@ -210,12 +210,9 @@ namespace DAL
             command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
             command.Parameters.AddWithValue("@TestResult", TestResult);
 
-            if (Notes != "")
-
+            if (!string.IsNullOrWhiteSpace(Notes))
                 command.Parameters.AddWithValue("@Notes", Notes);
-
             else
-
                 command.Parameters.AddWithValue("@Notes", System.DBNull.Value);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
@@ -284,9 +281,7 @@ namespace DAL
             finally
 
             {
-
                 connection.Close();
-
             }
 
 

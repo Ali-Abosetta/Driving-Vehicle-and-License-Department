@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtpDate = new Krypton.Toolkit.KryptonDateTimePicker();
             this.lblTitle = new Krypton.Toolkit.KryptonLabel();
             this.btnSave = new Krypton.Toolkit.KryptonButton();
             this.btnCancel = new Krypton.Toolkit.KryptonButton();
@@ -44,22 +44,33 @@
             this.lblDLAppID = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.pbPicture = new Krypton.Toolkit.KryptonPictureBox();
-            this.ctrlRetakeTestInfo1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlRetakeTestInfo();
+            this.gbRetakeTest = new Krypton.Toolkit.KryptonGroupBox();
+            this.lblTotalFees = new Krypton.Toolkit.KryptonLabel();
+            this.lblReatakeApplicationID = new Krypton.Toolkit.KryptonLabel();
+            this.lblRetakeFees = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel9 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbRetakeTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbRetakeTest.Panel)).BeginInit();
+            this.gbRetakeTest.Panel.SuspendLayout();
+            this.gbRetakeTest.SuspendLayout();
             this.SuspendLayout();
             // 
-            // kryptonDateTimePicker1
+            // dtpDate
             // 
-            this.kryptonDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(300, 323);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(139, 23);
-            this.kryptonDateTimePicker1.TabIndex = 60;
+            this.dtpDate.CalendarTodayDate = new System.DateTime(2026, 7, 23, 0, 0, 0, 0);
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(152, 322);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(139, 23);
+            this.dtpDate.TabIndex = 60;
             // 
             // lblTitle
             // 
             this.lblTitle.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.lblTitle.Location = new System.Drawing.Point(228, 146);
+            this.lblTitle.Location = new System.Drawing.Point(172, 146);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(237, 35);
             this.lblTitle.TabIndex = 59;
@@ -74,6 +85,7 @@
             this.btnSave.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnSave.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Save_32;
             this.btnSave.Values.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -88,7 +100,7 @@
             // 
             // kryptonLabel7
             // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(184, 353);
+            this.kryptonLabel7.Location = new System.Drawing.Point(10, 353);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(90, 25);
             this.kryptonLabel7.TabIndex = 45;
@@ -96,7 +108,7 @@
             // 
             // kryptonLabel6
             // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(184, 322);
+            this.kryptonLabel6.Location = new System.Drawing.Point(10, 322);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(90, 25);
             this.kryptonLabel6.TabIndex = 46;
@@ -104,7 +116,7 @@
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(184, 291);
+            this.kryptonLabel5.Location = new System.Drawing.Point(10, 291);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(90, 25);
             this.kryptonLabel5.TabIndex = 47;
@@ -112,7 +124,7 @@
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(184, 260);
+            this.kryptonLabel4.Location = new System.Drawing.Point(10, 260);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(90, 25);
             this.kryptonLabel4.TabIndex = 48;
@@ -120,7 +132,7 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(184, 229);
+            this.kryptonLabel3.Location = new System.Drawing.Point(10, 229);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(90, 25);
             this.kryptonLabel3.TabIndex = 49;
@@ -128,47 +140,47 @@
             // 
             // lblFees
             // 
-            this.lblFees.Location = new System.Drawing.Point(326, 353);
+            this.lblFees.Location = new System.Drawing.Point(152, 353);
             this.lblFees.Name = "lblFees";
             this.lblFees.Size = new System.Drawing.Size(90, 25);
             this.lblFees.TabIndex = 50;
-            this.lblFees.Values.Text = "[?????]";
+            this.lblFees.Values.Text = "N/A";
             // 
             // lblTrial
             // 
-            this.lblTrial.Location = new System.Drawing.Point(326, 291);
+            this.lblTrial.Location = new System.Drawing.Point(152, 291);
             this.lblTrial.Name = "lblTrial";
             this.lblTrial.Size = new System.Drawing.Size(90, 25);
             this.lblTrial.TabIndex = 51;
-            this.lblTrial.Values.Text = "[?????]";
+            this.lblTrial.Values.Text = "N/A";
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(326, 260);
+            this.lblName.Location = new System.Drawing.Point(152, 260);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(90, 25);
             this.lblName.TabIndex = 52;
-            this.lblName.Values.Text = "[?????]";
+            this.lblName.Values.Text = "N/A";
             // 
             // lblDClass
             // 
-            this.lblDClass.Location = new System.Drawing.Point(326, 229);
+            this.lblDClass.Location = new System.Drawing.Point(152, 229);
             this.lblDClass.Name = "lblDClass";
             this.lblDClass.Size = new System.Drawing.Size(90, 25);
             this.lblDClass.TabIndex = 53;
-            this.lblDClass.Values.Text = "[?????]";
+            this.lblDClass.Values.Text = "N/A";
             // 
             // lblDLAppID
             // 
-            this.lblDLAppID.Location = new System.Drawing.Point(326, 198);
+            this.lblDLAppID.Location = new System.Drawing.Point(152, 198);
             this.lblDLAppID.Name = "lblDLAppID";
             this.lblDLAppID.Size = new System.Drawing.Size(90, 25);
             this.lblDLAppID.TabIndex = 54;
-            this.lblDLAppID.Values.Text = "[?????]";
+            this.lblDLAppID.Values.Text = "N/A";
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(184, 198);
+            this.kryptonLabel2.Location = new System.Drawing.Point(10, 198);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(90, 25);
             this.kryptonLabel2.TabIndex = 55;
@@ -183,20 +195,82 @@
             this.pbPicture.TabIndex = 58;
             this.pbPicture.TabStop = false;
             // 
-            // ctrlRetakeTestInfo1
+            // gbRetakeTest
             // 
-            this.ctrlRetakeTestInfo1.Location = new System.Drawing.Point(2, 389);
-            this.ctrlRetakeTestInfo1.Name = "ctrlRetakeTestInfo1";
-            this.ctrlRetakeTestInfo1.Size = new System.Drawing.Size(601, 150);
-            this.ctrlRetakeTestInfo1.TabIndex = 61;
+            this.gbRetakeTest.Enabled = false;
+            this.gbRetakeTest.Location = new System.Drawing.Point(3, 397);
+            // 
+            // gbRetakeTest.Panel
+            // 
+            this.gbRetakeTest.Panel.Controls.Add(this.lblTotalFees);
+            this.gbRetakeTest.Panel.Controls.Add(this.lblReatakeApplicationID);
+            this.gbRetakeTest.Panel.Controls.Add(this.lblRetakeFees);
+            this.gbRetakeTest.Panel.Controls.Add(this.kryptonLabel8);
+            this.gbRetakeTest.Panel.Controls.Add(this.kryptonLabel9);
+            this.gbRetakeTest.Panel.Controls.Add(this.kryptonLabel10);
+            this.gbRetakeTest.Size = new System.Drawing.Size(593, 147);
+            this.gbRetakeTest.TabIndex = 63;
+            this.gbRetakeTest.Values.Heading = "Retake test information";
+            // 
+            // lblTotalFees
+            // 
+            this.lblTotalFees.Location = new System.Drawing.Point(433, 26);
+            this.lblTotalFees.Name = "lblTotalFees";
+            this.lblTotalFees.Size = new System.Drawing.Size(123, 27);
+            this.lblTotalFees.TabIndex = 11;
+            this.lblTotalFees.Values.Text = "N/A";
+            // 
+            // lblReatakeApplicationID
+            // 
+            this.lblReatakeApplicationID.Location = new System.Drawing.Point(176, 59);
+            this.lblReatakeApplicationID.Name = "lblReatakeApplicationID";
+            this.lblReatakeApplicationID.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblReatakeApplicationID.Size = new System.Drawing.Size(115, 27);
+            this.lblReatakeApplicationID.TabIndex = 10;
+            this.lblReatakeApplicationID.Values.Text = "N/A";
+            // 
+            // lblRetakeFees
+            // 
+            this.lblRetakeFees.Location = new System.Drawing.Point(176, 26);
+            this.lblRetakeFees.Name = "lblRetakeFees";
+            this.lblRetakeFees.Size = new System.Drawing.Size(115, 27);
+            this.lblRetakeFees.TabIndex = 9;
+            this.lblRetakeFees.Values.Text = "5";
+            // 
+            // kryptonLabel8
+            // 
+            this.kryptonLabel8.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel8.Location = new System.Drawing.Point(320, 26);
+            this.kryptonLabel8.Name = "kryptonLabel8";
+            this.kryptonLabel8.Size = new System.Drawing.Size(130, 27);
+            this.kryptonLabel8.TabIndex = 7;
+            this.kryptonLabel8.Values.Text = "Total fees:";
+            // 
+            // kryptonLabel9
+            // 
+            this.kryptonLabel9.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel9.Location = new System.Drawing.Point(3, 59);
+            this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(256, 27);
+            this.kryptonLabel9.TabIndex = 8;
+            this.kryptonLabel9.Values.Text = "Retake application test ID:";
+            // 
+            // kryptonLabel10
+            // 
+            this.kryptonLabel10.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel10.Location = new System.Drawing.Point(3, 26);
+            this.kryptonLabel10.Name = "kryptonLabel10";
+            this.kryptonLabel10.Size = new System.Drawing.Size(235, 27);
+            this.kryptonLabel10.TabIndex = 6;
+            this.kryptonLabel10.Values.Text = "Retake application fees:";
             // 
             // frmScheduleTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 608);
-            this.Controls.Add(this.ctrlRetakeTestInfo1);
-            this.Controls.Add(this.kryptonDateTimePicker1);
+            this.ClientSize = new System.Drawing.Size(597, 608);
+            this.Controls.Add(this.gbRetakeTest);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btnSave);
@@ -215,6 +289,11 @@
             this.Name = "frmScheduleTest";
             this.Text = "frmScheduleTest";
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gbRetakeTest.Panel)).EndInit();
+            this.gbRetakeTest.Panel.ResumeLayout(false);
+            this.gbRetakeTest.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbRetakeTest)).EndInit();
+            this.gbRetakeTest.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,7 +301,7 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
+        private Krypton.Toolkit.KryptonDateTimePicker dtpDate;
         private Krypton.Toolkit.KryptonLabel lblTitle;
         private Krypton.Toolkit.KryptonPictureBox pbPicture;
         private Krypton.Toolkit.KryptonButton btnSave;
@@ -238,6 +317,12 @@
         private Krypton.Toolkit.KryptonLabel lblDClass;
         private Krypton.Toolkit.KryptonLabel lblDLAppID;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private CustomControls.ctrlRetakeTestInfo ctrlRetakeTestInfo1;
+        private Krypton.Toolkit.KryptonGroupBox gbRetakeTest;
+        private Krypton.Toolkit.KryptonLabel lblTotalFees;
+        private Krypton.Toolkit.KryptonLabel lblReatakeApplicationID;
+        private Krypton.Toolkit.KryptonLabel lblRetakeFees;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel9;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel10;
     }
 }

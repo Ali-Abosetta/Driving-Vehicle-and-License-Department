@@ -56,6 +56,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(16, 615);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 42);
@@ -63,6 +64,7 @@
             this.btnSave.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnSave.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Save_32;
             this.btnSave.Values.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -85,19 +87,21 @@
             // 
             // rbFail
             // 
-            this.rbFail.Location = new System.Drawing.Point(254, 453);
+            this.rbFail.Location = new System.Drawing.Point(190, 454);
             this.rbFail.Name = "rbFail";
             this.rbFail.Size = new System.Drawing.Size(139, 25);
             this.rbFail.TabIndex = 81;
             this.rbFail.Values.Text = "Fail";
+            this.rbFail.CheckedChanged += new System.EventHandler(this.rbPassRbFail_CheckedChanged);
             // 
             // rbPass
             // 
-            this.rbPass.Location = new System.Drawing.Point(158, 453);
+            this.rbPass.Location = new System.Drawing.Point(112, 454);
             this.rbPass.Name = "rbPass";
             this.rbPass.Size = new System.Drawing.Size(90, 25);
             this.rbPass.TabIndex = 80;
             this.rbPass.Values.Text = "Pass";
+            this.rbPass.CheckedChanged += new System.EventHandler(this.rbPassRbFail_CheckedChanged);
             // 
             // kryptonLabel10
             // 
@@ -169,7 +173,7 @@
             this.lblTestID.Name = "lblTestID";
             this.lblTestID.Size = new System.Drawing.Size(90, 25);
             this.lblTestID.TabIndex = 71;
-            this.lblTestID.Values.Text = "[?????]";
+            this.lblTestID.Values.Text = "Not taken yet";
             // 
             // lblFees
             // 
@@ -177,7 +181,7 @@
             this.lblFees.Name = "lblFees";
             this.lblFees.Size = new System.Drawing.Size(90, 25);
             this.lblFees.TabIndex = 70;
-            this.lblFees.Values.Text = "[?????]";
+            this.lblFees.Values.Text = "N/A";
             // 
             // lblDate
             // 
@@ -185,7 +189,7 @@
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(90, 25);
             this.lblDate.TabIndex = 69;
-            this.lblDate.Values.Text = "[?????]";
+            this.lblDate.Values.Text = "N/A";
             // 
             // lblTrial
             // 
@@ -193,7 +197,7 @@
             this.lblTrial.Name = "lblTrial";
             this.lblTrial.Size = new System.Drawing.Size(90, 25);
             this.lblTrial.TabIndex = 68;
-            this.lblTrial.Values.Text = "[?????]";
+            this.lblTrial.Values.Text = "N/A";
             // 
             // lblName
             // 
@@ -201,7 +205,7 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(90, 25);
             this.lblName.TabIndex = 67;
-            this.lblName.Values.Text = "[?????]";
+            this.lblName.Values.Text = "N/A";
             // 
             // lblDClass
             // 
@@ -209,7 +213,7 @@
             this.lblDClass.Name = "lblDClass";
             this.lblDClass.Size = new System.Drawing.Size(90, 25);
             this.lblDClass.TabIndex = 66;
-            this.lblDClass.Values.Text = "[?????]";
+            this.lblDClass.Values.Text = "N/A";
             // 
             // lblDLAppID
             // 
@@ -217,7 +221,7 @@
             this.lblDLAppID.Name = "lblDLAppID";
             this.lblDLAppID.Size = new System.Drawing.Size(90, 25);
             this.lblDLAppID.TabIndex = 65;
-            this.lblDLAppID.Values.Text = "[?????]";
+            this.lblDLAppID.Values.Text = "N/A";
             // 
             // kryptonLabel2
             // 
@@ -250,10 +254,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 669);
+            this.Controls.Add(this.rbFail);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.rtbNotes);
-            this.Controls.Add(this.rbFail);
             this.Controls.Add(this.rbPass);
             this.Controls.Add(this.kryptonLabel10);
             this.Controls.Add(this.kryptonLabel9);
@@ -275,6 +279,7 @@
             this.Controls.Add(this.pbPicture);
             this.Name = "frmTakeTest";
             this.Text = "frmTakeTest";
+            this.Load += new System.EventHandler(this.frmTakeTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

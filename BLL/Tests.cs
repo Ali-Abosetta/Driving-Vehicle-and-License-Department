@@ -44,7 +44,7 @@ namespace BLL
             TestID = -1;
             TestAppointmentID = -1;
             TestResult = false;
-            Notes = string.Empty;
+            Notes = null;
             CreatedByUserID = -1;
 
             TestAppointmentInfo = null;
@@ -55,7 +55,7 @@ namespace BLL
 
             int TestAppointmentID = -1;
             bool TestResult = false;
-            string Notes = string.Empty;
+            string Notes = null;
             int CreatedByUserID = -1;
 
             if (TestsDataAccess.FindFromTestsByTestID(TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))

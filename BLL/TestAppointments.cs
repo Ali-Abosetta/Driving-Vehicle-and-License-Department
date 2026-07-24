@@ -17,11 +17,11 @@ namespace BLL
         public int TestAppointmentID { get; set; }
         public int TestTypeID { get; set; }
         public int LocalDrivingLicenseApplicationID { get; set; }
-        public object AppointmentDate { get; set; }
+        public DateTime AppointmentDate { get; set; }
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
         public bool IsLocked { get; set; }
-        public int RetakeTestApplicationID { get; set; }
+        public int? RetakeTestApplicationID { get; set; }
         public TestTypes TestTypesInfo { get; set; }
         public LocalDrivingLicenseApplications LocalApplicationInfo { get; set; }
         public Users CreatedByUserInfo { get; set; }
@@ -33,7 +33,7 @@ namespace BLL
             this.CreatedByUserInfo = Users.Find(this.CreatedByUserID);
         }
 
-        private TestAppointments(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, object AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked, int RetakeTestApplicationID)
+        private TestAppointments(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked, int? RetakeTestApplicationID)
         {
             this.TestAppointmentID = TestAppointmentID;
             this.TestTypeID = TestTypeID;
@@ -53,11 +53,11 @@ namespace BLL
             TestAppointmentID = -1;
             TestTypeID = -1;
             LocalDrivingLicenseApplicationID = -1;
-            AppointmentDate = null;
+            AppointmentDate = DateTime.Now;
             PaidFees = -1;
             CreatedByUserID = -1;
             IsLocked = false;
-            RetakeTestApplicationID = -1;
+            RetakeTestApplicationID = null;
 
 
             TestTypesInfo = null;
@@ -69,11 +69,11 @@ namespace BLL
 
             int TestTypeID = -1;
             int LocalDrivingLicenseApplicationID = -1;
-            object AppointmentDate = null;
+            DateTime AppointmentDate = DateTime.Now;
             decimal PaidFees = -1;
             int CreatedByUserID = -1;
             bool IsLocked = false;
-            int RetakeTestApplicationID = -1;
+            int? RetakeTestApplicationID = null;
 
             if (TestAppointmentsDataAccess.FindFromTestAppointmentsByTestAppointmentID(TestAppointmentID, ref TestTypeID, ref LocalDrivingLicenseApplicationID, ref AppointmentDate, ref PaidFees, ref CreatedByUserID, ref IsLocked, ref RetakeTestApplicationID))
                 return new TestAppointments(TestAppointmentID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID);
@@ -92,7 +92,7 @@ namespace BLL
         private bool _AddNewToTestAppointments()
         {
 
-            return (this.TestAppointmentID = (TestAppointmentsDataAccess.AddNewToTestAppointments(this.TestTypeID, this.LocalDrivingLicenseApplicationID, this.AppointmentDate, this.PaidFees, this.CreatedByUserID, this.IsLocked, this.RetakeTestApplicationID))) > 0;
+            return (this.TestAppointmentID = TestAppointmentsDataAccess.AddNewToTestAppointments(this.TestTypeID, this.LocalDrivingLicenseApplicationID, this.AppointmentDate, this.PaidFees, this.CreatedByUserID, this.IsLocked, this.RetakeTestApplicationID)) > 0;
 
         }
 
@@ -143,6 +143,25 @@ namespace BLL
 
         }
 
+        public static DataTable GetTestAppointmentsSummary(int ApplicantID, int TestTypeID, int LicenseClassID)
+        {
+            return TestAppointmentsDataAccess.GetTestAppointmentSummary(ApplicantID, TestTypeID, LicenseClassID);
+        }
+
+        public static int GetTestTrials(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            return TestAppointmentsDataAccess.GetTestTrials(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+
+        public int GetTestTrials()
+        {
+            return TestAppointmentsDataAccess.GetTestTrials(this.LocalDrivingLicenseApplicationID, this.TestTypeID);
+        }
+
+        public static bool HasActiveAppointment(int PersonID, int TestTypeID, int LicenseClassID)
+        {
+            return TestAppointmentsDataAccess.HasActiveAppointment(PersonID, TestTypeID, LicenseClassID);
+        }
 
     }
 }

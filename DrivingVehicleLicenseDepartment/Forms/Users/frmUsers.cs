@@ -138,18 +138,15 @@ namespace DrivingVehicleLicenseDepartment
             if (rowToEdit != null)
             {
 
-            People Person = user.PersonInfo; 
+            People Person = user.PersonInfo;
 
-            rowToEdit["Person ID"] = user.PersonID;
-            rowToEdit["User ID"] = user.UserID;
+                rowToEdit["Person ID"] = user.PersonID;
+                rowToEdit["User ID"] = user.UserID;
 
-            rowToEdit["Full name"] = Person.FirstName + " " + Person.SecondName
-                + " " + Person.ThirdName + " " + Person.LastName;
+                rowToEdit["Full name"] = Person.FullName;
+                rowToEdit["Username"] = user.UserName;
 
-            rowToEdit["Username"] = user.UserName;
-
-            rowToEdit["Is active"] = user.IsActive;
-
+                rowToEdit["Is active"] = user.IsActive;
 
             }
         }

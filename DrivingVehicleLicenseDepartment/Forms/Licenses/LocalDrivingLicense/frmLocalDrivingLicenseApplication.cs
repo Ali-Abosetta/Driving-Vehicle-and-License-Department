@@ -127,7 +127,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
             enTestType testType = (enTestType)Convert.ToInt32(clickedItem.Tag);
 
-            using (frmTestAppointments frm = new frmTestAppointments(SelectedApplicationID, testType))
+            using (frmTestAppointments frm = new frmTestAppointments(_CurrentUser ,SelectedApplicationID, testType))
             {
                 frm.ShowDialog();
             }

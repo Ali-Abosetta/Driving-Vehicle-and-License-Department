@@ -18,7 +18,8 @@ namespace BLL
         {
             VisionTest = 1,
             WrittenTest = 2,
-            StreetTest = 3
+            StreetTest = 3,
+            RetakeTest = 4
         }
 
         public int TestTypeID { get; set; }

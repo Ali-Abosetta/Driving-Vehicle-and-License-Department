@@ -14,6 +14,17 @@ namespace BLL
         enum enMode { AddNew = 0, Update = 1 };
         private enMode Mode = enMode.AddNew;
 
+        public enum enApplicationType
+        {
+            NewLocalDrivingLicense = 1,
+            RenewDrivingLicense = 2,
+            ReplaceLostDrivingLicense = 3,
+            ReplaceDamagedDrivingLicense = 4,
+            ReleaseDetainedDrivingLicsense = 5,
+            NewInternationalLicense = 6,
+            RetakeTest = 7 
+        }
+
         public int ApplicationTypeID { get; set; }
         public string ApplicationTypeTitle { get; set; }
         public decimal ApplicationFees { get; set; }

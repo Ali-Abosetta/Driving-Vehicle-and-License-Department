@@ -24,8 +24,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         private Users _CurrentUser = new Users();
         private int _TestTypeID;
         private int _LocalApplicationID;
+        private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
         private int _TestAppointmentID;
         private decimal _Fees;
+        private ApplicationsTypes _RetakeAppInfo;
         private bool _isRetake;
 
         public frmScheduleTest(Users user, int LocalApplicationID, enTestType TestType) //To add new appointmetn
@@ -36,17 +38,22 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             _LocalApplicationID = LocalApplicationID;
             _CurrentUser = user;
 
-            LocalDrivingLicenseApplications LocalApp = LocalDrivingLicenseApplications.Find(LocalApplicationID);
+            _LocalApp = LocalDrivingLicenseApplications.Find(LocalApplicationID);
+
             TestTypes testTypeInfo = TestTypes.Find((int)TestType);
             _Fees = testTypeInfo.TestTypeFees;
+
+            BLL.ApplicationsTypes retakeAppInfo = BLL.ApplicationsTypes.Find((int)BLL.ApplicationsTypes.enApplicationType.RetakeTest);
+            _RetakeAppInfo = retakeAppInfo;
+
 
             int Trials = BLL.TestAppointments
                 .GetTestTrials(LocalApplicationID, _TestTypeID);
             _ApplyRetakeProcedures(Trials);
 
-            lblDLAppID.Text = LocalApp.LocalDrivingLicenseApplicationID.ToString();
-            lblDClass.Text = LocalApp.LicenseClassInfo.ClassName;
-            lblName.Text = LocalApp.ApplicationInfo.ApplicantPersonInfo.FullName;
+            lblDLAppID.Text = _LocalApp.LocalDrivingLicenseApplicationID.ToString();
+            lblDClass.Text = _LocalApp.LicenseClassInfo.ClassName;
+            lblName.Text = _LocalApp.ApplicationInfo.ApplicantPersonInfo.FullName;
 
             lblTrial.Text = Trials.ToString();
             lblFees.Text = _Fees.ToString();
@@ -93,7 +100,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
                 _isRetake = true;
                 gbRetakeTest.Enabled = true;
                 gbRetakeTest.Visible = true;
-                lblRetakeFees.Text = (_Fees + 5).ToString();
+                lblRetakeFees.Text = _RetakeAppInfo.ApplicationFees.ToString();
+                lblTotalFees.Text = (_Fees + _RetakeAppInfo.ApplicationFees).ToString();
             }
             else
             {
@@ -149,16 +157,34 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             testAppointment.TestTypeID = _TestTypeID;
             testAppointment.LocalDrivingLicenseApplicationID = _LocalApplicationID;
             testAppointment.AppointmentDate = dtpDate.Value;
-            testAppointment.PaidFees = _isRetake ? _Fees + 5 : _Fees;
+            testAppointment.PaidFees = _Fees;
             testAppointment.CreatedByUserID = _CurrentUser.UserID;
             testAppointment.IsLocked = false;
 
+            if (_isRetake)
+            {
+                Applications retakeApp = new Applications();
+
+                retakeApp.ApplicantPersonID = _LocalApp.ApplicationInfo.ApplicantPersonID;
+                retakeApp.ApplicationDate = DateTime.Now;
+                retakeApp.ApplicationTypeID = (int)BLL.ApplicationsTypes.enApplicationType.RetakeTest; 
+                retakeApp.ApplicationStatus = (int)Applications.enStatus.New;
+                retakeApp.LastStatusDate = DateTime.Now;
+                retakeApp.PaidFees = _RetakeAppInfo.ApplicationFees; 
+                retakeApp.CreatedByUserID = _CurrentUser.UserID;
+
+                if (retakeApp.Save())
+                {
+                    testAppointment.RetakeTestApplicationID = retakeApp.ApplicationID;
+                }
+            }
+            else
+            {
+                testAppointment.RetakeTestApplicationID = null; 
+            }
+
             if (testAppointment.Save())
             {
-                if (_isRetake)
-                {
-
-                }
                 KryptonMessageBox.Show("Appointment scheduled Successfully.",
                 "Success schedule", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false);
 
@@ -166,13 +192,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
                 this.Close();
             }
-
             else
             {
                 KryptonMessageBox.Show("Error: Appointment was not schedule Successfully.",
                     "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
             }
         }
+
 
     }
 }

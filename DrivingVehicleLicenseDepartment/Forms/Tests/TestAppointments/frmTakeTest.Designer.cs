@@ -292,7 +292,6 @@
         private Krypton.Toolkit.KryptonButton btnCancel;
         private Krypton.Toolkit.KryptonRichTextBox rtbNotes;
         private Krypton.Toolkit.KryptonRadioButton rbFail;
-        private Krypton.Toolkit.KryptonRadioButton rbPass;
         private Krypton.Toolkit.KryptonLabel kryptonLabel10;
         private Krypton.Toolkit.KryptonLabel kryptonLabel9;
         private Krypton.Toolkit.KryptonLabel kryptonLabel8;
@@ -311,5 +310,6 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel lblTitle;
         private Krypton.Toolkit.KryptonPictureBox pbPicture;
+        public Krypton.Toolkit.KryptonRadioButton rbPass;
     }
 }

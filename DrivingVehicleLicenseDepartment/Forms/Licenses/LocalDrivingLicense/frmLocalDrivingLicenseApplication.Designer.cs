@@ -126,6 +126,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsLocalLicenses.Name = "cmsPeople";
             this.cmsLocalLicenses.Size = new System.Drawing.Size(262, 348);
+            this.cmsLocalLicenses.Opening += new System.ComponentModel.CancelEventHandler(this.cmsLocalLicenses_Opening);
             // 
             // showUserDetailsToolStripMenuItem
             // 

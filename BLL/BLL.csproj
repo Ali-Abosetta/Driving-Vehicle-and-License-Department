@@ -43,10 +43,11 @@
   <ItemGroup>
     <Compile Include="Applications.cs" />
     <Compile Include="ApplicationsTypes.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Countries.cs" />
+    <Compile Include="Drivers.cs" />
     <Compile Include="Enum\PersonCardModes.cs" />
     <Compile Include="LicenseClasses.cs" />
+    <Compile Include="Licenses.cs" />
     <Compile Include="LocalDrivingLicenseApplications.cs" />
     <Compile Include="People.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

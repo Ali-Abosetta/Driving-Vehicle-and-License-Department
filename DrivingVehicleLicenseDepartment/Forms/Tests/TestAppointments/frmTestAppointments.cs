@@ -17,6 +17,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 {
     public partial class frmTestAppointments : KryptonForm
     {
+
+        public delegate void DataBackEventHandler(object sender, bool Passed);
+        public event DataBackEventHandler DataBack;
+
         private Users _CurrentUser = new Users();
         private enTestType _TestTypeID;
         private int _LocalApplicationID;
@@ -143,14 +147,20 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             row["Is Looked"] = testAppointment.IsLocked;
             
             _AppointmentsTable.Rows.Add(row);
+
         }
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (frmTakeTest frm = new frmTakeTest(_CurrentUser, SelectedAppointmentID, _TestTypeID))
             {
+
                 frm.DataBack += frmTakeTest_DataBack;
+
                 frm.ShowDialog();
+
+                DataBack?.Invoke(this, frm.rbPass.Checked);
+
             }
         }
         private void frmTakeTest_DataBack(object sender, BLL.TestAppointments testAppointment)

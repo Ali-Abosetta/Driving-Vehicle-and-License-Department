@@ -74,8 +74,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
         private void CancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(KryptonMessageBox.Show($"Are you sure that you want to cancel the application {SelectedApplicationID}"
-                , "Cancel application", KryptonMessageBoxButtons.YesNo, 
+            if (KryptonMessageBox.Show($"Are you sure that you want to cancel the application {SelectedApplicationID}"
+                , "Cancel application", KryptonMessageBoxButtons.YesNo,
                 KryptonMessageBoxIcon.Question, false) == DialogResult.Yes)
             {
                 LocalDrivingLicenseApplications localApp = null;
@@ -109,7 +109,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         }
         private void refreshDgv()
         {
-            dgvLocalLicenseApplications.DataSource 
+            dgvLocalLicenseApplications.DataSource
                 = LocalDrivingLicenseApplications.GetLocalDrivingLicenseApplicationsSummary();
         }
 
@@ -127,9 +127,52 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
             enTestType testType = (enTestType)Convert.ToInt32(clickedItem.Tag);
 
-            using (frmTestAppointments frm = new frmTestAppointments(_CurrentUser ,SelectedApplicationID, testType))
+            using (frmTestAppointments frm = new frmTestAppointments(_CurrentUser, SelectedApplicationID, testType))
             {
+                frm.DataBack += frmTestAppointments_DataBack;
                 frm.ShowDialog();
+            }
+        }
+
+        private void frmTestAppointments_DataBack(object sender, bool Passed)
+        {
+            DataRow rowToEdit = _LocalLicensesTable.Rows.Find(SelectedApplicationID);
+
+            if (rowToEdit != null && Passed)
+            {
+                rowToEdit["Passed tests"] = (Convert.ToInt32(rowToEdit["Passed tests"]) + 1).ToString();
+            }
+
+
+
+        }
+
+        private void cmsLocalLicenses_Opening(object sender, CancelEventArgs e)
+        {
+
+            int passedTests = Convert.ToInt32(dgvLocalLicenseApplications.CurrentRow.Cells["Passed tests"].Value);
+
+            SechduleTestsToolStripMenuItem.Enabled = true;
+            scheduleVisionTestToolStripMenuItem.Enabled = false;
+            scheduleWrittenTestToolStripMenuItem.Enabled = false;
+            scheduleStreetTestToolStripMenuItem.Enabled = false;
+            IssueLicenseToolStripMenuItem.Enabled = false;
+
+            switch (passedTests)
+            {
+                case 0:
+                    scheduleVisionTestToolStripMenuItem.Enabled = true;
+                    break;
+                case 1:
+                    scheduleWrittenTestToolStripMenuItem.Enabled = true;
+                    break;
+                case 2:
+                    scheduleStreetTestToolStripMenuItem.Enabled = true;
+                    break;
+                case 3:
+                    SechduleTestsToolStripMenuItem.Enabled = false;
+                    IssueLicenseToolStripMenuItem.Enabled = true;
+                    break;
             }
         }
     }

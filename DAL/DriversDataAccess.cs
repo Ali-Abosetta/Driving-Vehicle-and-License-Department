@@ -347,5 +347,61 @@ namespace DAL
 
         }
 
+        public static DataTable GetDriversSummary()
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT 
+                                    d.DriverID AS [Driver ID],
+                                    d.PersonID AS [Person ID],
+                                    p.NationalNo AS [National No],
+                                    (p.FirstName + ' ' + p.SecondName + ' '
+                                        + ISNULL(p.ThirdName + ' ', '') + p.LastName) AS [Full Name],
+                                    FORMAT(d.CreatedDate, 'dd/MM/yyyy') AS [Date],
+                                    ISNULL(ActiveLicenses.CountActive, 0) AS [Active Licenses]
+                                FROM Drivers d
+                                JOIN People p ON d.PersonID = p.PersonID
+                                LEFT JOIN (
+                                    SELECT DriverID, COUNT(*) AS CountActive
+                                    FROM Licenses
+                                    WHERE IsActive = 1
+                                    GROUP BY DriverID
+                                ) ActiveLicenses ON ActiveLicenses.DriverID = d.DriverID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dataTable.Load(reader);
+                            }
+                        }
+
+                        foreach (DataColumn column in dataTable.Columns)
+                        {
+                            column.ReadOnly = false;
+                        }
+
+                        dataTable.PrimaryKey = new DataColumn[]
+                        {
+                                dataTable.Columns["Driver ID"]
+                        };
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;     
+                    }
+                }
+            }
+            return dataTable;
+        }
+
+
     }
 }

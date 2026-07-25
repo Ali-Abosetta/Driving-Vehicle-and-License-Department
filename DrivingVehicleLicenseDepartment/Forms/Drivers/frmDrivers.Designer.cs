@@ -32,12 +32,15 @@
             this.txtSearch = new Krypton.Toolkit.KryptonTextBox();
             this.cmbFilter = new Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            this.dgvUsers = new Krypton.Toolkit.KryptonDataGridView();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.pbMainUserPhoto = new Krypton.Toolkit.KryptonPictureBox();
+            this.dgvDrivers = new Krypton.Toolkit.KryptonDataGridView();
             this.PaletteDGVs = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.cmsDrivers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.pbMainUserPhoto = new Krypton.Toolkit.KryptonPictureBox();
+            this.LicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
+            this.cmsDrivers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainUserPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,22 +68,28 @@
             this.kryptonLabel2.TabIndex = 20;
             this.kryptonLabel2.Values.Text = "Filter:";
             // 
-            // dgvUsers
+            // dgvDrivers
             // 
-            this.dgvUsers.AllowUserToAddRows = false;
-            this.dgvUsers.AllowUserToDeleteRows = false;
-            this.dgvUsers.AllowUserToOrderColumns = true;
-            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(12, 415);
-            this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.Palette = this.PaletteDGVs;
-            this.dgvUsers.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.dgvUsers.ReadOnly = true;
-            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(1216, 230);
-            this.dgvUsers.TabIndex = 19;
+            this.dgvDrivers.AllowUserToAddRows = false;
+            this.dgvDrivers.AllowUserToDeleteRows = false;
+            this.dgvDrivers.AllowUserToOrderColumns = true;
+            this.dgvDrivers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDrivers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDrivers.ContextMenuStrip = this.cmsDrivers;
+            this.dgvDrivers.Location = new System.Drawing.Point(12, 415);
+            this.dgvDrivers.Name = "dgvDrivers";
+            this.dgvDrivers.Palette = this.PaletteDGVs;
+            this.dgvDrivers.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            this.dgvDrivers.ReadOnly = true;
+            this.dgvDrivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDrivers.Size = new System.Drawing.Size(1216, 230);
+            this.dgvDrivers.TabIndex = 19;
+            // 
+            // PaletteDGVs
+            // 
+            this.PaletteDGVs.BaseFont = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaletteDGVs.UseThemeFormChromeBorderWidth = Krypton.Toolkit.InheritBool.True;
             // 
             // kryptonLabel1
             // 
@@ -91,9 +100,17 @@
             this.kryptonLabel1.TabIndex = 18;
             this.kryptonLabel1.Values.Text = "Manage Drivers";
             // 
+            // cmsDrivers
+            // 
+            this.cmsDrivers.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsDrivers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LicensesHistoryToolStripMenuItem});
+            this.cmsDrivers.Name = "cmsAppointments";
+            this.cmsDrivers.Size = new System.Drawing.Size(237, 64);
+            // 
             // pbMainUserPhoto
             // 
-            this.pbMainUserPhoto.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Users_2_400;
+            this.pbMainUserPhoto.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Drivers;
             this.pbMainUserPhoto.Location = new System.Drawing.Point(469, 32);
             this.pbMainUserPhoto.Name = "pbMainUserPhoto";
             this.pbMainUserPhoto.Size = new System.Drawing.Size(280, 250);
@@ -101,10 +118,14 @@
             this.pbMainUserPhoto.TabIndex = 17;
             this.pbMainUserPhoto.TabStop = false;
             // 
-            // PaletteDGVs
+            // LicensesHistoryToolStripMenuItem
             // 
-            this.PaletteDGVs.BaseFont = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PaletteDGVs.UseThemeFormChromeBorderWidth = Krypton.Toolkit.InheritBool.True;
+            this.LicensesHistoryToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.PersonLicenseHistory_321;
+            this.LicensesHistoryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.LicensesHistoryToolStripMenuItem.Name = "LicensesHistoryToolStripMenuItem";
+            this.LicensesHistoryToolStripMenuItem.Size = new System.Drawing.Size(236, 38);
+            this.LicensesHistoryToolStripMenuItem.Text = "Show Driver licenses history";
+            this.LicensesHistoryToolStripMenuItem.Click += new System.EventHandler(this.LicensesHistoryToolStripMenuItem_Click);
             // 
             // frmDrivers
             // 
@@ -114,13 +135,14 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.kryptonLabel2);
-            this.Controls.Add(this.dgvUsers);
+            this.Controls.Add(this.dgvDrivers);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.pbMainUserPhoto);
             this.Name = "frmDrivers";
             this.Text = "frmDrivers";
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
+            this.cmsDrivers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMainUserPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,9 +154,11 @@
         private Krypton.Toolkit.KryptonTextBox txtSearch;
         private Krypton.Toolkit.KryptonComboBox cmbFilter;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonDataGridView dgvUsers;
+        private Krypton.Toolkit.KryptonDataGridView dgvDrivers;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonPictureBox pbMainUserPhoto;
         public Krypton.Toolkit.KryptonCustomPaletteBase PaletteDGVs;
+        private System.Windows.Forms.ContextMenuStrip cmsDrivers;
+        private System.Windows.Forms.ToolStripMenuItem LicensesHistoryToolStripMenuItem;
     }
 }

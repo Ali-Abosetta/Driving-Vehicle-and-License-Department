@@ -93,6 +93,18 @@
     <Compile Include="CustomControls\ctrlDrivingLicenseApplicationInfo.Designer.cs">
       <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ctrlInternationLicenseApplicationBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlInternationLicenseApplicationBasicInfo.Designer.cs">
+      <DependentUpon>ctrlInternationLicenseApplicationBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ctrlLicenseApplicationWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlLicenseApplicationWithFilter.Designer.cs">
+      <DependentUpon>ctrlLicenseApplicationWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ctrlPersonCardEditable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +152,18 @@
     </Compile>
     <Compile Include="Forms\Drivers\frmDrivers.Designer.cs">
       <DependentUpon>frmDrivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Licenses\frmLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Licenses\frmLicenseHistory.Designer.cs">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Licenses\InternationalDrivingLicense\frmAddInternationalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Licenses\InternationalDrivingLicense\frmAddInternationalLicense.Designer.cs">
+      <DependentUpon>frmAddInternationalLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Licenses\LocalDrivingLicense\frmIssueDrivingLicenseFirstTime.cs">
       <SubType>Form</SubType>
@@ -266,6 +290,12 @@
     <EmbeddedResource Include="CustomControls\ctrlDrivingLicenseApplicationInfo.resx">
       <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlInternationLicenseApplicationBasicInfo.resx">
+      <DependentUpon>ctrlInternationLicenseApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlLicenseApplicationWithFilter.resx">
+      <DependentUpon>ctrlLicenseApplicationWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlPersonCardEditable.resx">
       <DependentUpon>ctrlPersonCardEditable.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +319,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Drivers\frmDrivers.resx">
       <DependentUpon>frmDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Licenses\frmLicenseHistory.resx">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Licenses\InternationalDrivingLicense\frmAddInternationalLicense.resx">
+      <DependentUpon>frmAddInternationalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Licenses\LocalDrivingLicense\frmIssueDrivingLicenseFirstTime.resx">
       <DependentUpon>frmIssueDrivingLicenseFirstTime.cs</DependentUpon>
@@ -625,6 +661,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo Final.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers 641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drivers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PersonLicenseHistory 321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

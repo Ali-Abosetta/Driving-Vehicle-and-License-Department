@@ -219,5 +219,21 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                 }
             }
         }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            LocalDrivingLicenseApplications localApp 
+                = LocalDrivingLicenseApplications.Find(SelectedApplicationID);
+
+            if(localApp != null)
+            {
+                using (frmLicenseHistory frm = new frmLicenseHistory(localApp.ApplicationInfo.ApplicantPersonInfo))
+                {
+                    frm.ShowDialog();
+                }
+            }
+
+        }
     }
 }

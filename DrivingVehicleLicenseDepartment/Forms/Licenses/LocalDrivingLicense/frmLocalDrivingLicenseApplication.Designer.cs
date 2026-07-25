@@ -37,10 +37,13 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsLocalLicenses = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.dgvLocalLicenseApplications = new Krypton.Toolkit.KryptonDataGridView();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.pbMainUserPhoto = new Krypton.Toolkit.KryptonPictureBox();
             this.showUserDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SechduleTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleVisionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,9 +52,6 @@
             this.IssueLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvLocalLicenseApplications = new Krypton.Toolkit.KryptonDataGridView();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.pbMainUserPhoto = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
             this.cmsLocalLicenses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenseApplications)).BeginInit();
@@ -125,8 +125,51 @@
             this.showLicenseToolStripMenuItem,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.cmsLocalLicenses.Name = "cmsPeople";
-            this.cmsLocalLicenses.Size = new System.Drawing.Size(262, 348);
+            this.cmsLocalLicenses.Size = new System.Drawing.Size(262, 326);
             this.cmsLocalLicenses.Opening += new System.ComponentModel.CancelEventHandler(this.cmsLocalLicenses_Opening);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(258, 6);
+            // 
+            // dgvLocalLicenseApplications
+            // 
+            this.dgvLocalLicenseApplications.AllowUserToAddRows = false;
+            this.dgvLocalLicenseApplications.AllowUserToDeleteRows = false;
+            this.dgvLocalLicenseApplications.AllowUserToOrderColumns = true;
+            this.dgvLocalLicenseApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLocalLicenseApplications.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLocalLicenseApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocalLicenseApplications.ContextMenuStrip = this.cmsLocalLicenses;
+            this.dgvLocalLicenseApplications.Location = new System.Drawing.Point(12, 415);
+            this.dgvLocalLicenseApplications.Name = "dgvLocalLicenseApplications";
+            this.dgvLocalLicenseApplications.Palette = this.PaletteDGVs;
+            this.dgvLocalLicenseApplications.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            this.dgvLocalLicenseApplications.ReadOnly = true;
+            this.dgvLocalLicenseApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLocalLicenseApplications.Size = new System.Drawing.Size(1443, 230);
+            this.dgvLocalLicenseApplications.TabIndex = 19;
+            this.dgvLocalLicenseApplications.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ShowApplicatoinCard);
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
+            this.kryptonLabel1.Location = new System.Drawing.Point(589, 288);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(424, 35);
+            this.kryptonLabel1.TabIndex = 18;
+            this.kryptonLabel1.Values.Text = "Local Driving License Applications";
+            // 
+            // pbMainUserPhoto
+            // 
+            this.pbMainUserPhoto.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Applications;
+            this.pbMainUserPhoto.Location = new System.Drawing.Point(657, 32);
+            this.pbMainUserPhoto.Name = "pbMainUserPhoto";
+            this.pbMainUserPhoto.Size = new System.Drawing.Size(280, 250);
+            this.pbMainUserPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMainUserPhoto.TabIndex = 17;
+            this.pbMainUserPhoto.TabStop = false;
             // 
             // showUserDetailsToolStripMenuItem
             // 
@@ -153,11 +196,6 @@
             this.DeleteApplicationToolStripMenuItem.Name = "DeleteApplicationToolStripMenuItem";
             this.DeleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.DeleteApplicationToolStripMenuItem.Text = "Delete application";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(258, 6);
             // 
             // CancelToolStripMenuItem
             // 
@@ -235,44 +273,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
-            // 
-            // dgvLocalLicenseApplications
-            // 
-            this.dgvLocalLicenseApplications.AllowUserToAddRows = false;
-            this.dgvLocalLicenseApplications.AllowUserToDeleteRows = false;
-            this.dgvLocalLicenseApplications.AllowUserToOrderColumns = true;
-            this.dgvLocalLicenseApplications.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLocalLicenseApplications.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvLocalLicenseApplications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLocalLicenseApplications.ContextMenuStrip = this.cmsLocalLicenses;
-            this.dgvLocalLicenseApplications.Location = new System.Drawing.Point(12, 415);
-            this.dgvLocalLicenseApplications.Name = "dgvLocalLicenseApplications";
-            this.dgvLocalLicenseApplications.Palette = this.PaletteDGVs;
-            this.dgvLocalLicenseApplications.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.dgvLocalLicenseApplications.ReadOnly = true;
-            this.dgvLocalLicenseApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLocalLicenseApplications.Size = new System.Drawing.Size(1443, 230);
-            this.dgvLocalLicenseApplications.TabIndex = 19;
-            this.dgvLocalLicenseApplications.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ShowApplicatoinCard);
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.kryptonLabel1.Location = new System.Drawing.Point(589, 288);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(424, 35);
-            this.kryptonLabel1.TabIndex = 18;
-            this.kryptonLabel1.Values.Text = "Local Driving License Applications";
-            // 
-            // pbMainUserPhoto
-            // 
-            this.pbMainUserPhoto.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Applications;
-            this.pbMainUserPhoto.Location = new System.Drawing.Point(657, 32);
-            this.pbMainUserPhoto.Name = "pbMainUserPhoto";
-            this.pbMainUserPhoto.Size = new System.Drawing.Size(280, 250);
-            this.pbMainUserPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMainUserPhoto.TabIndex = 17;
-            this.pbMainUserPhoto.TabStop = false;
+            this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
             // frmLocalDrivingLicenseApplication
             // 

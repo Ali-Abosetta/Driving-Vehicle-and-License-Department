@@ -132,9 +132,12 @@ namespace BLL
         }
         public static DataTable GetAllDrivers()
         {
-
             return DriversDataAccess.GetAllFromDrivers();
+        }
 
+        public static DataTable GetDriversSummary()
+        {
+            return DriversDataAccess.GetDriversSummary();
         }
 
 

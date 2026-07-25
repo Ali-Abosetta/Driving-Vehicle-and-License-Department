@@ -181,9 +181,12 @@ namespace BLL
         }
         public static DataTable GetAllLicenses()
         {
-
             return LicensesDataAccess.GetAllFromLicenses();
+        }
 
+        public static DataTable GetDriverLocalLicensesSummary(int PersonID)
+        {
+            return LicensesDataAccess.GetDriverLocalLicensesSummary(PersonID);
         }
 
 

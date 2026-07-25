@@ -21,7 +21,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps
             get
             {
                 return Convert.ToInt32(dgvTestTypes.CurrentRow
-                .Cells["Test Type ID"].Value);
+                    .Cells["Test Type ID"].Value);
             }
         }
 

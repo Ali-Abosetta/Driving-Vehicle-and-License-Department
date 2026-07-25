@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.Forms;
 using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
+using DrivingVehicleLicenseDepartment.Forms.Drivers;
 using DrivingVehicleLicenseDepartment.Forms.Licenses;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense;
 using DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps;
@@ -109,5 +110,12 @@ namespace DrivingVehicleLicenseDepartment
             }
         }
 
+        private void btnDrivers_Click(object sender, EventArgs e)
+        {
+            using (frmDrivers frmDrivers = new frmDrivers())
+            {
+                frmDrivers.ShowDialog();
+            }
+        }
     }
 }

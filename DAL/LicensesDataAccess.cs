@@ -125,7 +125,7 @@ namespace DAL
                                 }
                                 else
                                     Notes = string.Empty;
-                                
+
                                 PaidFees = Convert.ToDecimal(reader["PaidFees"]);
                                 IsActive = (bool)reader["IsActive"];
                                 IssueReason = Convert.ToInt32(reader["IssueReason"]);
@@ -443,5 +443,58 @@ namespace DAL
 
         }
 
+        public static DataTable GetDriverLocalLicensesSummary(int PersonID)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT 
+                                    l.LicenseID AS [License ID],
+                                    l.ApplicationID AS [Application ID],
+                                    c.ClassName AS [License class],
+                                    FORMAT(l.IssueDate, 'dd/MM/yyyy') AS [Issue date],
+                                    FORMAT(l.ExpirationDate, 'dd/MM/yyyy') AS [Expiration date],
+                                    l.IsActive AS [Is active]
+                                FROM Licenses l
+                                    JOIN LicenseClasses c
+                                        ON l.LicenseClass = c.LicenseClassID
+                                    JOIN Drivers d 
+                                        ON l.DriverID = d.DriverID
+                                WHERE d.PersonID = @PersonID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dataTable.Load(reader);
+                            }
+                        }
+                        foreach (DataColumn column in dataTable.Columns)
+                        {
+                            column.ReadOnly = false;
+                        }
+
+                        dataTable.PrimaryKey = new DataColumn[]
+                        {
+                                dataTable.Columns["License ID"]
+                        };
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return dataTable;
+        }
     }
 }

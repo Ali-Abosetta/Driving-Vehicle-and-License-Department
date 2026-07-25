@@ -27,6 +27,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
         private DataTable _AppointmentsTable = new DataTable();
         private bool _HasActiveAppointment = false;
+        private bool _Passed = false;
 
         private int SelectedAppointmentID
         {
@@ -147,6 +148,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             row["Is Looked"] = testAppointment.IsLocked;
             
             _AppointmentsTable.Rows.Add(row);
+            _HasActiveAppointment = true;
 
         }
 
@@ -159,9 +161,11 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
                 frm.ShowDialog();
 
-                DataBack?.Invoke(this, frm.rbPass.Checked);
-
+                _Passed = frm.rbPass.Checked;
+                DataBack?.Invoke(this, _Passed);
             }
+            if (_Passed)
+                this.Close();
         }
         private void frmTakeTest_DataBack(object sender, BLL.TestAppointments testAppointment)
         {
@@ -174,6 +178,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
                 rowToEdit["Paid Fees"] = testAppointment.PaidFees;
                 rowToEdit["Is Looked"] = testAppointment.IsLocked;
             }
+            _HasActiveAppointment = false;
+
         }
 
     }

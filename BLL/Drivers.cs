@@ -17,24 +17,35 @@ namespace BLL
         public int DriverID { get; set; }
         public int PersonID { get; set; }
         public int CreatedByUserID { get; set; }
-        public object CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
 
+        public People PersonInfo;
+        public Users CreatedByUserInfo;
 
-        private Drivers(int DriverID, int PersonID, int CreatedByUserID, object CreatedDate)
+        private void _LoadCompositions()
+        {
+            PersonInfo = People.Find(PersonID);
+            CreatedByUserInfo = Users.Find(CreatedByUserID);
+        }
+
+        private Drivers(int DriverID, int PersonID, int CreatedByUserID, DateTime CreatedDate)
         {
             this.DriverID = DriverID;
             this.PersonID = PersonID;
             this.CreatedByUserID = CreatedByUserID;
             this.CreatedDate = CreatedDate;
 
-
+            _LoadCompositions();
         }
         public Drivers()
         {
             DriverID = -1;
             PersonID = -1;
             CreatedByUserID = -1;
-            CreatedDate = null;
+            CreatedDate = DateTime.Now;
+
+            PersonInfo = null;
+            CreatedByUserInfo = null;
 
 
         }
@@ -43,7 +54,7 @@ namespace BLL
 
             int PersonID = -1;
             int CreatedByUserID = -1;
-            object CreatedDate = null;
+            DateTime CreatedDate = DateTime.Now;
 
             if (DriversDataAccess.FindFromDriversByDriverID(DriverID, ref PersonID, ref CreatedByUserID, ref CreatedDate))
                 return new Drivers(DriverID, PersonID, CreatedByUserID, CreatedDate);
@@ -51,6 +62,19 @@ namespace BLL
                 return null;
 
         }
+
+        public static Drivers FindDriverByPersonID(int PersonID)
+        {
+            int DriverID = -1;
+            int CreatedByUserID = -1;
+            DateTime CreatedDate = DateTime.Now;
+
+            if(DriversDataAccess.FindDriverByPersonID(PersonID, ref DriverID, ref CreatedByUserID, ref CreatedDate))
+                return new Drivers(DriverID, PersonID, CreatedByUserID, CreatedDate);
+            else
+                return null;
+        }
+
 
         public static bool IsExists(int DriverID)
         {
@@ -88,6 +112,7 @@ namespace BLL
 
                     if (_AddNewToDrivers())
                     {
+                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -97,6 +122,7 @@ namespace BLL
 
                     if (_UpdateDrivers())
                     {
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;

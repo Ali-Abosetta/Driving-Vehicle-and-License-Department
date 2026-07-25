@@ -88,6 +88,62 @@ namespace DAL
             return isFound;
 
         }
+
+        public static bool FindFromLicensesByLocalAppID(int LocalAppID, ref int LicenseID, ref int ApplicationID, ref int DriverID, ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref decimal PaidFees, ref bool IsActive, ref int IssueReason, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT Licenses.*
+                                    FROM Licenses 
+                                    JOIN LocalDrivingLicenseApplications ldl 
+                                        ON ldl.ApplicationID = Licenses.ApplicationID 
+                                    WHERE ldl.LocalDrivingLicenseApplicationID 
+                                        = @LocalDrivingLicenseApplicationID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalAppID);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                LicenseID = (int)reader["LicenseID"];
+                                ApplicationID = (int)reader["ApplicationID"];
+                                DriverID = (int)reader["DriverID"];
+                                LicenseClass = (int)reader["LicenseClass"];
+                                IssueDate = (DateTime)reader["IssueDate"];
+                                ExpirationDate = (DateTime)reader["ExpirationDate"];
+
+                                if (reader["Notes"] != System.DBNull.Value)
+                                {
+                                    Notes = (string)reader["Notes"];
+                                }
+                                else
+                                    Notes = string.Empty;
+                                
+                                PaidFees = Convert.ToDecimal(reader["PaidFees"]);
+                                IsActive = (bool)reader["IsActive"];
+                                IssueReason = Convert.ToInt32(reader["IssueReason"]);
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                                isFound = true;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+            return isFound;
+        }
+
         public static bool IsExistsInLicensesByLicenseID(int LicenseID)
 
 
@@ -183,7 +239,7 @@ namespace DAL
             command.Parameters.AddWithValue("@IssueDate", IssueDate);
             command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
 
-            if (string.IsNullOrWhiteSpace(Notes))
+            if (!string.IsNullOrWhiteSpace(Notes))
                 command.Parameters.AddWithValue("@Notes", Notes);
             else
                 command.Parameters.AddWithValue("@Notes", System.DBNull.Value);

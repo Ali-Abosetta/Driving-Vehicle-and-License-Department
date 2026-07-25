@@ -134,7 +134,7 @@
             this.showUserDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showUserDetailsToolStripMenuItem.Name = "showUserDetailsToolStripMenuItem";
             this.showUserDetailsToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
-            this.showUserDetailsToolStripMenuItem.Text = "Show user details";
+            this.showUserDetailsToolStripMenuItem.Text = "Show application details";
             this.showUserDetailsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.showUserDetailsToolStripMenuItem.Click += new System.EventHandler(this.ShowApplicatoinCard);
             // 
@@ -217,6 +217,7 @@
             this.IssueLicenseToolStripMenuItem.Name = "IssueLicenseToolStripMenuItem";
             this.IssueLicenseToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.IssueLicenseToolStripMenuItem.Text = "Issue Driving License (First Time)";
+            this.IssueLicenseToolStripMenuItem.Click += new System.EventHandler(this.IssueLicenseToolStripMenuItem_Click);
             // 
             // showLicenseToolStripMenuItem
             // 
@@ -225,6 +226,7 @@
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(261, 38);
             this.showLicenseToolStripMenuItem.Text = "Show License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 

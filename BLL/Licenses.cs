@@ -14,6 +14,14 @@ namespace BLL
         enum enMode { AddNew = 0, Update = 1 };
         private enMode Mode = enMode.AddNew;
 
+        public enum enIssueReason
+        {
+            FirstTime = 1,
+            LostReplacement = 2,
+            DamagedReplacement = 3,
+            Renewal = 4
+        }
+
         public int LicenseID { get; set; }
         public int ApplicationID { get; set; }
         public int DriverID { get; set; }
@@ -26,6 +34,18 @@ namespace BLL
         public int IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
 
+        public Applications ApplicationInfo { get; set; }
+        public Drivers DriverInfo { get; set; }
+        public LicenseClasses LicenseClassInfo { get; set; }   
+        public Users CreatedByUserInfo { get; set; }
+
+        private void _LoadCompositions()
+        {
+            ApplicationInfo = Applications.Find(ApplicationID);
+            DriverInfo = Drivers.Find(DriverID);
+            LicenseClassInfo = LicenseClasses.Find(LicenseClass);
+            CreatedByUserInfo = Users.Find(CreatedByUserID);
+        }
 
         private Licenses(int LicenseID, int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees, bool IsActive, int IssueReason, int CreatedByUserID)
         {
@@ -41,6 +61,7 @@ namespace BLL
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
 
+            _LoadCompositions();
 
         }
         public Licenses()
@@ -57,6 +78,10 @@ namespace BLL
             IssueReason = -1;
             CreatedByUserID = -1;
 
+            ApplicationInfo = null;
+            DriverInfo = null;
+            LicenseClassInfo = null;
+            CreatedByUserInfo = null;
 
         }
         public static Licenses Find(int LicenseID)
@@ -78,6 +103,26 @@ namespace BLL
             else
                 return null;
 
+        }
+
+        public static Licenses FindByLocalAppID(int LocalAppID)
+        {
+            int LicenseID = -1;
+            int ApplicationID = -1;
+            int DriverID = -1;
+            int LicenseClass = -1;
+            DateTime IssueDate = DateTime.Now;
+            DateTime ExpirationDate = DateTime.Now;
+            string Notes = string.Empty;
+            decimal PaidFees = -1;
+            bool IsActive = false;
+            int IssueReason = -1;
+            int CreatedByUserID = -1;
+
+            if (LicensesDataAccess.FindFromLicensesByLocalAppID(LocalAppID, ref LicenseID, ref ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
+                return new Licenses(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+            else
+                return null;
         }
 
         public static bool IsExists(int LicenseID)
@@ -117,6 +162,7 @@ namespace BLL
                     if (_AddNewToLicenses())
                     {
                         Mode = enMode.Update;
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;
@@ -125,6 +171,7 @@ namespace BLL
 
                     if (_UpdateLicenses())
                     {
+                        _LoadCompositions();
                         return true;
                     }
                     else return false;

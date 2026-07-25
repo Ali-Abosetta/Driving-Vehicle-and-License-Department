@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DriversDataAccess
     {
-        public static bool FindFromDriversByDriverID(int DriverID, ref int PersonID, ref int CreatedByUserID, ref object CreatedDate)
+        public static bool FindFromDriversByDriverID(int DriverID, ref int PersonID, ref int CreatedByUserID, ref DateTime CreatedDate)
         {
             bool isFound = false;
 
@@ -41,7 +41,7 @@ namespace DAL
 
                             CreatedByUserID = (int)reader["CreatedByUserID"];
 
-                            CreatedDate = (object)reader["CreatedDate"];
+                            CreatedDate = (DateTime)reader["CreatedDate"];
 
 
                             isFound = true;
@@ -63,6 +63,43 @@ namespace DAL
 
             return isFound;
 
+        }
+
+        public static bool FindDriverByPersonID(int PersonID, ref int DriverID, ref int CreatedByUserID, ref DateTime CreatedDate)
+        {
+            bool isFound = false;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+
+                string query = @"SELECT * FROM Drivers WHERE PersonID = @PersonID";
+                using(SqlCommand command = new SqlCommand(query,connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                PersonID = (int)reader["PersonID"];
+                                DriverID = (int)reader["DriverID"];
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
+                                CreatedDate = (DateTime)reader["CreatedDate"];
+
+                                isFound = true;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+
+            }
+
+            return isFound;
         }
         public static bool IsExistsInDriversByDriverID(int DriverID)
 
@@ -104,7 +141,7 @@ namespace DAL
             return (isExists > 0);
 
         }
-        public static int AddNewToDrivers(int PersonID, int CreatedByUserID, object CreatedDate)
+        public static int AddNewToDrivers(int PersonID, int CreatedByUserID, DateTime CreatedDate)
 
 
         {
@@ -166,7 +203,7 @@ namespace DAL
             return DriverID;
 
         }
-        public static bool UpdateFromDrivers(int DriverID, int PersonID, int CreatedByUserID, object CreatedDate)
+        public static bool UpdateFromDrivers(int DriverID, int PersonID, int CreatedByUserID, DateTime CreatedDate)
 
 
         {

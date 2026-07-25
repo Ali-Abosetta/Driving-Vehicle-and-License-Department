@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Forms.Drivers;
 using DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments;
 using Krypton.Toolkit;
 using static BLL.TestTypes;
@@ -34,8 +35,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
             _LocalLicensesTable = LocalDrivingLicenseApplications
                 .GetLocalDrivingLicenseApplicationsSummary();
             dgvLocalLicenseApplications.DataSource = _LocalLicensesTable;
-            _CurrentUser = user;
-
+            _CurrentUser = user;    
 
             cmbFilter.DataSource = LocalDrivingLicenseApplications.GetSearchFilters();
         }
@@ -150,29 +150,73 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         private void cmsLocalLicenses_Opening(object sender, CancelEventArgs e)
         {
 
-            int passedTests = Convert.ToInt32(dgvLocalLicenseApplications.CurrentRow.Cells["Passed tests"].Value);
+            DataRow row = _LocalLicensesTable.Rows.Find(SelectedApplicationID);
 
-            SechduleTestsToolStripMenuItem.Enabled = true;
+            SechduleTestsToolStripMenuItem.Enabled = false;
             scheduleVisionTestToolStripMenuItem.Enabled = false;
             scheduleWrittenTestToolStripMenuItem.Enabled = false;
             scheduleStreetTestToolStripMenuItem.Enabled = false;
             IssueLicenseToolStripMenuItem.Enabled = false;
-
-            switch (passedTests)
+            if (row["Status"].ToString() == "Completed")
             {
-                case 0:
-                    scheduleVisionTestToolStripMenuItem.Enabled = true;
-                    break;
-                case 1:
-                    scheduleWrittenTestToolStripMenuItem.Enabled = true;
-                    break;
-                case 2:
-                    scheduleStreetTestToolStripMenuItem.Enabled = true;
-                    break;
-                case 3:
-                    SechduleTestsToolStripMenuItem.Enabled = false;
-                    IssueLicenseToolStripMenuItem.Enabled = true;
-                    break;
+                EditApplicationToolStripMenuItem.Enabled = false;
+                DeleteApplicationToolStripMenuItem.Enabled = false;
+                CancelToolStripMenuItem.Enabled = false;
+                return;
+            }
+
+
+            int passedTests = Convert.ToInt32(row["Passed tests"]);
+            if (row["Status"].ToString() == "New")
+            {
+                SechduleTestsToolStripMenuItem.Enabled = true;
+                switch (passedTests)
+                {
+                    case 0:
+                        scheduleVisionTestToolStripMenuItem.Enabled = true;
+                        break;
+                    case 1:
+                        scheduleWrittenTestToolStripMenuItem.Enabled = true;
+                        break;
+                    case 2:
+                        scheduleStreetTestToolStripMenuItem.Enabled = true;
+                        break;
+                    case 3:
+                        SechduleTestsToolStripMenuItem.Enabled = false;
+                        IssueLicenseToolStripMenuItem.Enabled = true;
+                        break;
+                }
+            }
+        }
+
+        private void IssueLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmIssueDrivingLicenseFirstTime frm = new frmIssueDrivingLicenseFirstTime(_CurrentUser, SelectedApplicationID))
+            {
+                frm.DataBack += frmIssueDrivingLicenseFirstTime_DataBack;
+                frm.ShowDialog();
+            }
+        }
+
+        private void frmIssueDrivingLicenseFirstTime_DataBack()
+        {
+            DataRow rowToEdit = _LocalLicensesTable.Rows.Find(SelectedApplicationID);
+            if (rowToEdit != null)
+            {
+                rowToEdit["Status"] = "Completed";
+            }
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BLL.Licenses license = BLL.Licenses.FindByLocalAppID(SelectedApplicationID);
+
+            if (license != null)
+            {
+                using (frmDriverLicenseInfo frm = new frmDriverLicenseInfo(license))
+                {
+                    frm.ShowDialog();
+                }
             }
         }
     }

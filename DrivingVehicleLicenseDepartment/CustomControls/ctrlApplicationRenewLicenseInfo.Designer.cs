@@ -100,6 +100,7 @@
             // 
             // kryptonLabel6
             // 
+            this.kryptonLabel6.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel6.Location = new System.Drawing.Point(24, 218);
             this.kryptonLabel6.Name = "kryptonLabel6";
             this.kryptonLabel6.Size = new System.Drawing.Size(119, 25);
@@ -108,6 +109,7 @@
             // 
             // kryptonLabel11
             // 
+            this.kryptonLabel11.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel11.Location = new System.Drawing.Point(391, 180);
             this.kryptonLabel11.Name = "kryptonLabel11";
             this.kryptonLabel11.Size = new System.Drawing.Size(119, 25);
@@ -116,6 +118,7 @@
             // 
             // kryptonLabel5
             // 
+            this.kryptonLabel5.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel5.Location = new System.Drawing.Point(24, 180);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(119, 25);
@@ -124,6 +127,7 @@
             // 
             // kryptonLabel10
             // 
+            this.kryptonLabel10.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel10.Location = new System.Drawing.Point(391, 142);
             this.kryptonLabel10.Name = "kryptonLabel10";
             this.kryptonLabel10.Size = new System.Drawing.Size(119, 25);
@@ -132,6 +136,7 @@
             // 
             // kryptonLabel4
             // 
+            this.kryptonLabel4.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel4.Location = new System.Drawing.Point(24, 142);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(119, 25);
@@ -140,6 +145,7 @@
             // 
             // kryptonLabel9
             // 
+            this.kryptonLabel9.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel9.Location = new System.Drawing.Point(391, 104);
             this.kryptonLabel9.Name = "kryptonLabel9";
             this.kryptonLabel9.Size = new System.Drawing.Size(119, 25);
@@ -148,6 +154,7 @@
             // 
             // kryptonLabel3
             // 
+            this.kryptonLabel3.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel3.Location = new System.Drawing.Point(24, 104);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(119, 25);
@@ -156,6 +163,7 @@
             // 
             // kryptonLabel8
             // 
+            this.kryptonLabel8.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel8.Location = new System.Drawing.Point(391, 66);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(119, 25);
@@ -164,6 +172,7 @@
             // 
             // kryptonLabel2
             // 
+            this.kryptonLabel2.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel2.Location = new System.Drawing.Point(24, 66);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(119, 25);
@@ -172,9 +181,10 @@
             // 
             // kryptonLabel7
             // 
+            this.kryptonLabel7.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel7.Location = new System.Drawing.Point(391, 28);
             this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(122, 25);
+            this.kryptonLabel7.Size = new System.Drawing.Size(127, 25);
             this.kryptonLabel7.TabIndex = 0;
             this.kryptonLabel7.Values.Text = "Renewed license ID:";
             // 
@@ -260,9 +270,10 @@
             // 
             // kryptonLabel1
             // 
+            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.kryptonLabel1.Location = new System.Drawing.Point(24, 28);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(119, 25);
+            this.kryptonLabel1.Size = new System.Drawing.Size(123, 25);
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "R.L. Application ID:";
             // 

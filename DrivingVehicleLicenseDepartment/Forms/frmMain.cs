@@ -143,5 +143,13 @@ namespace DrivingVehicleLicenseDepartment
                 frm.ShowDialog();
             }
         }
+
+        private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmReplaceLicense frm = new frmReplaceLicense(_CurrentUser))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

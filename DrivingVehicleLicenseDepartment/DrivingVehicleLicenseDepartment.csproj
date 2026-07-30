@@ -87,6 +87,12 @@
     <Compile Include="CustomControls\ctrlApplicationRenewLicenseInfo.Designer.cs">
       <DependentUpon>ctrlApplicationRenewLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ctrlApplicationReplacementLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlApplicationReplacementLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlApplicationReplacementLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ctrlDriverLicenseCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     </Compile>
     <Compile Include="CustomControls\ctrlRenewLicenseWithFilter.Designer.cs">
       <DependentUpon>ctrlRenewLicenseWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ctrlReplacementLicenseWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlReplacementLicenseWithFilter.Designer.cs">
+      <DependentUpon>ctrlReplacementLicenseWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ctrlRetakeTestInfo.cs">
       <SubType>UserControl</SubType>
@@ -176,6 +188,12 @@
     </Compile>
     <Compile Include="Forms\Licenses\Applications\frmRenewLicense.Designer.cs">
       <DependentUpon>frmRenewLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Licenses\Applications\frmReplaceLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Licenses\Applications\frmReplaceLicense.Designer.cs">
+      <DependentUpon>frmReplaceLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Licenses\frmLicenseHistory.cs">
       <SubType>Form</SubType>
@@ -323,6 +341,9 @@
     <EmbeddedResource Include="CustomControls\ctrlApplicationRenewLicenseInfo.resx">
       <DependentUpon>ctrlApplicationRenewLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlApplicationReplacementLicenseInfo.resx">
+      <DependentUpon>ctrlApplicationReplacementLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlDriverLicenseCard.resx">
       <DependentUpon>ctrlDriverLicenseCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlRenewLicenseWithFilter.resx">
       <DependentUpon>ctrlRenewLicenseWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlReplacementLicenseWithFilter.resx">
+      <DependentUpon>ctrlReplacementLicenseWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlRetakeTestInfo.resx">
       <DependentUpon>ctrlRetakeTestInfo.cs</DependentUpon>
@@ -367,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Licenses\Applications\frmRenewLicense.resx">
       <DependentUpon>frmRenewLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Licenses\Applications\frmReplaceLicense.resx">
+      <DependentUpon>frmReplaceLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Licenses\frmLicenseHistory.resx">
       <DependentUpon>frmLicenseHistory.cs</DependentUpon>

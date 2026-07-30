@@ -11,16 +11,14 @@ using BLL;
 
 namespace DrivingVehicleLicenseDepartment.CustomControls
 {
-    public partial class ctrlRenewLicenseWithFilter : UserControl
+    public partial class ctrlReplacementLicenseWithFilter : UserControl
     {
         public event EventHandler OnLicenseSelected;
         public event EventHandler OnLicenseNotFound;
-
-        public ctrlRenewLicenseWithFilter()
+        public ctrlReplacementLicenseWithFilter()
         {
             InitializeComponent();
         }
-
         public Licenses OldLicense
         {
             get
@@ -32,32 +30,8 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                 if (value != null)
                 {
                     ctrlDriverLicenseCard1.License = value;
-                    ctrlApplicationRenewLicenseInfo1.OldLicense = value;
+                    ctrlApplicationReplacementLicenseInfo1.OldLicense = value;
                 }
-            }
-        }
-
-        public string Notes
-        {
-            get
-            {
-                return ctrlApplicationRenewLicenseInfo1.Notes;
-            }
-            set
-            {
-                ctrlApplicationRenewLicenseInfo1.Notes = value;
-            }
-        }
-
-        public decimal NewFees
-        {
-            get
-            {
-                return ctrlApplicationRenewLicenseInfo1.NewFees;
-            }
-            set
-            {
-                ctrlApplicationRenewLicenseInfo1.NewFees = value;
             }
         }
 
@@ -81,5 +55,6 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
 
             }
         }
+
     }
 }

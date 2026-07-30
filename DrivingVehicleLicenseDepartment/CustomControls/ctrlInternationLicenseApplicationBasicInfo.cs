@@ -26,7 +26,10 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                 if (value != null)
                 {
 
-                    lblApplicationID.Text = value.ApplicationID.ToString();
+                    if (value.ApplicationID != -1)
+                    {
+                        lblApplicationID.Text = value.ApplicationID.ToString();
+                    }
                     lblApplicationDate.Text = value.ApplicationDate.ToString("dd/MM/yyyy");
                     lblIssueDate.Text = value.ApplicationDate.ToString("dd/MM/yyyy");
                     lblExpirationDate.Text = value.ApplicationDate.AddYears(1).ToString("dd/MM/yyyy");

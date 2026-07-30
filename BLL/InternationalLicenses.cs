@@ -85,6 +85,22 @@ namespace BLL
 
         }
 
+        public static InternationalLicenses FindByDriverID(int DriverID)
+        {
+            int ApplicationID = -1;
+            int InternationalLicenseID = -1;
+            int IssuedUsingLocalLicenseID = -1;
+            DateTime IssueDate = DateTime.Now;
+            DateTime ExpirationDate = DateTime.Now;
+            bool IsActive = false;
+            int CreatedByUserID = -1;
+
+            if (InternationalLicensesDataAccess.FindFromInternationalLicensesByDriverID(DriverID, ref InternationalLicenseID, ref ApplicationID, ref IssuedUsingLocalLicenseID, ref IssueDate, ref ExpirationDate, ref IsActive, ref CreatedByUserID))
+                return new InternationalLicenses(InternationalLicenseID, ApplicationID, DriverID, IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID);
+            else
+                return null;
+        }
+
         public static bool IsExists(int InternationalLicenseID)
         {
 
@@ -146,6 +162,21 @@ namespace BLL
 
         }
 
+        public static int GetActiveInternationalLicenseIDByDriverID(int DriverID)
+        {
+            return InternationalLicensesDataAccess.GetActiveInternationalLicenseIDByDriverID(DriverID);
+        }
+
+        public static DataTable GetInternationalLicensesSummary()
+        {
+            return InternationalLicensesDataAccess.GetInternationalLicensesSummary();
+        }
+
+
+        public static DataTable GetDriverInternationalLicensesSummary(int PersonID)
+        {
+            return InternationalLicensesDataAccess.GetDriverInternationalLicensesSummary(PersonID);
+        }
 
     }
 }

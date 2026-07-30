@@ -23,10 +23,14 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses
         {
             InitializeComponent();
 
+            _Person = People.Find(PersonID);
+            ctrlPersonCardEditable1.Person = _Person;
             _LocalLicensesTable = BLL.Licenses.GetDriverLocalLicensesSummary(PersonID);
             dgvLocalLicenses.DataSource = _LocalLicensesTable;
-
             dgvLocalLicenses.Columns["License class"].Width = 250;
+
+            _InternationalLicenseTable = BLL.InternationalLicenses.GetDriverInternationalLicensesSummary(PersonID);
+            dgvInternationalLicenses.DataSource= _InternationalLicenseTable;
         }
         public frmLicenseHistory(BLL.People Person)
         {
@@ -37,8 +41,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses
 
             _LocalLicensesTable = BLL.Licenses.GetDriverLocalLicensesSummary(Person.PersonID);
             dgvLocalLicenses.DataSource = _LocalLicensesTable;
-
             dgvLocalLicenses.Columns["License class"].Width = 250;
+
+            _InternationalLicenseTable = BLL.InternationalLicenses.GetDriverInternationalLicensesSummary(Person.PersonID);
+            dgvInternationalLicenses.DataSource = _InternationalLicenseTable;
         }
    }
 }

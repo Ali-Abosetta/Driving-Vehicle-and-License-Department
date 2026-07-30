@@ -59,11 +59,11 @@ namespace DAL
 
                                 Notes = string.Empty;
 
-                            PaidFees = (decimal)reader["PaidFees"];
+                            PaidFees = Convert.ToDecimal(reader["PaidFees"]);
 
                             IsActive = (bool)reader["IsActive"];
 
-                            IssueReason = (int)reader["IssueReason"];
+                            IssueReason = Convert.ToInt32(reader["IssueReason"]);
 
                             CreatedByUserID = (int)reader["CreatedByUserID"];
 

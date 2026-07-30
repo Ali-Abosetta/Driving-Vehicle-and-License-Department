@@ -12,6 +12,7 @@ using DrivingVehicleLicenseDepartment.Forms;
 using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
 using DrivingVehicleLicenseDepartment.Forms.Licenses;
+using DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense;
 using DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps;
 using Krypton.Toolkit;
@@ -115,6 +116,22 @@ namespace DrivingVehicleLicenseDepartment
             using (frmDrivers frmDrivers = new frmDrivers())
             {
                 frmDrivers.ShowDialog();
+            }
+        }
+
+        private void internationalLisenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmAddInternationalLicense frm =  new frmAddInternationalLicense(_CurrentUser))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void internationalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmInternationalDrivingLicensesApplications frm = new frmInternationalDrivingLicensesApplications(_CurrentUser))
+            {
+                frm.ShowDialog();
             }
         }
     }

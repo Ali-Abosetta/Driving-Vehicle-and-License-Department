@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BLL.People people2 = new BLL.People();
+            BLL.People people1 = new BLL.People();
             this.kryptonGroupBox1 = new Krypton.Toolkit.KryptonGroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -39,6 +39,7 @@
             this.kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
             this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonCardEditable();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.dgvInternationalLicenses = new Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -46,7 +47,9 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonGroupBox1
@@ -107,6 +110,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dgvInternationalLicenses);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -130,21 +134,21 @@
             this.ctrlPersonCardEditable1.Enabled = false;
             this.ctrlPersonCardEditable1.Location = new System.Drawing.Point(379, 75);
             this.ctrlPersonCardEditable1.Name = "ctrlPersonCardEditable1";
-            people2.Address = "";
-            people2.CountryInfo = null;
-            people2.DateOfBirth = new System.DateTime(2008, 7, 25, 14, 14, 56, 779);
-            people2.Email = "";
-            people2.FirstName = "";
-            people2.Gendor = 0;
-            people2.ImagePath = null;
-            people2.LastName = "";
-            people2.NationalityCountryID = 100;
-            people2.NationalNo = "";
-            people2.PersonID = -1;
-            people2.Phone = "";
-            people2.SecondName = "";
-            people2.ThirdName = "";
-            this.ctrlPersonCardEditable1.Person = people2;
+            people1.Address = "";
+            people1.CountryInfo = null;
+            people1.DateOfBirth = new System.DateTime(2008, 7, 25, 14, 14, 56, 779);
+            people1.Email = "";
+            people1.FirstName = "";
+            people1.Gendor = 0;
+            people1.ImagePath = null;
+            people1.LastName = "";
+            people1.NationalityCountryID = 100;
+            people1.NationalNo = "";
+            people1.PersonID = -1;
+            people1.Phone = "";
+            people1.SecondName = "";
+            people1.ThirdName = "";
+            this.ctrlPersonCardEditable1.Person = people1;
             this.ctrlPersonCardEditable1.Size = new System.Drawing.Size(881, 377);
             this.ctrlPersonCardEditable1.TabIndex = 0;
             // 
@@ -156,6 +160,24 @@
             this.kryptonLabel1.Size = new System.Drawing.Size(193, 35);
             this.kryptonLabel1.TabIndex = 5;
             this.kryptonLabel1.Values.Text = "Licenses History";
+            // 
+            // dgvInternationalLicenses
+            // 
+            this.dgvInternationalLicenses.AllowUserToAddRows = false;
+            this.dgvInternationalLicenses.AllowUserToDeleteRows = false;
+            this.dgvInternationalLicenses.AllowUserToOrderColumns = true;
+            this.dgvInternationalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInternationalLicenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInternationalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInternationalLicenses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInternationalLicenses.Location = new System.Drawing.Point(3, 3);
+            this.dgvInternationalLicenses.Name = "dgvInternationalLicenses";
+            this.dgvInternationalLicenses.Palette = this.PaletteDGVs;
+            this.dgvInternationalLicenses.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            this.dgvInternationalLicenses.ReadOnly = true;
+            this.dgvInternationalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInternationalLicenses.Size = new System.Drawing.Size(1230, 178);
+            this.dgvInternationalLicenses.TabIndex = 25;
             // 
             // frmLicenseHistory
             // 
@@ -175,7 +197,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +216,6 @@
         private Krypton.Toolkit.KryptonDataGridView dgvLocalLicenses;
         private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonDataGridView dgvInternationalLicenses;
     }
 }

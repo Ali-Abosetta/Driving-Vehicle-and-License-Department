@@ -72,6 +72,49 @@ namespace DAL
             return isFound;
 
         }
+
+        public static bool FindFromInternationalLicensesByDriverID(int DriverID, ref int InternationalLicenseID, ref int ApplicationID, ref int IssuedUsingLocalLicenseID, ref DateTime IssueDate, ref DateTime ExpirationDate, ref bool IsActive, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT * FROM InternationalLicenses 
+                                    Where DriverID = @DriverID AND IsActive = 1";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DriverID", DriverID);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            if (reader.Read())
+                            {
+
+                                InternationalLicenseID = (int)reader["InternationalLicenseID"];
+                                ApplicationID = (int)reader["ApplicationID"];
+                                DriverID = (int)reader["DriverID"];
+                                IssuedUsingLocalLicenseID = (int)reader["IssuedUsingLocalLicenseID"];
+                                IssueDate = (DateTime)reader["IssueDate"];
+                                ExpirationDate = (DateTime)reader["ExpirationDate"];
+                                IsActive = (bool)reader["IsActive"];
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                                isFound = true;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+            return isFound;
+        }
         public static bool IsExistsInInternationalLicensesByInternationalLicenseID(int InternationalLicenseID)
 
 
@@ -341,6 +384,131 @@ namespace DAL
             return dataTable;
 
         }
+
+        public static int GetActiveInternationalLicenseIDByDriverID(int DriverID)
+        {
+            int InternationalLicenseID = 0;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT InternationalLicenseID FROM InternationalLicenses 
+                                    WHERE DriverID = @DriverID AND IsActive = 1";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DriverID", DriverID);
+                    connection.Open();
+                    InternationalLicenseID = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+
+            return InternationalLicenseID;
+        }
+        public static DataTable GetInternationalLicensesSummary()
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT 
+	                                i.InternationalLicenseID AS [Int. license ID],
+                                	i.ApplicationID AS [Application ID],
+	                                l.LicenseID AS [Local License ID],
+	                                FORMAT(i.IssueDate, 'dd/MM/yyyy') AS [Issue date],
+	                                FORMAT(i.ExpirationDate, 'dd/MM/yyyy') AS [Expiration date],
+	                                i.IsActive AS [Is active]
+                                FROM InternationalLicenses i 
+	                                JOIN Licenses l
+		                                ON i.DriverID = l.DriverID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dataTable.Load(reader);
+                            }
+                        }
+                        foreach (DataColumn column in dataTable.Columns)
+                        {
+                            column.ReadOnly = false;
+                        }
+
+                        //Note: when you change the database from the testing db into the working db uncomment the following:
+
+                        //dataTable.PrimaryKey = new DataColumn[]
+                        //{
+                        //        dataTable.Columns["Int. license ID"]
+                        //};
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return dataTable;
+        }
+
+        public static DataTable GetDriverInternationalLicensesSummary(int PersonID)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT 
+	                                i.InternationalLicenseID AS [Int. license ID],
+                                	i.ApplicationID AS [Application ID],
+	                                l.LicenseID AS [Local License ID],
+	                                FORMAT(i.IssueDate, 'dd/MM/yyyy') AS [Issue date],
+	                                FORMAT(i.ExpirationDate, 'dd/MM/yyyy') AS [Expiration date],
+	                                i.IsActive AS [Is active]
+                                FROM InternationalLicenses i 
+	                                JOIN Licenses l
+		                                ON i.DriverID = l.DriverID
+                                    JOIN Drivers d
+                                        ON d.DriverID = i.DriverID
+                                WHERE d.PersonID = @PersonID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dataTable.Load(reader);
+                            }
+                        }
+                        foreach (DataColumn column in dataTable.Columns)
+                        {
+                            column.ReadOnly = false;
+                        }
+                        //Note: when you change the database from the testing db into the working db uncomment the following:
+
+                        //dataTable.PrimaryKey = new DataColumn[]
+                        //{
+                        //        dataTable.Columns["Int. license ID"]
+                        //};
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return dataTable;
+        }
+
 
     }
 }

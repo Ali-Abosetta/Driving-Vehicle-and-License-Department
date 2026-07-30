@@ -15,6 +15,31 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
     {
         public event EventHandler OnLicenseSelected;
         public event EventHandler OnLicenseNotFound;
+
+        public Licenses License
+        {
+            get
+            {
+                return ctrlDriverLicenseCard1.License;
+            }
+            set
+            {
+                ctrlDriverLicenseCard1.License = value;
+            }
+        }
+
+        public Applications Application
+        {
+            get
+            {
+                return ctrlInternationLicenseApplicationBasicInfo1.Application;
+            }
+            set
+            {
+                ctrlInternationLicenseApplicationBasicInfo1.Application = value;
+            }
+        }
+
         public ctrlLicenseApplicationWithFilter()
         {
             InitializeComponent();
@@ -22,14 +47,17 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
 
         private void Search(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            if (!string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 Licenses license = Licenses.Find(Convert.ToInt32(txtSearch.Text));
 
                 if (license != null) 
                 {
-                    ctrlDriverLicenseCard1.License = license;
-                    
+                     License = license;
+
+                    ctrlInternationLicenseApplicationBasicInfo1
+                        .lblLocalLicenseID.Text = txtSearch.Text;
+
                     OnLicenseSelected?.Invoke(this, new EventArgs());
                 }
                 else

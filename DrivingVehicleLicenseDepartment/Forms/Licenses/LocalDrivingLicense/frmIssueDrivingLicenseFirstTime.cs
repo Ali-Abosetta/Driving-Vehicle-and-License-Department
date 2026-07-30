@@ -20,7 +20,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         public event DatabackEventHandler DataBack;
 
         private Users _CurrentUser = new Users();
-        private Applications _App = new Applications();
+        private BLL.Applications _App = new BLL.Applications();
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
         private BLL.Drivers _Driver = null;
         private BLL.Licenses _License = new BLL.Licenses();
@@ -80,7 +80,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
             if (_License.Save())
             {
-                _App.ApplicationStatus = (int)Applications.enStatus.Completed; 
+                _App.ApplicationStatus = (int)BLL.Applications.enStatus.Completed; 
                 _App.Save();
 
                 KryptonMessageBox.Show("License issued Successfully.",

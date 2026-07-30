@@ -26,7 +26,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
         public frmLocalDrivingLicenseApplicationCard(
             LocalDrivingLicenseApplications LocalApplication,
-            Applications Application)
+            BLL.Applications Application)
         {
             InitializeComponent();
 

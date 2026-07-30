@@ -82,12 +82,12 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                 localApp = LocalDrivingLicenseApplications.Find(SelectedApplicationID);
                 if (localApp != null)
                 {
-                    Applications app = null;
+                    BLL.Applications app = null;
                     app = localApp.ApplicationInfo;
 
                     if (app != null)
                     {
-                        app.ApplicationStatus = (int)Applications.enStatus.Canceled;
+                        app.ApplicationStatus = (int)BLL.Applications.enStatus.Canceled;
                         app.Save();
                         refreshDgv();
                     }

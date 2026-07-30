@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.kryptonGroupBox1 = new Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             this.lblExpairationDate = new Krypton.Toolkit.KryptonLabel();
             this.lblIssueDate = new Krypton.Toolkit.KryptonLabel();
             this.lblDriverID = new Krypton.Toolkit.KryptonLabel();
@@ -52,7 +53,6 @@
             this.kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.pbPicture = new Krypton.Toolkit.KryptonPictureBox();
-            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -94,6 +94,15 @@
             this.kryptonGroupBox1.Size = new System.Drawing.Size(860, 349);
             this.kryptonGroupBox1.TabIndex = 0;
             this.kryptonGroupBox1.Values.Heading = "Driver international license information";
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel4.Location = new System.Drawing.Point(704, 20);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(115, 27);
+            this.kryptonLabel4.TabIndex = 45;
+            this.kryptonLabel4.Values.Text = "Driver\'s Picture:";
             // 
             // lblExpairationDate
             // 
@@ -291,19 +300,9 @@
             this.pbPicture.TabIndex = 44;
             this.pbPicture.TabStop = false;
             // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.kryptonLabel4.Location = new System.Drawing.Point(704, 20);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(115, 27);
-            this.kryptonLabel4.TabIndex = 45;
-            this.kryptonLabel4.Values.Text = "Driver\'s Picture:";
-            // 
             // ctrlInternationalLicenseCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.kryptonGroupBox1);
             this.Name = "ctrlInternationalLicenseCard";
             this.Size = new System.Drawing.Size(860, 349);

@@ -13,7 +13,7 @@ using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense
 {
-    public partial class frmAddInternationalLicense : Form
+    public partial class frmAddInternationalLicense : KryptonForm
     {
         private Users _CurrentUser;
         private BLL.Licenses _License;
@@ -37,21 +37,21 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
             if (ctrlLicenseApplicationWithFilter1.License.LicenseClass != 3)
             {
                 KryptonMessageBox.Show("The License should be an Ordinary license.", "Wrong license type"
-                    , KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                    , KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning, false);
                 return;
             }
 
             else if (!ctrlLicenseApplicationWithFilter1.License.IsActive)
             {
                 KryptonMessageBox.Show("The License should be Active.", "Inactive license warning"
-                        , KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                        , KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning, false);
                 return;
             }
 
             else if (ctrlLicenseApplicationWithFilter1.License.ExpirationDate < DateTime.Now)
             {
                 KryptonMessageBox.Show("The License shouldn't be Expaired.", "Expaired license warning"
-                        , KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                        , KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning, false);
                 return;
             }
 
@@ -66,7 +66,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
                 KryptonMessageBox.Show(
                     $"This driver already has an active international license with ID: " +
                     $"{_InternationalLicense.InternationalLicenseID}.",
-                    "International driver warninig", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                    "International driver warninig", KryptonMessageBoxButtons.OK,
+                    KryptonMessageBoxIcon.Warning, false);
                 
                 lblShowLicenseHistory.Enabled = true;
                 lblShowLicenseInfo.Enabled = true;
@@ -74,9 +75,9 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
             }
 
 
-            Applications application = new Applications();
+            BLL.Applications application = new BLL.Applications();
             application.ApplicationDate = DateTime.Now;
-            application.ApplicationStatus = (int)Applications.enStatus.New;
+            application.ApplicationStatus = (int)BLL.Applications.enStatus.New;
 
             BLL.ApplicationsTypes appType = null;
             appType = ApplicationsTypes
@@ -106,15 +107,15 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            Applications app = ctrlLicenseApplicationWithFilter1.Application;
+            BLL.Applications app = ctrlLicenseApplicationWithFilter1.Application;
 
-            app.ApplicationStatus = (int)Applications.enStatus.Completed;
+            app.ApplicationStatus = (int)BLL.Applications.enStatus.Completed;
             app.LastStatusDate = DateTime.Now;
 
             if (!app.Save())
             {
                 KryptonMessageBox.Show("Failed to save the Application.", 
-                    "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                    "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
                 return;
             }
 
@@ -130,13 +131,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
             if (!internationalLicense.Save())
             {
                 KryptonMessageBox.Show("Failed to issue the International License.",
-                    "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                    "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
                 return;
             }
 
             KryptonMessageBox.Show($"International License Issued Successfully with ID:" +
                 $" {internationalLicense.InternationalLicenseID}",
-                "Success", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                "Success", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false);
 
             _InternationalLicense = internationalLicense;
 

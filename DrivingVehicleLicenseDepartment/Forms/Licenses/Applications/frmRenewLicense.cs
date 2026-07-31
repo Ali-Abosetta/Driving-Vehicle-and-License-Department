@@ -15,7 +15,7 @@ using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
 {
-    public partial class frmRenewLicense : Form
+    public partial class frmRenewLicense : KryptonForm
     {
         private BLL.Licenses _OldLicense;
         private Users _CurrentUser;

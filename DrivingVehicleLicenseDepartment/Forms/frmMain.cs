@@ -13,6 +13,7 @@ using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
 using DrivingVehicleLicenseDepartment.Forms.Licenses;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.Applications;
+using DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense;
 using DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps;
@@ -147,6 +148,30 @@ namespace DrivingVehicleLicenseDepartment
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (frmReplaceLicense frm = new frmReplaceLicense(_CurrentUser))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmDetainedLicenses frm = new frmDetainedLicenses(_CurrentUser))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void detainALisenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmDetainLicense frm = new frmDetainLicense(_CurrentUser))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void releaseDetainedLisenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense(_CurrentUser))
             {
                 frm.ShowDialog();
             }

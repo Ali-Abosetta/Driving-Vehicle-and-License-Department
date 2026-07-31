@@ -15,16 +15,14 @@ namespace DrivingVehicleLicenseDepartment
 {
     public partial class frmPersonCard : KryptonForm
     {
-        public frmPersonCard(int PersonID)
+        private void MakeCardReadOnly()
         {
-            InitializeComponent();
 
-            ctrlPersonCardEditable1.Person = People.Find(PersonID);
             ctrlPersonCardEditable1.Enabled = false;
 
             ctrlPersonCardEditable1.lblPicture.Visible = false;
 
-            if(ctrlPersonCardEditable1.Person.Gendor == 0)
+            if (ctrlPersonCardEditable1.Person.Gendor == 0)
             {
                 ctrlPersonCardEditable1.rbFemale.Visible = false;
                 ctrlPersonCardEditable1.rbMale.Visible = true;
@@ -35,6 +33,20 @@ namespace DrivingVehicleLicenseDepartment
                 ctrlPersonCardEditable1.rbFemale.Visible = true;
             }
         }
+
+        public frmPersonCard(int PersonID)
+        {
+            InitializeComponent();
+            MakeCardReadOnly();
+            ctrlPersonCardEditable1.Person = People.Find(PersonID);
+        }
+        public frmPersonCard(People person)
+        {
+            InitializeComponent();
+            MakeCardReadOnly();
+            ctrlPersonCardEditable1.Person = person;
+        }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

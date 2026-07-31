@@ -93,6 +93,24 @@
     <Compile Include="CustomControls\ctrlApplicationReplacementLicenseInfo.Designer.cs">
       <DependentUpon>ctrlApplicationReplacementLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ctrlDetainInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlDetainInfo.Designer.cs">
+      <DependentUpon>ctrlDetainInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ctrlDetainInfoForRelease.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlDetainInfoForRelease.Designer.cs">
+      <DependentUpon>ctrlDetainInfoForRelease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ctrlDetainLicenseWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlDetainLicenseWithFilter.Designer.cs">
+      <DependentUpon>ctrlDetainLicenseWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\ctrlDriverLicenseCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +146,12 @@
     </Compile>
     <Compile Include="CustomControls\ctrlPersonCardEditable.Designer.cs">
       <DependentUpon>ctrlPersonCardEditable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ctrlReleaseLicenseWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ctrlReleaseLicenseWithFilter.Designer.cs">
+      <DependentUpon>ctrlReleaseLicenseWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ctrlRenewLicenseWithFilter.cs">
       <SubType>UserControl</SubType>
@@ -194,6 +218,24 @@
     </Compile>
     <Compile Include="Forms\Licenses\Applications\frmReplaceLicense.Designer.cs">
       <DependentUpon>frmReplaceLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Licenses\DetainLicenses\frmDetainedLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Licenses\DetainLicenses\frmDetainedLicenses.Designer.cs">
+      <DependentUpon>frmDetainedLicenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Licenses\DetainLicenses\frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Licenses\DetainLicenses\frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Licenses\DetainLicenses\frmReleaseDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Licenses\DetainLicenses\frmReleaseDetainedLicense.Designer.cs">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Licenses\frmLicenseHistory.cs">
       <SubType>Form</SubType>
@@ -344,6 +386,15 @@
     <EmbeddedResource Include="CustomControls\ctrlApplicationReplacementLicenseInfo.resx">
       <DependentUpon>ctrlApplicationReplacementLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlDetainInfo.resx">
+      <DependentUpon>ctrlDetainInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlDetainInfoForRelease.resx">
+      <DependentUpon>ctrlDetainInfoForRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlDetainLicenseWithFilter.resx">
+      <DependentUpon>ctrlDetainLicenseWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlDriverLicenseCard.resx">
       <DependentUpon>ctrlDriverLicenseCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -361,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlPersonCardEditable.resx">
       <DependentUpon>ctrlPersonCardEditable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ctrlReleaseLicenseWithFilter.resx">
+      <DependentUpon>ctrlReleaseLicenseWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlRenewLicenseWithFilter.resx">
       <DependentUpon>ctrlRenewLicenseWithFilter.cs</DependentUpon>
@@ -394,6 +448,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Licenses\Applications\frmReplaceLicense.resx">
       <DependentUpon>frmReplaceLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Licenses\DetainLicenses\frmDetainedLicenses.resx">
+      <DependentUpon>frmDetainedLicenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Licenses\DetainLicenses\frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Licenses\DetainLicenses\frmReleaseDetainedLicense.resx">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Licenses\frmLicenseHistory.resx">
       <DependentUpon>frmLicenseHistory.cs</DependentUpon>
@@ -698,7 +761,9 @@
   <ItemGroup>
     <None Include="Resources\PersonLicenseHistory 32.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Detain 512.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Schedule Test 321.png" />
   </ItemGroup>

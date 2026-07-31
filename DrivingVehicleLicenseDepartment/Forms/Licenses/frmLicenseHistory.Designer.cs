@@ -36,10 +36,10 @@
             this.dgvLocalLicenses = new Krypton.Toolkit.KryptonDataGridView();
             this.PaletteDGVs = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvInternationalLicenses = new Krypton.Toolkit.KryptonDataGridView();
             this.kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
             this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonCardEditable();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.dgvInternationalLicenses = new Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -48,8 +48,8 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonGroupBox1
@@ -119,6 +119,24 @@
             this.tabPage2.Text = "International";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvInternationalLicenses
+            // 
+            this.dgvInternationalLicenses.AllowUserToAddRows = false;
+            this.dgvInternationalLicenses.AllowUserToDeleteRows = false;
+            this.dgvInternationalLicenses.AllowUserToOrderColumns = true;
+            this.dgvInternationalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInternationalLicenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInternationalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInternationalLicenses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInternationalLicenses.Location = new System.Drawing.Point(3, 3);
+            this.dgvInternationalLicenses.Name = "dgvInternationalLicenses";
+            this.dgvInternationalLicenses.Palette = this.PaletteDGVs;
+            this.dgvInternationalLicenses.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            this.dgvInternationalLicenses.ReadOnly = true;
+            this.dgvInternationalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInternationalLicenses.Size = new System.Drawing.Size(1230, 178);
+            this.dgvInternationalLicenses.TabIndex = 25;
+            // 
             // kryptonPictureBox1
             // 
             this.kryptonPictureBox1.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.PersonLicenseHistory_512;
@@ -161,24 +179,6 @@
             this.kryptonLabel1.TabIndex = 5;
             this.kryptonLabel1.Values.Text = "Licenses History";
             // 
-            // dgvInternationalLicenses
-            // 
-            this.dgvInternationalLicenses.AllowUserToAddRows = false;
-            this.dgvInternationalLicenses.AllowUserToDeleteRows = false;
-            this.dgvInternationalLicenses.AllowUserToOrderColumns = true;
-            this.dgvInternationalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvInternationalLicenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvInternationalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInternationalLicenses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInternationalLicenses.Location = new System.Drawing.Point(3, 3);
-            this.dgvInternationalLicenses.Name = "dgvInternationalLicenses";
-            this.dgvInternationalLicenses.Palette = this.PaletteDGVs;
-            this.dgvInternationalLicenses.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
-            this.dgvInternationalLicenses.ReadOnly = true;
-            this.dgvInternationalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInternationalLicenses.Size = new System.Drawing.Size(1230, 178);
-            this.dgvInternationalLicenses.TabIndex = 25;
-            // 
             // frmLicenseHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,8 +198,8 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

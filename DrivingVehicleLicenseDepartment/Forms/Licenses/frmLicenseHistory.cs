@@ -46,5 +46,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses
             _InternationalLicenseTable = BLL.InternationalLicenses.GetDriverInternationalLicensesSummary(Person.PersonID);
             dgvInternationalLicenses.DataSource = _InternationalLicenseTable;
         }
-   }
+
+    }
 }

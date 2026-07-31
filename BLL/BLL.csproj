@@ -44,6 +44,7 @@
     <Compile Include="Applications.cs" />
     <Compile Include="ApplicationsTypes.cs" />
     <Compile Include="Countries.cs" />
+    <Compile Include="DetainedLicenses.cs" />
     <Compile Include="Drivers.cs" />
     <Compile Include="Enum\PersonCardModes.cs" />
     <Compile Include="InternationalLicenses.cs" />

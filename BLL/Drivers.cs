@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
@@ -15,19 +16,105 @@ namespace BLL
         private enMode Mode = enMode.AddNew;
 
         public int DriverID { get; set; }
-        public int PersonID { get; set; }
-        public int CreatedByUserID { get; set; }
-        public DateTime CreatedDate { get; set; }
 
-        public People PersonInfo;
-        public Users CreatedByUserInfo;
-
-        private void _LoadCompositions()
+        private int _PersonID;
+        public int PersonID
         {
-            PersonInfo = People.Find(PersonID);
-            CreatedByUserInfo = Users.Find(CreatedByUserID);
+            get
+            {
+                return _PersonID; 
+            }
+            set
+            {
+                if (_PersonID != value)
+                {
+                    _PersonID = value;
+                    _PersonInfo = null;
+                }
+            }
         }
 
+        private int _CreatedByUserID;
+        public int CreatedByUserID
+        {
+            get
+            {
+                return _CreatedByUserID;
+            }
+            set
+            {
+                if (_CreatedByUserID != value)
+                {
+                    _CreatedByUserID = value;
+                    _CreatedByUserInfo = null;
+                }
+            }
+        }
+
+        public DateTime CreatedDate { get; set; }
+
+        private People _PersonInfo;
+        public People PersonInfo
+        {
+            get
+            {
+                if (_PersonInfo == null && PersonID != -1)
+                {
+                    _PersonInfo = People.Find(PersonID);
+                }
+                return _PersonInfo;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (PersonID == -1)
+                {
+                    _PersonInfo = value;
+                    _PersonID = _PersonInfo.PersonID;
+                }
+
+                else if (value.PersonID == PersonID)
+                {
+                    _PersonInfo = value;
+                }
+            }
+        }
+
+        private Users _CreatedByUserInfo;
+        public Users CreatedByUserInfo
+        {
+            get
+            {
+
+                if (_CreatedByUserInfo == null && CreatedByUserID != -1)
+                {
+                    _CreatedByUserInfo = Users.Find(CreatedByUserID);
+                }
+
+                return _CreatedByUserInfo;
+            }
+            set
+            {
+                if (value == null)
+                    return;
+
+                if (CreatedByUserID == -1)
+                {
+                    _CreatedByUserInfo = value;
+                    _CreatedByUserID = _CreatedByUserInfo.UserID;
+                    return;
+                }
+
+                else if (value.UserID == CreatedByUserID)
+                {
+                    _CreatedByUserInfo = value;
+                }
+            }
+        }
         private Drivers(int DriverID, int PersonID, int CreatedByUserID, DateTime CreatedDate)
         {
             this.DriverID = DriverID;
@@ -35,7 +122,6 @@ namespace BLL
             this.CreatedByUserID = CreatedByUserID;
             this.CreatedDate = CreatedDate;
 
-            _LoadCompositions();
         }
         public Drivers()
         {
@@ -112,7 +198,6 @@ namespace BLL
 
                     if (_AddNewToDrivers())
                     {
-                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -122,7 +207,6 @@ namespace BLL
 
                     if (_UpdateDrivers())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

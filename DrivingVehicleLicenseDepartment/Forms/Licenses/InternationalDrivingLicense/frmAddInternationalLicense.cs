@@ -60,18 +60,20 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
             //    .GetActiveInternationalLicenseIDByDriverID(ctrlLicenseApplicationWithFilter1.License.DriverID);
 
             _InternationalLicense = InternationalLicenses.FindByDriverID(_License.DriverInfo.DriverID);
-
-            if (_InternationalLicense.InternationalLicenseID > 0)
+            if (_InternationalLicense != null)
             {
-                KryptonMessageBox.Show(
-                    $"This driver already has an active international license with ID: " +
-                    $"{_InternationalLicense.InternationalLicenseID}.",
-                    "International driver warninig", KryptonMessageBoxButtons.OK,
-                    KryptonMessageBoxIcon.Warning, false);
-                
-                lblShowLicenseHistory.Enabled = true;
-                lblShowLicenseInfo.Enabled = true;
-                return;
+                if (_InternationalLicense.InternationalLicenseID > 0)
+                {
+                    KryptonMessageBox.Show(
+                        $"This driver already has an active international license with ID: " +
+                        $"{_InternationalLicense.InternationalLicenseID}.",
+                        "International driver warninig", KryptonMessageBoxButtons.OK,
+                        KryptonMessageBoxIcon.Warning, false);
+
+                    lblShowLicenseHistory.Enabled = true;
+                    lblShowLicenseInfo.Enabled = true;
+                    return;
+                }
             }
 
 

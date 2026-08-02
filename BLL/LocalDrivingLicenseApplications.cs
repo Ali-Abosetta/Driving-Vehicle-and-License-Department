@@ -15,10 +15,111 @@ namespace BLL
         private enMode Mode = enMode.AddNew;
 
         public int LocalDrivingLicenseApplicationID { get; set; }
-        public int ApplicationID { get; set; }
-        public int LicenseClassID { get; set; }
-        public LicenseClasses LicenseClassInfo { get; set; }
-        public Applications ApplicationInfo { get; set; }
+
+        private int _ApplicationID;
+        public int ApplicationID
+        {
+            get
+            {
+                return _ApplicationID;
+            }
+
+            set
+            {
+                if (value != ApplicationID)
+                {
+                    _ApplicationID = value;
+                    _ApplicationInfo = null;
+                }
+            }
+        }
+
+        private int _LicenseClassID;
+        public int LicenseClassID
+        {
+            get
+            {
+                return _LicenseClassID;
+            }
+
+            set
+            {
+                if (value != _LicenseClassID)
+                {
+                    _LicenseClassID = value;
+                    _LicenseClassInfo = null;
+                }
+            }
+        }
+
+        private LicenseClasses _LicenseClassInfo;
+        public LicenseClasses LicenseClassInfo
+        {
+            get
+            {
+                if (_LicenseClassInfo == null && _LicenseClassID != -1)
+                {
+                    _LicenseClassInfo = LicenseClasses.Find(LicenseClassID);
+                }
+                return _LicenseClassInfo;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (LicenseClassID == -1)
+                {
+                    _LicenseClassInfo = value;
+                    _LicenseClassID = LicenseClassInfo.LicenseClassID;
+                }
+
+                else if (value.LicenseClassID == LicenseClassID)
+                {
+                    _LicenseClassInfo = value;
+                }
+            }
+        }
+
+
+        private Applications _ApplicationInfo;
+        public Applications ApplicationInfo
+        {
+            get
+            {
+
+                if (_ApplicationInfo == null && ApplicationID != -1)
+                {
+                    _ApplicationInfo = Applications.Find(ApplicationID);
+                }
+
+                return _ApplicationInfo;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (ApplicationID == -1)
+                {
+                    _ApplicationInfo = value;
+                    _ApplicationID = _ApplicationInfo.ApplicationID;
+
+                }
+
+                else if (value.ApplicationID == ApplicationID)
+                {
+                    _ApplicationInfo = value;
+                }
+            }
+        }
+
         public static List<string> GetSearchFilters()
         {
             return new List<string>
@@ -30,19 +131,12 @@ namespace BLL
             };
         }
 
-        private void _LoadCompositions()
-        {
-            this.LicenseClassInfo = LicenseClasses.Find(this.LicenseClassID);
-            this.ApplicationInfo = Applications.Find(this.ApplicationID);
-        }
-
         private LocalDrivingLicenseApplications(int LocalDrivingLicenseApplicationID, int ApplicationID, int LicenseClassID)
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.ApplicationID = ApplicationID;
             this.LicenseClassID = LicenseClassID;
 
-            _LoadCompositions();
 
             this.Mode = enMode.Update;
         }
@@ -105,7 +199,6 @@ namespace BLL
 
                     if (_AddNewToLocalDrivingLicenseApplications())
                     {
-                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -115,7 +208,6 @@ namespace BLL
 
                     if (_UpdateLocalDrivingLicenseApplications())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

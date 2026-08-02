@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
@@ -15,23 +16,166 @@ namespace BLL
         private enMode Mode = enMode.AddNew;
 
         public int TestAppointmentID { get; set; }
-        public int TestTypeID { get; set; }
-        public int LocalDrivingLicenseApplicationID { get; set; }
+
+        private int _TestTypeID;
+        public int TestTypeID
+        {
+            get
+            {
+                return _TestTypeID;
+            }
+
+            set
+            {
+                if (value != _TestTypeID)
+                {
+                    _TestTypeID = value;
+                    _TestTypesInfo = null;
+                }
+            }
+        }
+
+        private int _LocalDrivingLicenseApplicationID;
+        public int LocalDrivingLicenseApplicationID
+        {
+            get
+            {
+                return _LocalDrivingLicenseApplicationID;
+            }
+
+            set
+            {
+                if (value !=  _LocalDrivingLicenseApplicationID)
+                {
+                    _LocalDrivingLicenseApplicationID = value;
+                    _LocalApplicationInfo = null;
+                }
+            }
+        }
+
         public DateTime AppointmentDate { get; set; }
         public decimal PaidFees { get; set; }
-        public int CreatedByUserID { get; set; }
+
+        private int _CreatedByUserID;
+        public int CreatedByUserID
+        {
+            get
+            {
+                return _CreatedByUserID;
+            }
+            set
+            {
+                if (_CreatedByUserID != value)
+                {
+                    _CreatedByUserID = value;
+                    _CreatedByUserInfo = null;
+                }
+            }
+        }
+
         public bool IsLocked { get; set; }
         public int? RetakeTestApplicationID { get; set; }
-        public TestTypes TestTypesInfo { get; set; }
-        public LocalDrivingLicenseApplications LocalApplicationInfo { get; set; }
-        public Users CreatedByUserInfo { get; set; }
 
-        private void _LoadCompositions()
+        private TestTypes _TestTypesInfo;
+        public TestTypes TestTypesInfo
         {
-            this.TestTypesInfo = TestTypes.Find(this.TestTypeID);
-            this.LocalApplicationInfo = LocalDrivingLicenseApplications.Find(this.LocalDrivingLicenseApplicationID);
-            this.CreatedByUserInfo = Users.Find(this.CreatedByUserID);
+            get
+            {
+                if (_TestTypesInfo == null && TestTypeID != -1)
+                {
+                    _TestTypesInfo = TestTypes.Find(TestTypeID);
+                }
+                return _TestTypesInfo;
+            }
+
+            set
+            {
+
+                if(value == null)
+                {
+                    return;
+                }
+
+                if(TestTypeID == -1)
+                {
+                    _TestTypesInfo = value;
+                    _TestTypeID = _TestTypesInfo.TestTypeID;
+                }
+
+                else if (value.TestTypeID == TestTypeID)
+                {
+                    _TestTypesInfo = value;
+                }
+
+            }
         }
+
+
+        private LocalDrivingLicenseApplications _LocalApplicationInfo;
+        public LocalDrivingLicenseApplications LocalApplicationInfo
+        {
+            get
+            {
+                if (_LocalApplicationInfo == null && LocalDrivingLicenseApplicationID != -1)
+                {
+                    _LocalApplicationInfo = LocalDrivingLicenseApplications.Find(LocalDrivingLicenseApplicationID);
+                }
+
+                return _LocalApplicationInfo;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (LocalDrivingLicenseApplicationID == -1)
+                {
+                    _LocalApplicationInfo = value;
+                    _LocalDrivingLicenseApplicationID = LocalApplicationInfo.LocalDrivingLicenseApplicationID;
+                }
+
+                else if (value.LocalDrivingLicenseApplicationID == LocalDrivingLicenseApplicationID)
+                {
+                    _LocalApplicationInfo = value;
+                }
+            }
+        }
+
+        private Users _CreatedByUserInfo;
+        public Users CreatedByUserInfo
+        {
+            get
+            {
+
+                if (_CreatedByUserInfo == null && CreatedByUserID != -1)
+                {
+                    _CreatedByUserInfo = Users.Find(CreatedByUserID);
+                }
+
+                return _CreatedByUserInfo;
+            }
+            set
+            {
+                if (value == null)
+                    return;
+
+                if (CreatedByUserID == -1)
+                {
+                    _CreatedByUserInfo = value;
+                    _CreatedByUserID = _CreatedByUserInfo.UserID;
+                    return;
+                }
+
+                else if (value.UserID == CreatedByUserID)
+                {
+                    _CreatedByUserInfo = value;
+                }
+            }
+        }
+
 
         private TestAppointments(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked, int? RetakeTestApplicationID)
         {
@@ -44,7 +188,6 @@ namespace BLL
             this.IsLocked = IsLocked;
             this.RetakeTestApplicationID = RetakeTestApplicationID;
 
-            _LoadCompositions();
 
             Mode = enMode.Update;
         }
@@ -118,7 +261,6 @@ namespace BLL
 
                     if (_AddNewToTestAppointments())
                     {
-                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -128,7 +270,6 @@ namespace BLL
 
                     if (_UpdateTestAppointments())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

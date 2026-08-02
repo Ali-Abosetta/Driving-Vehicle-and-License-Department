@@ -15,17 +15,108 @@ namespace BLL
         private enMode Mode = enMode.AddNew;
 
         public int TestID { get; set; }
-        public int TestAppointmentID { get; set; }
+
+        private int _TestAppointmentID;
+        public int TestAppointmentID
+        {
+            get
+            {
+                return _TestAppointmentID;
+            }
+
+            set
+            {
+                if(value !=  _TestAppointmentID)
+                {
+                    _TestAppointmentID = value;
+                    _TestAppointmentInfo = null;
+                }
+            }
+        }
+
+
         public bool TestResult { get; set; }
         public string Notes { get; set; }
-        public int CreatedByUserID { get; set; }
-        public TestAppointments TestAppointmentInfo { get; set; }
-        public Users CreatedByUserInfo { get; set; }
 
-        private void _LoadCompositions()
+        private int _CreatedByUserID;
+        public int CreatedByUserID
         {
-            this.TestAppointmentInfo = TestAppointments.Find(this.TestAppointmentID);
-            this.CreatedByUserInfo = Users.Find(this.CreatedByUserID);
+            get
+            {
+                return _CreatedByUserID;
+            }
+            set
+            {
+                if (_CreatedByUserID != value)
+                {
+                    _CreatedByUserID = value;
+                    _CreatedByUserInfo = null;
+                }
+            }
+        }
+
+        private TestAppointments _TestAppointmentInfo;
+        public TestAppointments TestAppointmentInfo
+        {
+            get
+            {
+                if (_TestAppointmentInfo == null && TestAppointmentID != -1)
+                {
+                    _TestAppointmentInfo = TestAppointments.Find(TestAppointmentID);
+                }
+                return _TestAppointmentInfo;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (TestAppointmentID == -1)
+                {
+                    _TestAppointmentInfo = value;
+                    _TestAppointmentID = _TestAppointmentInfo.TestAppointmentID;
+                }
+
+                else if (_TestAppointmentID == value.TestAppointmentID)
+                {
+                    _TestAppointmentInfo = value;
+                }
+            }
+        }
+
+        private Users _CreatedByUserInfo;
+        public Users CreatedByUserInfo
+        {
+            get
+            {
+
+                if (_CreatedByUserInfo == null && CreatedByUserID != -1)
+                {
+                    _CreatedByUserInfo = Users.Find(CreatedByUserID);
+                }
+
+                return _CreatedByUserInfo;
+            }
+            set
+            {
+                if (value == null)
+                    return;
+
+                if (CreatedByUserID == -1)
+                {
+                    _CreatedByUserInfo = value;
+                    _CreatedByUserID = _CreatedByUserInfo.UserID;
+                    return;
+                }
+
+                else if (value.UserID == _CreatedByUserID)
+                {
+                    _CreatedByUserInfo = value;
+                }
+            }
         }
 
         private Tests(int TestID, int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
@@ -35,8 +126,6 @@ namespace BLL
             this.TestResult = TestResult;
             this.Notes = Notes;
             this.CreatedByUserID = CreatedByUserID;
-
-            _LoadCompositions();
 
         }
         public Tests()
@@ -101,7 +190,6 @@ namespace BLL
 
                     if (_AddNewToTests())
                     {
-                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -111,7 +199,6 @@ namespace BLL
 
                     if (_UpdateTests())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

@@ -30,6 +30,7 @@
         {
             this.kryptonGroupBox1 = new Krypton.Toolkit.KryptonGroupBox();
             this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.pbPicture = new Krypton.Toolkit.KryptonPictureBox();
             this.lblExpairationDate = new Krypton.Toolkit.KryptonLabel();
             this.lblIssueDate = new Krypton.Toolkit.KryptonLabel();
             this.lblDriverID = new Krypton.Toolkit.KryptonLabel();
@@ -52,7 +53,6 @@
             this.kryptonLabel11 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.pbPicture = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -103,6 +103,16 @@
             this.kryptonLabel4.Size = new System.Drawing.Size(115, 27);
             this.kryptonLabel4.TabIndex = 45;
             this.kryptonLabel4.Values.Text = "Driver\'s Picture:";
+            // 
+            // pbPicture
+            // 
+            this.pbPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPicture.Location = new System.Drawing.Point(704, 54);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(132, 150);
+            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPicture.TabIndex = 44;
+            this.pbPicture.TabStop = false;
             // 
             // lblExpairationDate
             // 
@@ -290,15 +300,6 @@
             this.kryptonLabel1.Size = new System.Drawing.Size(115, 27);
             this.kryptonLabel1.TabIndex = 40;
             this.kryptonLabel1.Values.Text = "Int. license ID:";
-            // 
-            // pbPicture
-            // 
-            this.pbPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbPicture.Location = new System.Drawing.Point(704, 54);
-            this.pbPicture.Name = "pbPicture";
-            this.pbPicture.Size = new System.Drawing.Size(132, 150);
-            this.pbPicture.TabIndex = 44;
-            this.pbPicture.TabStop = false;
             // 
             // ctrlInternationalLicenseCard
             // 

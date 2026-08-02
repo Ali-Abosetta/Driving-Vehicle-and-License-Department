@@ -37,9 +37,59 @@ namespace BLL
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int NationalityCountryID { get; set; }
+
+        private int _NationalityCountryID;
+        public int NationalityCountryID
+        {
+            get
+            {
+                return _NationalityCountryID;
+            }
+
+            set
+            {
+                if (value !=  _NationalityCountryID)
+                {
+                    _NationalityCountryID = value;
+                    _CountryInfo = null;
+                }
+            }
+        }
+
         public string ImagePath { get; set; }
-        public Countries CountryInfo { get; set; }
+
+        private Countries _CountryInfo;
+        public Countries CountryInfo
+        {
+            get
+            {
+                if (_CountryInfo == null && NationalityCountryID != -1)
+                {
+                    _CountryInfo = Countries.Find(NationalityCountryID);
+                }
+                return _CountryInfo;
+            }
+
+            set
+            {
+                if(value == null)
+                {
+                    return;
+                }
+
+                if(NationalityCountryID == -1)
+                {
+                    _CountryInfo = value;
+                    _NationalityCountryID = _CountryInfo.CountryID;
+                }
+
+                else if (value.CountryID == NationalityCountryID)
+                {
+                    _CountryInfo = value;
+                }
+            }
+        }
+
         public static List<string> GetSearchFilters()
         {
             return new List<string> { "Person ID", "National No.",
@@ -47,10 +97,6 @@ namespace BLL
                 "Nationality", "Gender", "Phone Number", "Email" };
         }
 
-        private void _LoadCompositions()
-        {
-            this.CountryInfo = Countries.Find(this.NationalityCountryID);
-        }
 
         private People(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName, DateTime DateOfBirth, int Gendor, string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
@@ -68,7 +114,6 @@ namespace BLL
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
 
-            _LoadCompositions();
         }
         public People()
         {
@@ -173,7 +218,6 @@ namespace BLL
 
                     if (_AddNewToPeople())
                     {
-                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -183,7 +227,6 @@ namespace BLL
 
                     if (_UpdatePeople())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

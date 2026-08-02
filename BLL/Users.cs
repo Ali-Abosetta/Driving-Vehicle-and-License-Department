@@ -15,20 +15,63 @@ namespace BLL
         private enMode Mode = enMode.AddNew;
 
         public int UserID { get; set; }
-        public int PersonID { get; set; }
+
+        private int _PersonID;
+        public int PersonID
+        {
+            get
+            {
+                return _PersonID;
+            }
+            set
+            {
+                if (_PersonID != value)
+                {
+                    _PersonID = value;
+                    _PersonInfo = null;
+                }
+            }
+        }
+
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        public People PersonInfo { get; set; }
+
+        private People _PersonInfo;
+        public People PersonInfo
+        {
+            get
+            {
+                if (_PersonInfo == null && PersonID != -1)
+                {
+                    _PersonInfo = People.Find(PersonID);
+                }
+                return _PersonInfo;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (PersonID == -1)
+                {
+                    _PersonInfo = value;
+                    _PersonID = _PersonInfo.PersonID;
+                }
+
+                else if (value.PersonID == PersonID)
+                {
+                    _PersonInfo = value;
+                }
+            }
+        }
+
         public static List<string> GetSearchFilters()
         {
             return new List<string> { "User ID", "Person ID", 
                 "Full name", "Username", "Is active" };
-        }
-
-        private void _LoadCompositions()
-        {
-            this.PersonInfo = People.Find(this.PersonID);
         }
 
         private Users(int UserID, int PersonID, string UserName, string Password, bool IsActive)
@@ -39,7 +82,6 @@ namespace BLL
             this.Password = Password;
             this.IsActive = IsActive;
 
-            _LoadCompositions();
 
             this.Mode = enMode.Update;
 
@@ -124,7 +166,6 @@ namespace BLL
                     if (_AddNewToUsers())
                     {
                         Mode = enMode.Update;
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;
@@ -133,7 +174,6 @@ namespace BLL
 
                     if (_UpdateUsers())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

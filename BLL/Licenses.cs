@@ -23,28 +23,214 @@ namespace BLL
         }
 
         public int LicenseID { get; set; }
-        public int ApplicationID { get; set; }
-        public int DriverID { get; set; }
-        public int LicenseClass { get; set; }
+
+        private int _ApplicationID;
+        public int ApplicationID
+        {
+            get
+            {
+                return _ApplicationID;
+            }
+
+            set
+            {
+                if (value != ApplicationID)
+                {
+                    _ApplicationID = value;
+                    _ApplicationInfo = null;
+                }
+            }
+        }
+
+        private int _DriverID;
+        public int DriverID
+        {
+            get
+            {
+                return _DriverID;
+            }
+
+            set
+            {
+                if (value != _DriverID)
+                {
+                    _DriverID = value;
+                    _DriverInfo = null;
+                }
+            }
+        }
+
+        private int _LicenseClass;
+        public int LicenseClass
+        {
+            get
+            {
+                return _LicenseClass;
+            }
+
+            set
+            {
+                if(value != _LicenseClass)
+                {
+                    _LicenseClass = value;
+                    _LicenseClassInfo = null;
+                }
+            }
+        }
+
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string Notes { get; set; }
         public decimal PaidFees { get; set; }
         public bool IsActive { get; set; }
         public int IssueReason { get; set; }
-        public int CreatedByUserID { get; set; }
 
-        public Applications ApplicationInfo { get; set; }
-        public Drivers DriverInfo { get; set; }
-        public LicenseClasses LicenseClassInfo { get; set; }   
-        public Users CreatedByUserInfo { get; set; }
-
-        private void _LoadCompositions()
+        private int _CreatedByUserID;
+        public int CreatedByUserID
         {
-            ApplicationInfo = Applications.Find(ApplicationID);
-            DriverInfo = Drivers.Find(DriverID);
-            LicenseClassInfo = LicenseClasses.Find(LicenseClass);
-            CreatedByUserInfo = Users.Find(CreatedByUserID);
+            get
+            {
+                return _CreatedByUserID;
+            }
+            set
+            {
+                if (_CreatedByUserID != value)
+                {
+                    _CreatedByUserID = value;
+                    _CreatedByUserInfo = null;
+                }
+            }
+        }
+
+        private Applications _ApplicationInfo;
+        public Applications ApplicationInfo
+        {
+            get
+            {
+
+                if (_ApplicationInfo == null && ApplicationID != -1)
+                {
+                    _ApplicationInfo = Applications.Find(ApplicationID);
+                }
+
+                return _ApplicationInfo;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (ApplicationID == -1)
+                {
+                    _ApplicationInfo = value;
+                    _ApplicationID = _ApplicationInfo.ApplicationID;
+
+                }
+
+                else if (value.ApplicationID == ApplicationID)
+                {
+                    _ApplicationInfo = value;
+                }
+            }
+        }
+
+        private Drivers _DriverInfo;
+        public Drivers DriverInfo
+        {
+            get
+            {
+                if (_DriverInfo == null && DriverID != -1)
+                {
+                    _DriverInfo = Drivers.Find(DriverID);
+                }
+                return _DriverInfo;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (_DriverID == -1)
+                {
+                    _DriverInfo = value;
+                    _DriverID = _DriverInfo.DriverID;
+                }
+
+                else if (value.DriverID == DriverID)
+                {
+                    _DriverInfo = value;
+                }
+            }
+        }
+
+        private LicenseClasses _LicenseClassInfo;
+        public LicenseClasses LicenseClassInfo
+        {
+            get
+            {
+                if(_LicenseClassInfo == null && LicenseClass != -1)
+                {
+                    _LicenseClassInfo = LicenseClasses.Find(LicenseClass);
+                }
+                return _LicenseClassInfo;
+            }
+
+            set
+            {
+                if(value == null)
+                {
+                    return;
+                }
+
+                if(LicenseClass == -1)
+                {
+                    _LicenseClassInfo = value;
+                    _LicenseClass = LicenseClassInfo.LicenseClassID;
+                }
+
+                else if (value.LicenseClassID == LicenseClass)
+                {
+                    _LicenseClassInfo = value;
+                }
+            }
+        }
+
+        private Users _CreatedByUserInfo;
+        public Users CreatedByUserInfo
+        {
+            get
+            {
+
+                if (_CreatedByUserInfo == null && CreatedByUserID != -1)
+                {
+                    _CreatedByUserInfo = Users.Find(CreatedByUserID);
+                }
+
+                return _CreatedByUserInfo;
+            }
+            set
+            {
+                if (value == null)
+                    return;
+
+                if (CreatedByUserID == -1)
+                {
+                    _CreatedByUserInfo = value;
+                    _CreatedByUserID = _CreatedByUserInfo.UserID;
+                    return;
+                }
+
+                else if (value.UserID == CreatedByUserID)
+                {
+                    _CreatedByUserInfo = value;
+                }
+            }
         }
 
         private Licenses(int LicenseID, int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees, bool IsActive, int IssueReason, int CreatedByUserID)
@@ -61,7 +247,6 @@ namespace BLL
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
 
-            _LoadCompositions();
 
         }
         public Licenses()
@@ -162,7 +347,6 @@ namespace BLL
                     if (_AddNewToLicenses())
                     {
                         Mode = enMode.Update;
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;
@@ -171,7 +355,6 @@ namespace BLL
 
                     if (_UpdateLicenses())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

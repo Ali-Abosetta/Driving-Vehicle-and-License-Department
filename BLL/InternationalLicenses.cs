@@ -15,26 +15,212 @@ namespace BLL
         private enMode Mode = enMode.AddNew;
 
         public int InternationalLicenseID { get; set; }
-        public int ApplicationID { get; set; }
-        public int DriverID { get; set; }
-        public int IssuedUsingLocalLicenseID { get; set; }
+
+        private int _ApplicationID;
+        public int ApplicationID
+        {
+            get
+            {
+                return _ApplicationID;
+            }
+
+            set
+            {
+                if(value != ApplicationID)
+                {
+                    _ApplicationID = value;
+                    _ApplicationInfo = null;
+                }
+            }
+        }
+
+        private int _DriverID;
+        public int DriverID
+        {
+            get
+            {
+                return _DriverID;
+            }
+
+            set
+            {
+                if (value != _DriverID)
+                {
+                    _DriverID = value; 
+                    _DriverInfo = null;
+                }
+            }
+        }
+
+        private int _IssuedUsingLocalLicenseID;
+        public int IssuedUsingLocalLicenseID
+        {
+            get
+            {
+                return _IssuedUsingLocalLicenseID;
+            }
+
+            set
+            {
+                if(value != _IssuedUsingLocalLicenseID)
+                {
+                    _IssuedUsingLocalLicenseID = value;
+                    _IssuedUsingLocalLicenseInfo = null; 
+                }
+            }
+        }
+
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
         public bool IsActive { get; set; }
-        public int CreatedByUserID { get; set; }
 
-        public Applications ApplicationInfo { get; set; }
-        public Drivers DriverInfo { get; set; }
-        public LocalDrivingLicenseApplications IssuedUsingLocalLicenseInfo { get; set; }
-        public Users CreatedByUserInfo { get; set; }
-
-        private void _LoadCompositions()
+        private int _CreatedByUserID;
+        public int CreatedByUserID
         {
-            ApplicationInfo = Applications.Find(ApplicationID);
-            DriverInfo = Drivers.Find(DriverID);
-            IssuedUsingLocalLicenseInfo = LocalDrivingLicenseApplications.Find(IssuedUsingLocalLicenseID);
-            CreatedByUserInfo = Users.Find(CreatedByUserID);
+            get
+            {
+                return _CreatedByUserID;
+            }
+            set
+            {
+                if (_CreatedByUserID != value)
+                {
+                    _CreatedByUserID = value;
+                    _CreatedByUserInfo = null;
+                }
+            }
+        }
 
+        private Applications _ApplicationInfo;
+        public Applications ApplicationInfo
+        {
+            get
+            {
+
+                if(_ApplicationInfo == null && ApplicationID != -1)
+                {
+                    _ApplicationInfo = Applications.Find(ApplicationID);
+                }
+
+                return _ApplicationInfo;
+            }
+
+            set
+            {
+                if(value == null)
+                {
+                    return;
+                }
+
+                if (ApplicationID == -1)
+                {
+                    _ApplicationInfo = value;
+                    _ApplicationID = _ApplicationInfo.ApplicationID;
+
+                }
+
+                else if(value.ApplicationID == ApplicationID)
+                {
+                    _ApplicationInfo = value;
+                }
+            }
+        }
+
+        private Drivers _DriverInfo;
+        public Drivers DriverInfo
+        {
+            get
+            {
+                if (_DriverInfo == null && DriverID != -1)
+                {
+                    _DriverInfo = Drivers.Find(DriverID);
+                }
+                return _DriverInfo;
+            }
+
+            set
+            {
+                if(value == null)
+                {
+                    return;
+                }
+
+                if(DriverID == -1)
+                {
+                    _DriverInfo = value;
+                    _DriverID = _DriverInfo.DriverID;
+                }
+
+                else if (value.DriverID == DriverID)
+                {
+                    _DriverInfo = value;
+                }
+            }
+        }
+
+        private LocalDrivingLicenseApplications _IssuedUsingLocalLicenseInfo;
+        public LocalDrivingLicenseApplications IssuedUsingLocalLicenseInfo
+        {
+            get
+            {
+                if(_IssuedUsingLocalLicenseInfo == null && _IssuedUsingLocalLicenseID != -1)
+                {
+                    _IssuedUsingLocalLicenseInfo = LocalDrivingLicenseApplications.Find(IssuedUsingLocalLicenseID);
+                }
+
+                return _IssuedUsingLocalLicenseInfo;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if(IssuedUsingLocalLicenseID == -1)
+                {
+                    _IssuedUsingLocalLicenseInfo = value;
+                    _IssuedUsingLocalLicenseID = IssuedUsingLocalLicenseInfo.LocalDrivingLicenseApplicationID;
+                }
+
+                else if (value.LocalDrivingLicenseApplicationID == IssuedUsingLocalLicenseID)
+                {
+                    _IssuedUsingLocalLicenseInfo = value;
+                }
+            }
+        }
+
+        private Users _CreatedByUserInfo;
+        public Users CreatedByUserInfo
+        {
+            get
+            {
+
+                if (_CreatedByUserInfo == null && CreatedByUserID != -1)
+                {
+                    _CreatedByUserInfo = Users.Find(CreatedByUserID);
+                }
+
+                return _CreatedByUserInfo;
+            }
+            set
+            {
+                if (value == null)
+                    return;
+
+                if (CreatedByUserID == -1)
+                {
+                    _CreatedByUserInfo = value;
+                    _CreatedByUserID = _CreatedByUserInfo.UserID;
+                    return;
+                }
+
+                else if (value.UserID == CreatedByUserID)
+                {
+                    _CreatedByUserInfo = value;
+                }
+            }
         }
 
         private InternationalLicenses(int InternationalLicenseID, int ApplicationID, int DriverID, int IssuedUsingLocalLicenseID, DateTime IssueDate, DateTime ExpirationDate, bool IsActive, int CreatedByUserID)
@@ -48,7 +234,6 @@ namespace BLL
             this.IsActive = IsActive;
             this.CreatedByUserID = CreatedByUserID;
 
-            _LoadCompositions();
         }
         public InternationalLicenses()
         {
@@ -137,7 +322,6 @@ namespace BLL
 
                     if (_AddNewToInternationalLicenses())
                     {
-                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -147,7 +331,6 @@ namespace BLL
 
                     if (_UpdateInternationalLicenses())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

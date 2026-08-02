@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
@@ -16,23 +17,158 @@ namespace BLL
         private enMode Mode = enMode.AddNew;
 
         public int ApplicationID { get; set; }
-        public int ApplicantPersonID { get; set; }
+
+        private int _ApplicantPersonID;
+        public int ApplicantPersonID
+        {
+            get
+            {
+                return _ApplicantPersonID;
+            }
+            set
+            {
+                if (_ApplicantPersonID != value)
+                {
+                    _ApplicantPersonID = value;
+                    _ApplicantPersonInfo = null;
+                }
+            }
+        }
+
         public DateTime ApplicationDate { get; set; }
-        public int ApplicationTypeID { get; set; }
+
+        private int _ApplicationTypeID;
+        public int ApplicationTypeID 
+        { 
+            get
+            {
+                return _ApplicationTypeID;
+            }
+            set
+            {
+                if(_ApplicationTypeID != value)
+                {
+                    _ApplicationTypeID = value;
+                    _ApplicationTypeInfo = null;
+                }
+            }
+        }
         public int ApplicationStatus { get; set; }
         public DateTime LastStatusDate { get; set; }
         public decimal PaidFees { get; set; }
-        public int CreatedByUserID { get; set; }
 
-        public ApplicationsTypes ApplicationTypeInfo { get; set; }
-        public People ApplicantPersonInfo { get; set; }
-        public Users CreatedByUserInfo { get; set; }
-
-        private void _LoadCompositions()
+        private int _CreatedByUserID;
+        public int CreatedByUserID 
         {
-            this.ApplicationTypeInfo = ApplicationsTypes.Find(this.ApplicationTypeID);
-            this.ApplicantPersonInfo = People.Find(this.ApplicantPersonID);
-            this.CreatedByUserInfo = Users.Find(this.CreatedByUserID);
+            get
+            {
+                return _CreatedByUserID;
+            }
+            set
+            {
+                if (_CreatedByUserID != value)
+                {
+                    _CreatedByUserID = value;
+                    _CreatedByUserInfo = null;
+                }
+            }
+        }
+
+        private ApplicationsTypes _ApplicationTypeInfo;
+        public ApplicationsTypes ApplicationTypeInfo 
+        { 
+            get
+            {
+                if( _ApplicationTypeInfo == null && ApplicationTypeID != -1)
+                {
+                    _ApplicationTypeInfo = ApplicationsTypes.Find(ApplicationTypeID);
+                }
+                return _ApplicationTypeInfo;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    return;
+                }
+
+                if (ApplicationTypeID == -1)
+                {
+                    _ApplicationTypeInfo = value;
+                    _ApplicationTypeID = _ApplicationTypeInfo.ApplicationTypeID;
+
+                    return;
+                }
+
+                else if (value.ApplicationTypeID == ApplicationTypeID)
+                {
+                    _ApplicationTypeInfo = value;
+                }
+            }
+                
+        }
+
+        private People _ApplicantPersonInfo;
+        public People ApplicantPersonInfo 
+        {
+            get
+            {
+                if (_ApplicantPersonInfo == null && ApplicantPersonID != -1)
+                {
+                    _ApplicantPersonInfo = People.Find(ApplicantPersonID);
+                }
+                return _ApplicantPersonInfo;
+            }
+            set
+            {
+                if(value == null)
+                {
+                    return;
+                }
+
+                if(ApplicantPersonID == -1) 
+                {
+                    _ApplicantPersonInfo = value;
+                    _ApplicantPersonID = ApplicantPersonInfo.PersonID;
+                    return;
+                }
+
+                else if(value.PersonID == ApplicantPersonID)
+                {
+                    _ApplicantPersonInfo = value;
+                }
+            }
+        }
+
+        private Users _CreatedByUserInfo;
+        public Users CreatedByUserInfo 
+        {
+            get
+            {
+                if (_CreatedByUserInfo == null && CreatedByUserID != -1)
+                {
+                    _CreatedByUserInfo = Users.Find(CreatedByUserID);
+                }
+                return _CreatedByUserInfo;
+            }
+            set
+            {
+                if(value == null)
+                {
+                    return;
+                }
+
+                if (CreatedByUserID == -1)
+                {
+                    _CreatedByUserInfo = value;
+                    _CreatedByUserID = _CreatedByUserInfo.UserID;
+                }
+
+                else if (value.UserID == CreatedByUserID)
+                {
+                    _CreatedByUserInfo = value;
+                }
+            }
         }
 
         private Applications(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, int ApplicationStatus, DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID)
@@ -45,8 +181,6 @@ namespace BLL
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
-
-            _LoadCompositions();
 
             this.Mode = enMode.Update;
         }
@@ -116,7 +250,6 @@ namespace BLL
 
                     if (_AddNewToApplications())
                     {
-                        _LoadCompositions();
                         Mode = enMode.Update;
                         return true;
                     }
@@ -126,7 +259,6 @@ namespace BLL
 
                     if (_UpdateApplications())
                     {
-                        _LoadCompositions();
                         return true;
                     }
                     else return false;

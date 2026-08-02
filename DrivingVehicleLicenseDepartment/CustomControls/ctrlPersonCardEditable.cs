@@ -89,7 +89,7 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             cmbCountries.DataSource = _dtCountries;
             cmbCountries.DisplayMember = "CountryName";
             cmbCountries.ValueMember = "CountryID";
-            cmbCountries.SelectedValue = 100;
+            cmbCountries.SelectedValue = 100; //this is libya 
         }
 
         private void rbMale_CheckedChanged(object sender, EventArgs e)

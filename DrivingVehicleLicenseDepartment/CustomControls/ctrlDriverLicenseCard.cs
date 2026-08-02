@@ -56,8 +56,8 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                     lblDateOfBirth.Text = value.DriverInfo.PersonInfo.DateOfBirth.ToString("dd/MM/yyyy");
                     lblDriverID.Text = value.DriverID.ToString();
                     lblExpirationDate.Text = value.ExpirationDate.ToString("dd/MM/yyyy");
-                    lblIsDetained.Text = "\'later";
-
+                    bool isDetained = BLL.DetainedLicenses.IsDetainedByLicenseID(value.LicenseID);
+                    lblIsDetained.Text = isDetained ? "Yes" : "No";
                     pbPicture.ImageLocation = value.DriverInfo.PersonInfo.ImagePath;
                 }
                 _License = value;

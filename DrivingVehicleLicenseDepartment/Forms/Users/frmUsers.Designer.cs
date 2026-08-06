@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     partial class frmUsers
     {
@@ -37,6 +37,7 @@
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,10 +47,12 @@
             this.txtSearch = new Krypton.Toolkit.KryptonTextBox();
             this.cmbFilter = new Krypton.Toolkit.KryptonComboBox();
             this.pbMainUserPhoto = new Krypton.Toolkit.KryptonPictureBox();
+            this.cmbIsActiveFilter = new Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.cmsUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainUserPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbIsActiveFilter)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonLabel1
@@ -89,18 +92,19 @@
             this.addNewPersonToolStripMenuItem,
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
             this.toolStripSeparator2,
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.cmsUsers.Name = "cmsPeople";
-            this.cmsUsers.Size = new System.Drawing.Size(182, 244);
+            this.cmsUsers.Size = new System.Drawing.Size(185, 282);
             // 
             // showUserDetailsToolStripMenuItem
             // 
             this.showUserDetailsToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.PersonDetails_32;
             this.showUserDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.showUserDetailsToolStripMenuItem.Name = "showUserDetailsToolStripMenuItem";
-            this.showUserDetailsToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.showUserDetailsToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.showUserDetailsToolStripMenuItem.Text = "Show user details";
             this.showUserDetailsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.showUserDetailsToolStripMenuItem.Click += new System.EventHandler(this.showUserDetailsToolStripMenuItem_Click);
@@ -108,14 +112,14 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
             // 
             // addNewPersonToolStripMenuItem
             // 
             this.addNewPersonToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Add_New_User_321;
             this.addNewPersonToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.addNewPersonToolStripMenuItem.Text = "Add new user";
             this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.AddUser);
             // 
@@ -124,7 +128,7 @@
             this.editToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Edit_User_32;
             this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.EditUser);
             // 
@@ -133,21 +137,30 @@
             this.deleteToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Delete_User_32;
             this.deleteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteUser);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Password_32;
+            this.changePasswordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
+            this.changePasswordToolStripMenuItem.Text = "Change password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
             // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.send_email_32;
             this.sendEmailToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // phoneCallToolStripMenuItem
@@ -155,7 +168,7 @@
             this.phoneCallToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.call_32;
             this.phoneCallToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
             // PaletteDGVs
@@ -198,6 +211,7 @@
             this.cmbFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbFilter.TabIndex = 15;
             this.cmbFilter.Text = "cmbUsersFields";
+            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
             // 
             // pbMainUserPhoto
             // 
@@ -209,10 +223,25 @@
             this.pbMainUserPhoto.TabIndex = 2;
             this.pbMainUserPhoto.TabStop = false;
             // 
+            // cmbIsActiveFilter
+            // 
+            this.cmbIsActiveFilter.Items.AddRange(new object[] {
+            "All",
+            "Active",
+            "Inactive"});
+            this.cmbIsActiveFilter.Location = new System.Drawing.Point(350, 345);
+            this.cmbIsActiveFilter.Name = "cmbIsActiveFilter";
+            this.cmbIsActiveFilter.Size = new System.Drawing.Size(164, 29);
+            this.cmbIsActiveFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.cmbIsActiveFilter.TabIndex = 18;
+            this.cmbIsActiveFilter.Text = "kryptonComboBox1";
+            this.cmbIsActiveFilter.SelectedIndexChanged += new System.EventHandler(this.cmbIsActiveFilter_SelectedIndexChanged);
+            // 
             // frmUsers
             // 
             this.ClientSize = new System.Drawing.Size(1240, 677);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbIsActiveFilter);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.btnAddNew);
@@ -230,6 +259,7 @@
             this.cmsUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMainUserPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbIsActiveFilter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +284,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private Krypton.Toolkit.KryptonComboBox cmbIsActiveFilter;
     }
 }

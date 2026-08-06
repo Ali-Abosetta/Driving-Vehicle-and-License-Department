@@ -19,7 +19,7 @@ namespace DrivingVehicleLicenseDepartment
             InitializeComponent();
         }
 
-        private bool IsValidUserNameAndPassword(Users user)
+        private bool IsValidUserNameOrPassword(Users user)
         {
             if (user == null || !user.Password.Equals(txtPassword.Text))
             {
@@ -33,7 +33,7 @@ namespace DrivingVehicleLicenseDepartment
         {
             Users User = Users.FindByUserName(txtUserName.Text);
 
-            if (IsValidUserNameAndPassword(User))
+            if (IsValidUserNameOrPassword(User))
             {
                 if (User.IsActive)
                 {
@@ -44,7 +44,7 @@ namespace DrivingVehicleLicenseDepartment
                     }
                 }
                 else
-                    KryptonMessageBox.Show("This user is not active right now, call the manager.");
+                    KryptonMessageBox.Show("This user is not active right now, contact the management.");
             }
 
             else

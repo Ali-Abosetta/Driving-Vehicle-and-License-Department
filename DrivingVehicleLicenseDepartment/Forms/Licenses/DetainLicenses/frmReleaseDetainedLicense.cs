@@ -19,7 +19,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
         private BLL.Licenses _License;
         private BLL.Users _CurrentUser;
         private BLL.Applications _Application = new BLL.Applications();
-        public frmReleaseDetainedLicense(Users user)
+        public frmReleaseDetainedLicense(BLL.Users user)
         {
             InitializeComponent();
             _CurrentUser = user;

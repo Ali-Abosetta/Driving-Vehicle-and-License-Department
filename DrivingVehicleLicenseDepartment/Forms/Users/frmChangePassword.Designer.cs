@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.Forms
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     partial class frmChangePassword
     {
@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             BLL.Users users1 = new BLL.Users();
-            this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlUserCardEditable();
             this.txtNewPassword = new Krypton.Toolkit.KryptonTextBox();
             this.txtConfirmPassword = new Krypton.Toolkit.KryptonTextBox();
             this.txtCurrentPassword = new Krypton.Toolkit.KryptonTextBox();
@@ -39,24 +38,10 @@
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSave = new Krypton.Toolkit.KryptonButton();
+            this.userCard1 = new DrivingVehicleLicenseDepartment.Forms.Users.Controls.ctrlUserCard();
+            this.btnCancel = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // userCardEditable1
-            // 
-            this.userCardEditable1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userCardEditable1.Enabled = false;
-            this.userCardEditable1.Location = new System.Drawing.Point(0, 0);
-            this.userCardEditable1.Name = "userCardEditable1";
-            this.userCardEditable1.Size = new System.Drawing.Size(887, 500);
-            this.userCardEditable1.TabIndex = 0;
-            users1.IsActive = false;
-            users1.Password = "";
-            users1.PersonID = -1;
-            users1.PersonInfo = null;
-            users1.UserID = -1;
-            users1.UserName = "";
-            this.userCardEditable1.User = users1;
             // 
             // txtNewPassword
             // 
@@ -64,7 +49,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.Size = new System.Drawing.Size(257, 30);
-            this.txtNewPassword.TabIndex = 15;
+            this.txtNewPassword.TabIndex = 14;
             // 
             // txtConfirmPassword
             // 
@@ -72,7 +57,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(257, 30);
-            this.txtConfirmPassword.TabIndex = 14;
+            this.txtConfirmPassword.TabIndex = 15;
             this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
             // 
             // txtCurrentPassword
@@ -114,18 +99,47 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(659, 570);
+            this.btnSave.Location = new System.Drawing.Point(12, 633);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(216, 52);
+            this.btnSave.Size = new System.Drawing.Size(196, 55);
             this.btnSave.TabIndex = 16;
             this.btnSave.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnSave.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Save_32;
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // userCard1
+            // 
+            this.userCard1.Location = new System.Drawing.Point(3, 0);
+            this.userCard1.Name = "userCard1";
+            this.userCard1.Size = new System.Drawing.Size(884, 500);
+            this.userCard1.TabIndex = 0;
+            users1.IsActive = false;
+            users1.Password = "";
+            users1.PersonID = -1;
+            users1.PersonInfo = null;
+            users1.UserID = -1;
+            users1.UserName = "";
+            this.userCard1.User = users1;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(224, 633);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(196, 55);
+            this.btnCancel.TabIndex = 16;
+            this.btnCancel.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.btnCancel.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Close_32;
+            this.btnCancel.Values.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmChangePassword
             // 
-            this.ClientSize = new System.Drawing.Size(887, 643);
+            this.AcceptButton = this.btnSave;
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(887, 698);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtConfirmPassword);
@@ -133,8 +147,9 @@
             this.Controls.Add(this.kryptonLabel7);
             this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.kryptonLabel3);
-            this.Controls.Add(this.userCardEditable1);
+            this.Controls.Add(this.userCard1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.Name = "frmChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmChangePassword";
@@ -146,7 +161,7 @@
 
         #endregion
 
-        private CustomControls.ctrlUserCardEditable userCardEditable1;
+        private DrivingVehicleLicenseDepartment.Forms.Users.Controls.ctrlUserCard userCard1;
         private Krypton.Toolkit.KryptonTextBox txtNewPassword;
         private Krypton.Toolkit.KryptonTextBox txtConfirmPassword;
         private Krypton.Toolkit.KryptonTextBox txtCurrentPassword;
@@ -155,5 +170,6 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Krypton.Toolkit.KryptonButton btnSave;
+        private Krypton.Toolkit.KryptonButton btnCancel;
     }
 }

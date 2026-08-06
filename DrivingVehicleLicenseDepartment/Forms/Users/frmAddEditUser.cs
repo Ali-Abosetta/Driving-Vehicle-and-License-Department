@@ -7,51 +7,76 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DrivingVehicleLicenseDepartment.CustomControls;
 using BLL;
+using DrivingVehicleLicenseDepartment.CustomControls;
+using Enum;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms
+namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     public partial class frmAddEditUser : KryptonForm
     {
 
-        public delegate void DataBackEventHandler(object sender, Users user);
+        public delegate void DataBackEventHandler(object sender, BLL.Users user);
         public event DataBackEventHandler DataBack;
 
-        private Users user;
+        private enMode _Mode;
+
+        private BLL.Users _User;
         public frmAddEditUser()
         {
             InitializeComponent();
+            _Mode = enMode.AddNew;
         }
         public frmAddEditUser(int UserID)
         {
             InitializeComponent();
 
-            user = Users.Find(UserID);
-            addEditUser1.User = user;
+            _Mode = enMode.Update;
 
-            BLL.People person = user.PersonInfo;
-            personInfroWithFilter1.ctrlPersonCardEditable1.Person = person;
+            _User = BLL.Users.Find(UserID);
+            addEditUser1.User = _User;
 
+            BLL.People person = _User.PersonInfo;
+            personInfroWithFilter1.ctrlPersonCard1.Person = person;
+
+            personInfroWithFilter1.Filter = false;
 
             btnNext.Enabled = true;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (user != null)
-                addEditUser1.User = user;
+            if (_User != null)
+            {
+                addEditUser1.User = _User;
+            }
+
+            btnSave.Enabled = true;
 
             tabControl1.SelectedIndex = 1;
+            btnPrevious.Focus();
         }
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
+            btnNext.Focus();
+            btnSave.Enabled = false;
         }
 
         private void personInfroWithFilter1_OnPersonSelected(object sender, EventArgs e)
-        {
+        { 
+            
+            int SelectedPersonID = personInfroWithFilter1.PersonID;
+
+            if (_Mode == enMode.AddNew && BLL.Users.IsExistsByPersonID(SelectedPersonID))
+            {
+                KryptonMessageBox.Show("This person already has a user account linked to them!",
+                    "Warning", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning, false);
+                return;
+            }
+
+
             btnNext.Enabled = true;
         }
 
@@ -62,7 +87,16 @@ namespace DrivingVehicleLicenseDepartment.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Users user = addEditUser1.User;
+
+            if (!addEditUser1.AreBoxesFilled)
+            {
+                KryptonMessageBox.Show($"Please fillout the user information first {Environment.NewLine}" +
+                    $"and take a look at the validation messages on the red points.",
+                    "Not Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
+                return;
+            }
+
+            BLL.Users user = addEditUser1.User;
             user.PersonID = personInfroWithFilter1.PersonID;
 
             if (user.Save())

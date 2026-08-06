@@ -24,8 +24,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         private int _AppointmentID;
         private BLL.TestAppointments _testAppointment;
         private bool _isRetake;
-        private Users _CurrentUser;
-        public frmTakeTest(Users user, int testAppointmentID, enTestType TestType)
+        private BLL.Users _CurrentUser;
+        public frmTakeTest(BLL.Users user, int testAppointmentID, enTestType TestType)
         {
             InitializeComponent();
 

@@ -16,8 +16,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
     public partial class frmReplaceLicense : Form
     {
         private BLL.Licenses _OldLicense;
-        private Users _CurrentUser;
-        public frmReplaceLicense(Users user)
+        private BLL.Users _CurrentUser;
+        public frmReplaceLicense(BLL.Users user)
         {
             InitializeComponent();
 

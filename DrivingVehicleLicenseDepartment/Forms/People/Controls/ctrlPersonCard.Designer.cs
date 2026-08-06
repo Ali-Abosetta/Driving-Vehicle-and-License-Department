@@ -90,7 +90,7 @@
             // 
             this.lblID.Location = new System.Drawing.Point(150, 11);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(90, 25);
+            this.lblID.Size = new System.Drawing.Size(90, 27);
             this.lblID.TabIndex = 54;
             this.lblID.Values.Text = "N/A";
             // 
@@ -98,7 +98,7 @@
             // 
             this.kryptonLabel2.Location = new System.Drawing.Point(27, 9);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(90, 27);
+            this.kryptonLabel2.Size = new System.Drawing.Size(102, 27);
             this.kryptonLabel2.TabIndex = 53;
             this.kryptonLabel2.Values.Text = "Person ID:";
             // 
@@ -106,7 +106,7 @@
             // 
             this.lblNationality.Location = new System.Drawing.Point(539, 209);
             this.lblNationality.Name = "lblNationality";
-            this.lblNationality.Size = new System.Drawing.Size(90, 25);
+            this.lblNationality.Size = new System.Drawing.Size(90, 27);
             this.lblNationality.TabIndex = 51;
             this.lblNationality.Values.Text = "N/A";
             // 
@@ -114,7 +114,7 @@
             // 
             this.lblPhone.Location = new System.Drawing.Point(539, 158);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(90, 25);
+            this.lblPhone.Size = new System.Drawing.Size(90, 27);
             this.lblPhone.TabIndex = 50;
             this.lblPhone.Values.Text = "N/A";
             // 
@@ -122,7 +122,7 @@
             // 
             this.lblDateOfBirth.Location = new System.Drawing.Point(539, 107);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(90, 25);
+            this.lblDateOfBirth.Size = new System.Drawing.Size(90, 27);
             this.lblDateOfBirth.TabIndex = 49;
             this.lblDateOfBirth.Values.Text = "N/A";
             // 
@@ -130,7 +130,7 @@
             // 
             this.lblEmail.Location = new System.Drawing.Point(150, 209);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(90, 25);
+            this.lblEmail.Size = new System.Drawing.Size(90, 27);
             this.lblEmail.TabIndex = 48;
             this.lblEmail.Values.Text = "N/A";
             // 
@@ -138,7 +138,7 @@
             // 
             this.lblGender.Location = new System.Drawing.Point(150, 158);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(90, 25);
+            this.lblGender.Size = new System.Drawing.Size(90, 27);
             this.lblGender.TabIndex = 47;
             this.lblGender.Values.Text = "N/A";
             // 
@@ -146,7 +146,7 @@
             // 
             this.lblNationalNo.Location = new System.Drawing.Point(150, 107);
             this.lblNationalNo.Name = "lblNationalNo";
-            this.lblNationalNo.Size = new System.Drawing.Size(90, 25);
+            this.lblNationalNo.Size = new System.Drawing.Size(90, 27);
             this.lblNationalNo.TabIndex = 46;
             this.lblNationalNo.Values.Text = "N/A";
             // 
@@ -154,15 +154,15 @@
             // 
             this.lblName.Location = new System.Drawing.Point(150, 56);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(90, 25);
+            this.lblName.Size = new System.Drawing.Size(90, 27);
             this.lblName.TabIndex = 52;
             this.lblName.Values.Text = "N/A";
             // 
             // lblEditPerson
             // 
-            this.lblEditPerson.Location = new System.Drawing.Point(765, 9);
+            this.lblEditPerson.Location = new System.Drawing.Point(703, 31);
             this.lblEditPerson.Name = "lblEditPerson";
-            this.lblEditPerson.Size = new System.Drawing.Size(90, 25);
+            this.lblEditPerson.Size = new System.Drawing.Size(112, 27);
             this.lblEditPerson.TabIndex = 45;
             this.lblEditPerson.Values.Text = "Edit person";
             this.lblEditPerson.LinkClicked += new System.EventHandler(this.lblEditPerson_LinkClicked);
@@ -170,9 +170,9 @@
             // pbPicture
             // 
             this.pbPicture.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Male_512;
-            this.pbPicture.Location = new System.Drawing.Point(715, 76);
+            this.pbPicture.Location = new System.Drawing.Point(666, 73);
             this.pbPicture.Name = "pbPicture";
-            this.pbPicture.Size = new System.Drawing.Size(140, 180);
+            this.pbPicture.Size = new System.Drawing.Size(195, 263);
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPicture.TabIndex = 44;
             this.pbPicture.TabStop = false;
@@ -203,8 +203,10 @@
             // 
             // rtbAddress
             // 
+            this.rtbAddress.Enabled = false;
             this.rtbAddress.Location = new System.Drawing.Point(131, 261);
             this.rtbAddress.Name = "rtbAddress";
+            this.rtbAddress.ReadOnly = true;
             this.rtbAddress.Size = new System.Drawing.Size(526, 75);
             this.rtbAddress.TabIndex = 40;
             this.rtbAddress.Text = "";

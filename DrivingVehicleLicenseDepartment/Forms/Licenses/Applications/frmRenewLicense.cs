@@ -18,8 +18,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
     public partial class frmRenewLicense : KryptonForm
     {
         private BLL.Licenses _OldLicense;
-        private Users _CurrentUser;
-        public frmRenewLicense(Users user)
+        private BLL.Users _CurrentUser;
+        public frmRenewLicense(BLL.Users user)
         {
             InitializeComponent();
             _CurrentUser = user;

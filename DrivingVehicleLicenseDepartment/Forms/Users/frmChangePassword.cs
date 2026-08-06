@@ -11,21 +11,21 @@ using BLL;
 using Krypton.Toolkit;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace DrivingVehicleLicenseDepartment.Forms
+namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     public partial class frmChangePassword : Form
     {
-        Users _CurrentUser;
-        public frmChangePassword(Users User)
+        BLL.Users _CurrentUser;
+        public frmChangePassword(BLL.Users User)
         {
             InitializeComponent();
-            userCardEditable1.User = User;
+            userCard1.User = User;
             _CurrentUser = User;
         }
 
         private void kryptonTextBox1_Validating(object sender, CancelEventArgs e)
         {
-            if(txtCurrentPassword.Text != userCardEditable1.User.Password)
+            if(txtCurrentPassword.Text != userCard1.User.Password)
             {
                 e.Cancel = false;
                 errorProvider1.SetError((KryptonTextBox)sender, "Wrong password!");
@@ -53,16 +53,36 @@ namespace DrivingVehicleLicenseDepartment.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+            bool IsValid =
+                (
+                    !string.IsNullOrWhiteSpace(txtCurrentPassword.Text) &&
+                    !string.IsNullOrWhiteSpace(txtNewPassword.Text) &&
+                    !string.IsNullOrWhiteSpace(txtConfirmPassword.Text) &&
+                    (txtCurrentPassword.Text == _CurrentUser.Password) &&
+                    (txtNewPassword.Text == txtConfirmPassword.Text)
+                );
+
+            if (!IsValid)
+            {
+                KryptonMessageBox.Show($"Please fill out the form correctly {Environment.NewLine}" +
+                    $"and ensure the passwords match.",
+                    "Not Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
+                return;
+            }
+
             if (_CurrentUser.UpdatePassword(txtConfirmPassword.Text))
             {
-                if (KryptonMessageBox.Show("The Password Updated successfully!", "Updated",
-                    KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false) == DialogResult.OK)
-                {
-                    txtCurrentPassword.Clear();
-                    txtNewPassword.Clear();
-                    txtConfirmPassword.Clear();
-                }
+                KryptonMessageBox.Show("The Password Updated successfully!", "Updated",
+                    KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false);
+
+                this.Close();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -105,7 +105,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
                         lblRemovePic.Enabled = false;
                     }
 
-                    _person = value;
                     IsValidNationalNo = true;
 
                 }
@@ -114,6 +113,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
                 {
                     _ResetFields();
                 }
+
+                _person = value;
             }
         }
         public ctrlPersonCardEditable()

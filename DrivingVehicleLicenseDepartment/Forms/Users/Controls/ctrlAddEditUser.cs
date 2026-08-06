@@ -10,16 +10,16 @@ using System.Windows.Forms;
 using BLL;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.CustomControls
+namespace DrivingVehicleLicenseDepartment.Forms.Users.Controls
 {
     public partial class ctrlAddEditUser : UserControl
     {
 
-        public delegate void DataBackEventHandler(object sender, People Person);
+        public delegate void DataBackEventHandler(object sender, BLL.People Person);
         public event DataBackEventHandler DataBack;
 
-        private Users _user = new Users();
-        public Users User
+        private BLL.Users _user = new BLL.Users();
+        public BLL.Users User
         {
             get
             {
@@ -41,6 +41,19 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                 chkActive.Checked = value.IsActive;
 
                 _user = value;
+            }
+        }
+
+        public bool AreBoxesFilled
+        {
+            get
+            {
+                return
+                    (
+                    !string.IsNullOrEmpty(txtUsername.Text) &&
+                    !string.IsNullOrEmpty(txtPassword.Text) &&
+                    !string.IsNullOrEmpty(txtConfirmPassword.Text)
+                    );
             }
         }
 
@@ -72,6 +85,25 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             txtConfirmPassword.Text = string.Empty;
         }
 
+        private void txtUserName_Validating(object sender, CancelEventArgs e)
+        {
 
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                RequiredTextBox_Validating(sender, e);
+                return;
+            }
+
+            if (txtUsername.Text.Trim() != _user.UserName &&
+                BLL.Users.IsExistsByUserName(txtUsername.Text.Trim()))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtUsername, "This username is already taken by another user.");
+            }
+            else
+            {
+                errorProvider1.SetError(txtUsername, string.Empty);
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.Forms
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     partial class frmAddEditUser
     {
@@ -35,7 +35,7 @@
             this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonInfoWithFilter();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.btnPrevious = new Krypton.Toolkit.KryptonButton();
-            this.addEditUser1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlAddEditUser();
+            this.addEditUser1 = new DrivingVehicleLicenseDepartment.Forms.Users.Controls.ctrlAddEditUser();
             this.btnSave = new Krypton.Toolkit.KryptonButton();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
             this.tabControl1.SuspendLayout();
@@ -51,7 +51,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(911, 570);
+            this.tabControl1.Size = new System.Drawing.Size(911, 547);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 3;
             // 
@@ -62,7 +62,7 @@
             this.tpPersonalInfo.Location = new System.Drawing.Point(4, 5);
             this.tpPersonalInfo.Name = "tpPersonalInfo";
             this.tpPersonalInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPersonalInfo.Size = new System.Drawing.Size(903, 561);
+            this.tpPersonalInfo.Size = new System.Drawing.Size(903, 538);
             this.tpPersonalInfo.TabIndex = 0;
             this.tpPersonalInfo.Text = "Personal Info";
             this.tpPersonalInfo.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@
             // btnNext
             // 
             this.btnNext.Enabled = false;
-            this.btnNext.Location = new System.Drawing.Point(755, 485);
+            this.btnNext.Location = new System.Drawing.Point(745, 485);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(140, 46);
             this.btnNext.TabIndex = 14;
@@ -84,7 +84,7 @@
             this.personInfroWithFilter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.personInfroWithFilter1.Location = new System.Drawing.Point(3, 3);
             this.personInfroWithFilter1.Name = "personInfroWithFilter1";
-            this.personInfroWithFilter1.Size = new System.Drawing.Size(897, 485);
+            this.personInfroWithFilter1.Size = new System.Drawing.Size(897, 483);
             this.personInfroWithFilter1.TabIndex = 0;
             this.personInfroWithFilter1.OnPersonSelected += new System.EventHandler(this.personInfroWithFilter1_OnPersonSelected);
             this.personInfroWithFilter1.OnPersonNotFound += new System.EventHandler(this.personInfroWithFilter1_OnPersonNotFound);
@@ -96,14 +96,14 @@
             this.tpLoginInfo.Location = new System.Drawing.Point(4, 5);
             this.tpLoginInfo.Name = "tpLoginInfo";
             this.tpLoginInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLoginInfo.Size = new System.Drawing.Size(903, 561);
+            this.tpLoginInfo.Size = new System.Drawing.Size(903, 538);
             this.tpLoginInfo.TabIndex = 1;
             this.tpLoginInfo.Text = "Login Info";
             this.tpLoginInfo.UseVisualStyleBackColor = true;
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(8, 509);
+            this.btnPrevious.Location = new System.Drawing.Point(8, 486);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(140, 46);
             this.btnPrevious.TabIndex = 15;
@@ -128,7 +128,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(2, 580);
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(2, 555);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(216, 52);
             this.btnSave.TabIndex = 15;
@@ -139,7 +140,8 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(239, 580);
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(239, 555);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(216, 52);
             this.btnClose.TabIndex = 16;
@@ -150,7 +152,8 @@
             // 
             // frmAddEditUser
             // 
-            this.ClientSize = new System.Drawing.Size(911, 646);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(911, 610);
             this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
@@ -177,7 +180,7 @@
         private Krypton.Toolkit.KryptonButton btnNext;
         private Krypton.Toolkit.KryptonButton btnSave;
         private Krypton.Toolkit.KryptonButton btnClose;
-        private CustomControls.ctrlAddEditUser addEditUser1;
+        private DrivingVehicleLicenseDepartment.Forms.Users.Controls.ctrlAddEditUser addEditUser1;
         private Krypton.Toolkit.KryptonButton btnPrevious;
     }
 }

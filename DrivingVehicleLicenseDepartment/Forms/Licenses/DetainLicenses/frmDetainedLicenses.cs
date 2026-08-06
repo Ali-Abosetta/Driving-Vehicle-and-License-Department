@@ -15,7 +15,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
 {
     public partial class frmDetainedLicenses : Form
     {
-        private Users _CurrentUser;
+        private BLL.Users _CurrentUser;
         private DataTable _DetainedLicensesTable;
 
         private int SelectedDetainedID
@@ -27,7 +27,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
                     );
             }
         }
-        public frmDetainedLicenses(Users user)
+        public frmDetainedLicenses(BLL.Users user)
         {
             InitializeComponent();
 

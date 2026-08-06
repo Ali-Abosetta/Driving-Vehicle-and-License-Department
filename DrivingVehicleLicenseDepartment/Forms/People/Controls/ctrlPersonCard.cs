@@ -36,14 +36,23 @@ namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
                     lblNationality.Text = value.CountryInfo.CountryName;
 
                     rtbAddress.Text = value.Address;
-                    pbPicture.ImageLocation = value.ImagePath;
 
-                    _Person = value;
+                    if (value.ImagePath != null)
+                    {
+                        pbPicture.ImageLocation = value.ImagePath;
+                    }
+                    else
+                    {
+                        pbPicture.Image = value.Gendor == 0 ? Resources.Male_512 : Resources.Female_512;
+                    }
+
                 }
                 else
                 {
                     _ResetUI();
                 }
+
+                _Person = value;
             }
         }
 

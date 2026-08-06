@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 
-namespace DrivingVehicleLicenseDepartment.CustomControls
+namespace DrivingVehicleLicenseDepartment.Forms.Users.Controls
 {
-    public partial class ctrlUserCardEditable : UserControl
+    public partial class ctrlUserCard : UserControl
     {
-        private Users _user = new Users();
-        public Users User
+        private BLL.Users _User = new BLL.Users();
+        public BLL.Users User
         {
             get
             {
-                return _user;
+                return _User;
             }
             set
             {
@@ -28,15 +28,30 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                     lblUserName.Text = value.UserName;
                     lblActive.Text = value.IsActive ? "Active" : "Not active";
 
-                    ctrlPersonCardEditable1.Person = value.PersonInfo;
+                    ctrlPersonCard1.Person = value.PersonInfo;
 
-                    _user = value;
                 }
+
+                else
+                {
+                    _ResetUI();
+                }
+
+                _User = value;
             }
         }
-        public ctrlUserCardEditable()
+        public ctrlUserCard()
         {
             InitializeComponent();
         }
+
+        private void _ResetUI()
+        {
+            ctrlPersonCard1 = null;
+            lblUserID.Text = "N/A";
+            lblUserName.Text = "N/A";
+            lblActive.Text = "N/A";
+        }
+
     }
 }

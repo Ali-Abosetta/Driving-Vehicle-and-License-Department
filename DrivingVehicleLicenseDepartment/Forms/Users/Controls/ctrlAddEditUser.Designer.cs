@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.CustomControls
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Users.Controls
 {
     partial class ctrlAddEditUser
     {
@@ -64,15 +64,15 @@
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(35, 74);
+            this.kryptonLabel3.Location = new System.Drawing.Point(35, 78);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(109, 27);
             this.kryptonLabel3.TabIndex = 2;
-            this.kryptonLabel3.Values.Text = "UserName:";
+            this.kryptonLabel3.Values.Text = "Username:";
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(35, 160);
+            this.kryptonLabel5.Location = new System.Drawing.Point(35, 172);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(176, 27);
             this.kryptonLabel5.TabIndex = 4;
@@ -80,7 +80,7 @@
             // 
             // kryptonLabel7
             // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(35, 117);
+            this.kryptonLabel7.Location = new System.Drawing.Point(35, 125);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(101, 27);
             this.kryptonLabel7.TabIndex = 6;
@@ -88,31 +88,34 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(237, 74);
+            this.txtUsername.Location = new System.Drawing.Point(237, 75);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(257, 30);
+            this.txtUsername.Size = new System.Drawing.Size(333, 30);
             this.txtUsername.TabIndex = 7;
-            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
+            this.txtUsername.Tag = "Username";
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserName_Validating);
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(237, 160);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(237, 169);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(257, 30);
-            this.txtConfirmPassword.TabIndex = 8;
+            this.txtConfirmPassword.Size = new System.Drawing.Size(333, 30);
+            this.txtConfirmPassword.TabIndex = 9;
+            this.txtConfirmPassword.Tag = "Password confirmation";
             this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(237, 117);
+            this.txtPassword.Location = new System.Drawing.Point(237, 122);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(257, 30);
-            this.txtPassword.TabIndex = 9;
+            this.txtPassword.Size = new System.Drawing.Size(333, 30);
+            this.txtPassword.TabIndex = 8;
+            this.txtPassword.Tag = "Password";
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(35, 208);
+            this.chkActive.Location = new System.Drawing.Point(35, 219);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(107, 27);
             this.chkActive.TabIndex = 10;
@@ -128,7 +131,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // AddEditUser
+            // ctrlAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,7 +145,7 @@
             this.Controls.Add(this.lblUserID);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.kryptonGroup1);
-            this.Name = "AddEditUser";
+            this.Name = "ctrlAddEditUser";
             this.Size = new System.Drawing.Size(590, 279);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroup1)).EndInit();

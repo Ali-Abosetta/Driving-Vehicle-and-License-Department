@@ -27,9 +27,9 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                     );
             }
         }
-        private Users _CurrentUser;
+        private BLL.Users _CurrentUser;
 
-        public frmLocalDrivingLicenseApplication(Users user)
+        public frmLocalDrivingLicenseApplication(BLL.Users user)
         {
             InitializeComponent();
             _LocalLicensesTable = LocalDrivingLicenseApplications

@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     partial class frmUserCard
     {
@@ -30,7 +30,7 @@
         {
             BLL.Users users1 = new BLL.Users();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
-            this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlUserCardEditable();
+            this.userCard1 = new DrivingVehicleLicenseDepartment.Forms.Users.Controls.ctrlUserCard();
             this.SuspendLayout();
             // 
             // btnClose
@@ -45,27 +45,28 @@
             this.btnClose.Values.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // userCardEditable1
+            // userCard1
             // 
-            this.userCardEditable1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userCardEditable1.Location = new System.Drawing.Point(0, 0);
-            this.userCardEditable1.Name = "userCardEditable1";
-            this.userCardEditable1.Size = new System.Drawing.Size(882, 500);
-            this.userCardEditable1.TabIndex = 0;
+            this.userCard1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userCard1.Location = new System.Drawing.Point(0, 0);
+            this.userCard1.Name = "userCard1";
+            this.userCard1.Size = new System.Drawing.Size(882, 500);
+            this.userCard1.TabIndex = 0;
             users1.IsActive = false;
             users1.Password = "";
             users1.PersonID = -1;
             users1.PersonInfo = null;
             users1.UserID = -1;
             users1.UserName = "";
-            this.userCardEditable1.User = users1;
+            this.userCard1.User = users1;
             // 
             // frmUserCard
             // 
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(882, 571);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.userCardEditable1);
+            this.Controls.Add(this.userCard1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -78,7 +79,7 @@
 
         #endregion
 
-        private CustomControls.ctrlUserCardEditable userCardEditable1;
+        private DrivingVehicleLicenseDepartment.Forms.Users.Controls.ctrlUserCard userCard1;
         private Krypton.Toolkit.KryptonButton btnClose;
     }
 }

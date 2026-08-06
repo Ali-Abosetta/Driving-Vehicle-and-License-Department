@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL;
 
-namespace DrivingVehicleLicenseDepartment.Forms.Global
+namespace DrivingVehicleLicenseDepartment.Global
 {
     internal static class clsGlobal
     {
-        public static Users User { get; private set; }
+        public static BLL.Users User { get; private set; }
 
-        private static bool _IsValidPassword(Users user, string password)
+        private static bool _IsValidPassword(BLL.Users user, string password)
         {
             return user.Password == password;
         }
         public static bool Login(string Username, string Password)
         {
 
-            Users tempUser = Users.FindByUserName(Username);
+            BLL.Users tempUser = BLL.Users.FindByUserName(Username);
 
             if (tempUser != null && _IsValidPassword(tempUser, Password))
             {

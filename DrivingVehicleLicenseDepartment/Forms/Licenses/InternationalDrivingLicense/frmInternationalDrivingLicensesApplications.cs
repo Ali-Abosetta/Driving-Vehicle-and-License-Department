@@ -14,9 +14,9 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
     public partial class frmInternationalDrivingLicensesApplications : Form
     {
 
-        private Users _CurrentUser;
+        private BLL.Users _CurrentUser;
         private DataTable _InternationalLicensesTable;
-        public frmInternationalDrivingLicensesApplications(Users user)
+        public frmInternationalDrivingLicensesApplications(BLL.Users user)
         {
             InitializeComponent();
 

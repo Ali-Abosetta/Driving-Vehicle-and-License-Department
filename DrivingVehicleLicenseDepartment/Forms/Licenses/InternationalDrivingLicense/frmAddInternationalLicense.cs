@@ -15,11 +15,11 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
 {
     public partial class frmAddInternationalLicense : KryptonForm
     {
-        private Users _CurrentUser;
+        private BLL.Users _CurrentUser;
         private BLL.Licenses _License;
         private InternationalLicenses _InternationalLicense;
         private BLL.Drivers _Driver;
-        public frmAddInternationalLicense(Users currentUser)
+        public frmAddInternationalLicense(BLL.Users currentUser)
         {
             InitializeComponent();
             _CurrentUser = currentUser;

@@ -21,7 +21,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         public delegate void DataBackEvenHandler(object sender, BLL.TestAppointments testAppointment);
         public event DataBackEvenHandler DataBack;
 
-        private Users _CurrentUser = new Users();
+        private BLL.Users _CurrentUser = new BLL.Users();
         private int _TestTypeID;
         private int _LocalApplicationID;
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
@@ -30,7 +30,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         private ApplicationsTypes _RetakeAppInfo;
         private bool _isRetake;
 
-        public frmScheduleTest(Users user, int LocalApplicationID, enTestType TestType) //To add new appointmetn
+        public frmScheduleTest(BLL.Users user, int LocalApplicationID, enTestType TestType) //To add new appointmetn
         {
             InitializeComponent();
 
@@ -61,7 +61,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
             _ApplyThemes(TestType);
         }
-        public frmScheduleTest(Users User, BLL.TestAppointments testAppointments, enTestType TestType) //To edit
+        public frmScheduleTest(BLL.Users User, BLL.TestAppointments testAppointments, enTestType TestType) //To edit
         {
             InitializeComponent();
 

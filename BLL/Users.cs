@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Enum;
 using DAL;
 
 namespace BLL
@@ -11,7 +12,6 @@ namespace BLL
     public class Users
     {
 
-        enum enMode { AddNew = 0, Update = 1 };
         private enMode Mode = enMode.AddNew;
 
         public int UserID { get; set; }
@@ -128,16 +128,23 @@ namespace BLL
 
         public static bool IsExists(int UserID)
         {
-
             return UsersDataAccess.IsExistsInUsersByUserID(UserID);
-
         }
+
+        public static bool IsExistsByUserName(string UserName)
+        {
+            return UsersDataAccess.IsExistsInUsersByUserName(UserName);
+        }
+
+        public static bool IsExistsByPersonID(int PersonID)
+        {
+            return UsersDataAccess.IsExistsInUsersByPersonID(PersonID);
+        }
+
 
         private bool _AddNewToUsers()
         {
-
             return (this.UserID = (UsersDataAccess.AddNewToUsers(this.PersonID, this.UserName, this.Password, this.IsActive))) > 0;
-
         }
 
         private bool _UpdateUsers()
@@ -152,9 +159,7 @@ namespace BLL
 
         public static bool DeleteFromUsersByUserID(int UserID)
         {
-
             return UsersDataAccess.DeleteFromUsers(UserID);
-
         }
 
         public bool Save()
@@ -179,20 +184,19 @@ namespace BLL
                     else return false;
 
             }
+
             return false;
         }
+
         public static DataTable GetAllUsers()
         {
-
             return UsersDataAccess.GetAllFromUsers();
-
         }
 
         public static DataTable GetUsersSummary()
         {
             return UsersDataAccess.GetUsersSummary();
         }
-
 
     }
 }

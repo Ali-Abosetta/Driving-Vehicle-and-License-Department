@@ -19,13 +19,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         public delegate void DatabackEventHandler();
         public event DatabackEventHandler DataBack;
 
-        private Users _CurrentUser = new Users();
+        private BLL.Users _CurrentUser = new BLL.Users();
         private BLL.Applications _App = new BLL.Applications();
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
         private BLL.Drivers _Driver = null;
         private BLL.Licenses _License = new BLL.Licenses();
 
-        public frmIssueDrivingLicenseFirstTime(Users user, int LocalAppID)
+        public frmIssueDrivingLicenseFirstTime(BLL.Users user, int LocalAppID)
         {
             InitializeComponent();
 
@@ -38,7 +38,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
         }
 
-        public frmIssueDrivingLicenseFirstTime(Users user, LocalDrivingLicenseApplications localApp)
+        public frmIssueDrivingLicenseFirstTime(BLL.Users user, LocalDrivingLicenseApplications localApp)
         {
             InitializeComponent();
 

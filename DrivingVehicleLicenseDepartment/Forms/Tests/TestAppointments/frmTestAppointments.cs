@@ -21,7 +21,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         public delegate void DataBackEventHandler(object sender, bool Passed);
         public event DataBackEventHandler DataBack;
 
-        private Users _CurrentUser = new Users();
+        private BLL.Users _CurrentUser = new BLL.Users();
         private enTestType _TestTypeID;
         private int _LocalApplicationID;
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
@@ -45,7 +45,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
         }
 
-        public frmTestAppointments(Users User, int LocalApplicationID, enTestType TestType)
+        public frmTestAppointments(BLL.Users User, int LocalApplicationID, enTestType TestType)
         {
             InitializeComponent();
 

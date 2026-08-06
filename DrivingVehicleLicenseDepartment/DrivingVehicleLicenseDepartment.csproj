@@ -63,10 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\ctrlAddEditUser.cs">
+    <Compile Include="Forms\Users\Controls\ctrlAddEditUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\ctrlAddEditUser.Designer.cs">
+    <Compile Include="Forms\Users\Controls\ctrlAddEditUser.Designer.cs">
       <DependentUpon>ctrlAddEditUser.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ctrlAddEditApplication.cs">
@@ -183,11 +183,11 @@
     <Compile Include="Forms\People\Controls\ctrlPersonInfoWithFilter.Designer.cs">
       <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\ctrlUserCardEditable.cs">
+    <Compile Include="Forms\Users\Controls\ctrlUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\ctrlUserCardEditable.Designer.cs">
-      <DependentUpon>ctrlUserCardEditable.cs</DependentUpon>
+    <Compile Include="Forms\Users\Controls\ctrlUserCard.Designer.cs">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ApplicationTypes\frmApplicationTypes.cs">
       <SubType>Form</SubType>
@@ -213,7 +213,8 @@
     <Compile Include="Forms\Drivers\frmDrivers.Designer.cs">
       <DependentUpon>frmDrivers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Global\clsGlobal.cs" />
+    <Compile Include="Global\clsFormsUtil.cs" />
+    <Compile Include="Global\clsGlobal.cs" />
     <Compile Include="Forms\Licenses\Applications\frmRenewLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,7 +382,7 @@
     <EmbeddedResource Include="CustomControls\ctrlAddEditApplication.resx">
       <DependentUpon>ctrlAddEditApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\ctrlAddEditUser.resx">
+    <EmbeddedResource Include="Forms\Users\Controls\ctrlAddEditUser.resx">
       <DependentUpon>ctrlAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlApplicationBasicInfo.resx">
@@ -438,8 +439,8 @@
     <EmbeddedResource Include="Forms\People\Controls\ctrlPersonInfoWithFilter.resx">
       <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\ctrlUserCardEditable.resx">
-      <DependentUpon>ctrlUserCardEditable.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Users\Controls\ctrlUserCard.resx">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApplicationTypes\frmApplicationTypes.resx">
       <DependentUpon>frmApplicationTypes.cs</DependentUpon>
@@ -831,5 +832,6 @@
   <ItemGroup>
     <None Include="Resources\LicenseView 400.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

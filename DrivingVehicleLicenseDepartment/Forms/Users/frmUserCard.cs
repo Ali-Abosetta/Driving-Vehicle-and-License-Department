@@ -11,7 +11,7 @@ using DrivingVehicleLicenseDepartment.CustomControls;
 using Krypton.Toolkit;
 using BLL;
 
-namespace DrivingVehicleLicenseDepartment
+namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     public partial class frmUserCard : KryptonForm
     {
@@ -19,15 +19,13 @@ namespace DrivingVehicleLicenseDepartment
         public frmUserCard(int UserID)
         {
             InitializeComponent();
-            userCardEditable1.User = Users.Find(UserID);
-            userCardEditable1.Enabled = false;
+            userCard1.User = BLL.Users.Find(UserID);
         }
 
-        public frmUserCard(Users user)
+        public frmUserCard(BLL.Users user)
         {
             InitializeComponent();
-            userCardEditable1.User = user;
-            userCardEditable1.Enabled = false;
+            userCard1.User = user;
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {

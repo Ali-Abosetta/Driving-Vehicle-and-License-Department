@@ -156,6 +156,59 @@ namespace DAL
             return (isExists > 0);
 
         }
+
+        public static bool IsExistsInUsersByUserName(string UserName)
+        {
+            int isExists = -1;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT Found=1 FROM Users WHERE UserName = @UserName";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserName", UserName);
+
+                    try
+                    {
+                        connection.Open();
+                        isExists = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+
+                return (isExists > 0);
+            }
+        }
+
+        public static bool IsExistsInUsersByPersonID(int PersonID)
+        {
+            int isExists = -1;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = @"SELECT Found=1 FROM Users WHERE PersonID = @PersonID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                    try
+                    {
+                        connection.Open();
+                        isExists = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+
+                return (isExists > 0);
+            }
+        }
+
         public static int AddNewToUsers(int PersonID, string UserName, string Password, bool IsActive)
 
 

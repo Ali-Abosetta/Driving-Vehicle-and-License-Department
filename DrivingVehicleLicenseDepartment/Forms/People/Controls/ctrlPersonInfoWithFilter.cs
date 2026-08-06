@@ -18,23 +18,31 @@ namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
 
         public event EventHandler OnPersonSelected;
         public event EventHandler OnPersonNotFound;
+
+        public bool Filter
+        {
+            set
+            {
+                gbFilter.Enabled = value;
+            }
+        }
+
         List<string> ComboBoxItems { get; set; } = new List<string>();
         public int PersonID { 
             get 
             {
-                return ctrlPersonCardEditable1.Person.PersonID;
+                return ctrlPersonCard1.Person.PersonID;
             }
             
         }
         public ctrlPersonInfoWithFilter ()
         {
             InitializeComponent();
-            ctrlPersonCardEditable1.Enabled = false;
         }
 
         private void AddPerson(object sender, BLL.People person)
         {
-            this.ctrlPersonCardEditable1.Person = person;
+            this.ctrlPersonCard1.Person = person;
             if (person != null)
             {
                 OnPersonSelected?.Invoke(this, EventArgs.Empty);
@@ -63,7 +71,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
         {
             KryptonMessageBox.Show(message,
                 "Not found", KryptonMessageBoxButtons.OK,
-                KryptonMessageBoxIcon.Error);
+                KryptonMessageBoxIcon.Error, false);
         }
         private void Search(object sender, EventArgs e)
         {
@@ -86,7 +94,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
                                 _NotFoundMessageBox($"This {selectedFilter}" +
                                     $" is not found on the system's people.");
                             }
-                        ctrlPersonCardEditable1.Person = person;
+                        ctrlPersonCard1.Person = person;
                         break;
 
                     case "PersonID":
@@ -98,7 +106,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
                                 _NotFoundMessageBox($"This {selectedFilter} " +
                                     $"is not found on the system's people.");
                             }
-                            ctrlPersonCardEditable1.Person = person;
+                            ctrlPersonCard1.Person = person;
                         }
                         else
                         {

@@ -20,7 +20,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         public event DataBackEventHandler DataBack;
 
 
-        private Users user;
+        private BLL.Users user;
         private BLL.People _person
         {
             get
@@ -43,16 +43,16 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         {
             InitializeComponent();
 
-            user = Users.Find(UserID);
+            user = BLL.Users.Find(UserID);
 
             _person = user.PersonInfo;
-            personInfroWithFilter1.ctrlPersonCardEditable1.Person = _person;
+            personInfroWithFilter1.ctrlPersonCard1.Person = _person;
 
             btnNext.Enabled = true;
             addEditApplication1.User = user;
         }
 
-        public frmAddNewLocalLicense(Users user)
+        public frmAddNewLocalLicense(BLL.Users user)
         {
             InitializeComponent();
 

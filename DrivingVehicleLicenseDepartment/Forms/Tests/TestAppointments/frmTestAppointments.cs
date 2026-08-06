@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using DrivingVehicleLicenseDepartment.Properties;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 using static BLL.TestTypes;
 
@@ -21,7 +22,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         public delegate void DataBackEventHandler(object sender, bool Passed);
         public event DataBackEventHandler DataBack;
 
-        private BLL.Users _CurrentUser = new BLL.Users();
         private enTestType _TestTypeID;
         private int _LocalApplicationID;
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
@@ -45,7 +45,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
         }
 
-        public frmTestAppointments(BLL.Users User, int LocalApplicationID, enTestType TestType)
+        public frmTestAppointments(int LocalApplicationID, enTestType TestType)
         {
             InitializeComponent();
 
@@ -81,7 +81,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             _HasActiveAppointment = BLL.TestAppointments.HasActiveAppointment
                 (_LocalApp.ApplicationInfo.ApplicantPersonID, (int)_TestTypeID,
                 _LocalApp.LicenseClassID);
-            _CurrentUser = User;
 
         }
 
@@ -107,7 +106,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         {
             if (!_HasActiveAppointment)
             {
-                using (frmScheduleTest frm = new frmScheduleTest(_CurrentUser, _LocalApplicationID, _TestTypeID))
+                using (frmScheduleTest frm = new frmScheduleTest(_LocalApplicationID, _TestTypeID))
                 {
                     frm.DataBack += frmScheduleTest_DataBack;
                     frm.ShowDialog();
@@ -130,7 +129,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
             if (testAppointment != null)
             {
-                using (frmScheduleTest frm = new frmScheduleTest(_CurrentUser, testAppointment, _TestTypeID))
+                using (frmScheduleTest frm = new frmScheduleTest(testAppointment, _TestTypeID))
                 {
                     frm.DataBack += frmScheduleTest_DataBack;
                     frm.ShowDialog();
@@ -154,7 +153,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmTakeTest frm = new frmTakeTest(_CurrentUser, SelectedAppointmentID, _TestTypeID))
+            using (frmTakeTest frm = new frmTakeTest(SelectedAppointmentID, _TestTypeID))
             {
 
                 frm.DataBack += frmTakeTest_DataBack;

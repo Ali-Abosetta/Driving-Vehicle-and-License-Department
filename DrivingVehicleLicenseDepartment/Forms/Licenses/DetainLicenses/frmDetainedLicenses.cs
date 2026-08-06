@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Global;
 using DrivingVehicleLicenseDepartment.Forms.People;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
 
@@ -15,7 +16,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
 {
     public partial class frmDetainedLicenses : Form
     {
-        private BLL.Users _CurrentUser;
         private DataTable _DetainedLicensesTable;
 
         private int SelectedDetainedID
@@ -27,11 +27,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
                     );
             }
         }
-        public frmDetainedLicenses(BLL.Users user)
+        public frmDetainedLicenses()
         {
             InitializeComponent();
 
-            _CurrentUser = user;
             _DetainedLicensesTable = DetainedLicenses.GetDetainedLicensesSummary();
             dgvLicenses.DataSource = _DetainedLicensesTable;
 
@@ -85,7 +84,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
 
         private void btnDetain_Click(object sender, EventArgs e)
         {
-            using (frmDetainLicense frm = new frmDetainLicense(_CurrentUser))
+            using (frmDetainLicense frm = new frmDetainLicense())
             {
                 frm.ShowDialog();
             }
@@ -93,7 +92,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
 
         private void btnRelease_Click(object sender, EventArgs e)
         {
-            using (frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense(_CurrentUser))
+            using (frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense())
             {
                 frm.ShowDialog();
             }

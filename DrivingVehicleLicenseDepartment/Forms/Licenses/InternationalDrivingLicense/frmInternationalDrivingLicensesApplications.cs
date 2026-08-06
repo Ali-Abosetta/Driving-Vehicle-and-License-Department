@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DrivingVehicleLicenseDepartment.Global;
 using BLL;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense
@@ -14,20 +15,18 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
     public partial class frmInternationalDrivingLicensesApplications : Form
     {
 
-        private BLL.Users _CurrentUser;
         private DataTable _InternationalLicensesTable;
-        public frmInternationalDrivingLicensesApplications(BLL.Users user)
+        public frmInternationalDrivingLicensesApplications()
         {
             InitializeComponent();
 
-            _CurrentUser = user;
             _InternationalLicensesTable = InternationalLicenses.GetInternationalLicensesSummary();
             dgvInternationalLicenseApplications.DataSource = _InternationalLicensesTable;
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            using (frmAddInternationalLicense frm = new frmAddInternationalLicense(_CurrentUser))
+            using (frmAddInternationalLicense frm = new frmAddInternationalLicense())
             {
                 frm.ShowDialog();
             }

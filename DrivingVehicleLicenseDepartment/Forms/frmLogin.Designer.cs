@@ -33,7 +33,7 @@
             this.kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
             this.txtUserName = new Krypton.Toolkit.KryptonTextBox();
             this.txtPassword = new Krypton.Toolkit.KryptonTextBox();
-            this.chkRemeberMe = new Krypton.Toolkit.KryptonCheckBox();
+            this.chkRememberMe = new Krypton.Toolkit.KryptonCheckBox();
             this.btnLogin = new Krypton.Toolkit.KryptonButton();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
@@ -44,6 +44,7 @@
             // 
             this.kryptonManager1.BaseFont = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonManager1.GlobalPaletteMode = Krypton.Toolkit.PaletteMode.Microsoft365BlueLightMode;
+            this.kryptonManager1.ShowAdministratorSuffix = false;
             this.kryptonManager1.ToolkitStrings.MessageBoxStrings.LessDetails = "L&ess Details...";
             this.kryptonManager1.ToolkitStrings.MessageBoxStrings.MoreDetails = "&More Details...";
             // 
@@ -72,20 +73,20 @@
             this.txtPassword.Size = new System.Drawing.Size(265, 30);
             this.txtPassword.TabIndex = 2;
             // 
-            // chkRemeberMe
+            // chkRememberMe
             // 
-            this.chkRemeberMe.Location = new System.Drawing.Point(513, 192);
-            this.chkRemeberMe.Name = "chkRemeberMe";
-            this.chkRemeberMe.Size = new System.Drawing.Size(153, 27);
-            this.chkRemeberMe.TabIndex = 3;
-            this.chkRemeberMe.Values.Text = "Remember me";
+            this.chkRememberMe.Location = new System.Drawing.Point(513, 192);
+            this.chkRememberMe.Name = "chkRememberMe";
+            this.chkRememberMe.Size = new System.Drawing.Size(153, 27);
+            this.chkRememberMe.TabIndex = 3;
+            this.chkRememberMe.Values.Text = "Remember me";
             // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(513, 271);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(265, 55);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 1;
             this.btnLogin.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnLogin.Values.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -113,7 +114,7 @@
             this.Controls.Add(this.kryptonLabel2);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.chkRemeberMe);
+            this.Controls.Add(this.chkRememberMe);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.kryptonPictureBox1);
@@ -124,6 +125,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVLD - Login";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,7 +138,7 @@
         private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
         private Krypton.Toolkit.KryptonTextBox txtUserName;
         private Krypton.Toolkit.KryptonTextBox txtPassword;
-        private Krypton.Toolkit.KryptonCheckBox chkRemeberMe;
+        private Krypton.Toolkit.KryptonCheckBox chkRememberMe;
         private Krypton.Toolkit.KryptonButton btnLogin;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;

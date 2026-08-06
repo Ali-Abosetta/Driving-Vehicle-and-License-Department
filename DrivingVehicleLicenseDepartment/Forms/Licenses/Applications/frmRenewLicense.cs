@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Global;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense;
@@ -18,11 +19,9 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
     public partial class frmRenewLicense : KryptonForm
     {
         private BLL.Licenses _OldLicense;
-        private BLL.Users _CurrentUser;
-        public frmRenewLicense(BLL.Users user)
+        public frmRenewLicense()
         {
             InitializeComponent();
-            _CurrentUser = user;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -57,8 +56,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
                 application.PaidFees = appType.ApplicationFees;
             }
 
-            application.CreatedByUserID = _CurrentUser.UserID;
-            application.CreatedByUserInfo = _CurrentUser;
+            application.CreatedByUserID = clsGlobal.User.UserID;
+            application.CreatedByUserInfo = clsGlobal.User;
 
             application.ApplicantPersonID = ctrlRenewLicenseWithFilter1.OldLicense.DriverInfo.PersonID;
 
@@ -125,8 +124,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
                 NewLisences.IsActive = true;
                 NewLisences.IssueReason = (int)BLL.Licenses.enIssueReason.Renewal;
 
-                NewLisences.CreatedByUserID = _CurrentUser.UserID;
-                NewLisences.CreatedByUserInfo = _CurrentUser;
+                NewLisences.CreatedByUserID = clsGlobal.User.UserID;
+                NewLisences.CreatedByUserInfo = clsGlobal.User;
 
                 _OldLicense.IsActive = false;
 

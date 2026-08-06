@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
 using DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 using static BLL.TestTypes;
 
@@ -27,15 +28,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
                     );
             }
         }
-        private BLL.Users _CurrentUser;
 
-        public frmLocalDrivingLicenseApplication(BLL.Users user)
+        public frmLocalDrivingLicenseApplication()
         {
             InitializeComponent();
             _LocalLicensesTable = LocalDrivingLicenseApplications
                 .GetLocalDrivingLicenseApplicationsSummary();
             dgvLocalLicenseApplications.DataSource = _LocalLicensesTable;
-            _CurrentUser = user;    
 
             cmbFilter.DataSource = LocalDrivingLicenseApplications.GetSearchFilters();
         }
@@ -59,7 +58,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            using (frmAddNewLocalLicense frm = new frmAddNewLocalLicense(_CurrentUser))
+            using (frmAddNewLocalLicense frm = new frmAddNewLocalLicense(clsGlobal.User))
             {
                 frm.DataBack += frmAddNew_DataBack;
                 frm.ShowDialog();
@@ -127,7 +126,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
             enTestType testType = (enTestType)Convert.ToInt32(clickedItem.Tag);
 
-            using (frmTestAppointments frm = new frmTestAppointments(_CurrentUser, SelectedApplicationID, testType))
+            using (frmTestAppointments frm = new frmTestAppointments(SelectedApplicationID, testType))
             {
                 frm.DataBack += frmTestAppointments_DataBack;
                 frm.ShowDialog();
@@ -191,7 +190,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
         private void IssueLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmIssueDrivingLicenseFirstTime frm = new frmIssueDrivingLicenseFirstTime(_CurrentUser, SelectedApplicationID))
+            using (frmIssueDrivingLicenseFirstTime frm = new frmIssueDrivingLicenseFirstTime(SelectedApplicationID))
             {
                 frm.DataBack += frmIssueDrivingLicenseFirstTime_DataBack;
                 frm.ShowDialog();

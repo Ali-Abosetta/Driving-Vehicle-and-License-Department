@@ -13,7 +13,6 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
 {
     public partial class ctrlInternationLicenseApplicationBasicInfo : UserControl
     {
-        private Users _CurrentUser = null;
         private Applications _Application;
         public Applications Application
         {

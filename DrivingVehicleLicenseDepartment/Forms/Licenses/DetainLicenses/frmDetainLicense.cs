@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DrivingVehicleLicenseDepartment.Global;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
 using Krypton.Toolkit;
@@ -15,12 +16,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
 {
     public partial class frmDetainLicense : Form
     {
-        private BLL.Users _CurrentUser;
         private BLL.Licenses _License;
-        public frmDetainLicense(BLL.Users user)
+        public frmDetainLicense()
         {
             InitializeComponent();
-            _CurrentUser = user;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -62,8 +61,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
             detainedLicense.LicenseID = _License.LicenseID;
             detainedLicense.LicenseInfo = _License;
 
-            detainedLicense.CreatedByUserID = _CurrentUser.UserID;
-            detainedLicense.CreatedByUserInfo = _CurrentUser;
+            detainedLicense.CreatedByUserID = clsGlobal.User.UserID;
+            detainedLicense.CreatedByUserInfo = clsGlobal.User;
             detainedLicense.DetainDate = DateTime.Now;
             
             ctrlDetainLicenseWithFilter1.detainedLicenses = detainedLicense;

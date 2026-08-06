@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
@@ -17,12 +18,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
     public partial class frmReleaseDetainedLicense : Form
     {
         private BLL.Licenses _License;
-        private BLL.Users _CurrentUser;
         private BLL.Applications _Application = new BLL.Applications();
-        public frmReleaseDetainedLicense(BLL.Users user)
+        public frmReleaseDetainedLicense()
         {
             InitializeComponent();
-            _CurrentUser = user;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -77,8 +76,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
                 _Application.PaidFees = appType.ApplicationFees;
             }
 
-            _Application.CreatedByUserID = _CurrentUser.UserID;
-            _Application.CreatedByUserInfo = _CurrentUser;
+            _Application.CreatedByUserID = clsGlobal.User.UserID;
+            _Application.CreatedByUserInfo = clsGlobal.User;
 
             _Application.ApplicantPersonID = _License.DriverInfo.PersonID;
 
@@ -106,7 +105,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
 
                 ctrlReleaseLicenseWithFilter1.detainedLicenses.ReleaseApplicationID = _Application.ApplicationID;
                 ctrlReleaseLicenseWithFilter1.detainedLicenses.ReleaseDate = DateTime.Now;
-                ctrlReleaseLicenseWithFilter1.detainedLicenses.ReleasedByUserID = _CurrentUser.UserID;
+                ctrlReleaseLicenseWithFilter1.detainedLicenses.ReleasedByUserID = clsGlobal.User.UserID;
                 ctrlReleaseLicenseWithFilter1.detainedLicenses.IsReleased = true;
 
                 if (!ctrlReleaseLicenseWithFilter1.detainedLicenses.Save())

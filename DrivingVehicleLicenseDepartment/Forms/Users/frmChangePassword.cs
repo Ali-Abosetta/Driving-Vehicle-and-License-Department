@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -15,12 +16,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Users
 {
     public partial class frmChangePassword : Form
     {
-        BLL.Users _CurrentUser;
         public frmChangePassword(BLL.Users User)
         {
             InitializeComponent();
             userCard1.User = User;
-            _CurrentUser = User;
         }
 
         private void kryptonTextBox1_Validating(object sender, CancelEventArgs e)
@@ -59,7 +58,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Users
                     !string.IsNullOrWhiteSpace(txtCurrentPassword.Text) &&
                     !string.IsNullOrWhiteSpace(txtNewPassword.Text) &&
                     !string.IsNullOrWhiteSpace(txtConfirmPassword.Text) &&
-                    (txtCurrentPassword.Text == _CurrentUser.Password) &&
+                    (txtCurrentPassword.Text == userCard1.User.Password) &&
                     (txtNewPassword.Text == txtConfirmPassword.Text)
                 );
 
@@ -71,7 +70,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Users
                 return;
             }
 
-            if (_CurrentUser.UpdatePassword(txtConfirmPassword.Text))
+            if (userCard1.User.UpdatePassword(txtConfirmPassword.Text))
             {
                 KryptonMessageBox.Show("The Password Updated successfully!", "Updated",
                     KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Global;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using Krypton.Toolkit;
 
@@ -16,12 +17,9 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
     public partial class frmReplaceLicense : Form
     {
         private BLL.Licenses _OldLicense;
-        private BLL.Users _CurrentUser;
-        public frmReplaceLicense(BLL.Users user)
+        public frmReplaceLicense()
         {
             InitializeComponent();
-
-            _CurrentUser = user;
         }
 
         private void ctrlReplacementLicenseWithFilter1_OnLicenseSelected(object sender, EventArgs e)
@@ -56,8 +54,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
                 application.PaidFees = appType.ApplicationFees;
             }
 
-            application.CreatedByUserID = _CurrentUser.UserID;
-            application.CreatedByUserInfo = _CurrentUser;
+            application.CreatedByUserID = clsGlobal.User.UserID;
+            application.CreatedByUserInfo = clsGlobal.User;
 
             application.ApplicantPersonID = ctrlReplacementLicenseWithFilter1.OldLicense.DriverInfo.PersonID;
 
@@ -122,8 +120,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
                     (int)BLL.Licenses.enIssueReason.DamagedReplacement 
                     : (int)BLL.Licenses.enIssueReason.LostReplacement;
 
-                NewLisences.CreatedByUserID = _CurrentUser.UserID;
-                NewLisences.CreatedByUserInfo = _CurrentUser;
+                NewLisences.CreatedByUserID = clsGlobal.User.UserID;
+                NewLisences.CreatedByUserInfo = clsGlobal.User;
 
                 _OldLicense.IsActive = false;
 

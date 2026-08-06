@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.Forms;
+using DrivingVehicleLicenseDepartment.Global;
 using DrivingVehicleLicenseDepartment.Forms.Users;
 using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
@@ -25,19 +26,14 @@ namespace DrivingVehicleLicenseDepartment
 {
     public partial class frmMain : KryptonForm
     {
-        private int _CurrentUserID;
-        private Users _CurrentUser;
         public frmMain(int UserID)
         {
             InitializeComponent();
-            _CurrentUserID = UserID;
         }
 
-        public frmMain(Users User)
+        public frmMain()
         {
             InitializeComponent();
-            _CurrentUserID = User.UserID;
-            _CurrentUser = User;
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -61,7 +57,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void currentUserInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(frmUserCard frm = new frmUserCard(_CurrentUserID))
+            using(frmUserCard frm = new frmUserCard(clsGlobal.User))
             {
                 frm.ShowDialog();
             }
@@ -77,7 +73,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(frmChangePassword changePassword = new frmChangePassword(_CurrentUser))
+            using(frmChangePassword changePassword = new frmChangePassword(clsGlobal.User))
             {
                 changePassword.ShowDialog();
             }
@@ -101,7 +97,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void localLisenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmAddNewLocalLicense localLicense = new frmAddNewLocalLicense(_CurrentUser))
+            using (frmAddNewLocalLicense localLicense = new frmAddNewLocalLicense(clsGlobal.User))
             {
                 localLicense.ShowDialog();
             }
@@ -109,7 +105,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmLocalDrivingLicenseApplication frm = new frmLocalDrivingLicenseApplication(_CurrentUser))
+            using (frmLocalDrivingLicenseApplication frm = new frmLocalDrivingLicenseApplication())
             {
                 frm.ShowDialog();
             }
@@ -125,7 +121,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void internationalLisenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmAddInternationalLicense frm =  new frmAddInternationalLicense(_CurrentUser))
+            using (frmAddInternationalLicense frm =  new frmAddInternationalLicense())
             {
                 frm.ShowDialog();
             }
@@ -133,7 +129,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void internationalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmInternationalDrivingLicensesApplications frm = new frmInternationalDrivingLicensesApplications(_CurrentUser))
+            using (frmInternationalDrivingLicensesApplications frm = new frmInternationalDrivingLicensesApplications())
             {
                 frm.ShowDialog();
             }
@@ -141,7 +137,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmRenewLicense frm = new frmRenewLicense(_CurrentUser))
+            using (frmRenewLicense frm = new frmRenewLicense())
             {
                 frm.ShowDialog();
             }
@@ -149,7 +145,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmReplaceLicense frm = new frmReplaceLicense(_CurrentUser))
+            using (frmReplaceLicense frm = new frmReplaceLicense())
             {
                 frm.ShowDialog();
             }
@@ -157,7 +153,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmDetainedLicenses frm = new frmDetainedLicenses(_CurrentUser))
+            using (frmDetainedLicenses frm = new frmDetainedLicenses())
             {
                 frm.ShowDialog();
             }
@@ -165,7 +161,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void detainALisenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmDetainLicense frm = new frmDetainLicense(_CurrentUser))
+            using (frmDetainLicense frm = new frmDetainLicense())
             {
                 frm.ShowDialog();
             }
@@ -173,7 +169,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void releaseDetainedLisenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense(_CurrentUser))
+            using (frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense())
             {
                 frm.ShowDialog();
             }

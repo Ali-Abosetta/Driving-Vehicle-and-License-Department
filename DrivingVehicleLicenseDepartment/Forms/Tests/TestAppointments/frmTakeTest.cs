@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.Properties;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 using static BLL.TestTypes;
 
@@ -24,8 +25,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         private int _AppointmentID;
         private BLL.TestAppointments _testAppointment;
         private bool _isRetake;
-        private BLL.Users _CurrentUser;
-        public frmTakeTest(BLL.Users user, int testAppointmentID, enTestType TestType)
+        public frmTakeTest(int testAppointmentID, enTestType TestType)
         {
             InitializeComponent();
 
@@ -34,7 +34,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             _TestTypeID = (int)TestType;
             _AppointmentID = testAppointment.TestAppointmentID;
             _testAppointment = testAppointment;
-            _CurrentUser = user;
 
             if (_testAppointment != null)
             {
@@ -100,7 +99,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             test.TestAppointmentID = _testAppointment.TestAppointmentID;
             test.TestResult = rbPass.Checked ? true : false;
             test.Notes = rtbNotes.Text;
-            test.CreatedByUserID = _CurrentUser.UserID;
+            test.CreatedByUserID = clsGlobal.User.UserID;
 
             if (test.Save()) 
             {

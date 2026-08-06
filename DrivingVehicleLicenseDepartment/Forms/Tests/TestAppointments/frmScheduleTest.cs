@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using DrivingVehicleLicenseDepartment.Properties;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 using static BLL.TestTypes;
 
@@ -21,7 +22,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         public delegate void DataBackEvenHandler(object sender, BLL.TestAppointments testAppointment);
         public event DataBackEvenHandler DataBack;
 
-        private BLL.Users _CurrentUser = new BLL.Users();
         private int _TestTypeID;
         private int _LocalApplicationID;
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
@@ -30,13 +30,12 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
         private ApplicationsTypes _RetakeAppInfo;
         private bool _isRetake;
 
-        public frmScheduleTest(BLL.Users user, int LocalApplicationID, enTestType TestType) //To add new appointmetn
+        public frmScheduleTest(int LocalApplicationID, enTestType TestType) //To add new appointmetn
         {
             InitializeComponent();
 
             _TestTypeID = (int)TestType;
             _LocalApplicationID = LocalApplicationID;
-            _CurrentUser = user;
 
             _LocalApp = LocalDrivingLicenseApplications.Find(LocalApplicationID);
 
@@ -61,7 +60,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
             _ApplyThemes(TestType);
         }
-        public frmScheduleTest(BLL.Users User, BLL.TestAppointments testAppointments, enTestType TestType) //To edit
+        public frmScheduleTest(BLL.TestAppointments testAppointments, enTestType TestType) //To edit
         {
             InitializeComponent();
 
@@ -87,7 +86,6 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
                 dtpDate.Value = testAppointments.AppointmentDate;
                 lblFees.Text = _Fees.ToString();
 
-                _CurrentUser = User;
             }
 
             _ApplyThemes(TestType);
@@ -158,7 +156,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
             testAppointment.LocalDrivingLicenseApplicationID = _LocalApplicationID;
             testAppointment.AppointmentDate = dtpDate.Value;
             testAppointment.PaidFees = _Fees;
-            testAppointment.CreatedByUserID = _CurrentUser.UserID;
+            testAppointment.CreatedByUserID = clsGlobal.User.UserID;
             testAppointment.IsLocked = false;
 
             if (_isRetake)
@@ -171,7 +169,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
                 retakeApp.ApplicationStatus = (int)Applications.enStatus.New;
                 retakeApp.LastStatusDate = DateTime.Now;
                 retakeApp.PaidFees = _RetakeAppInfo.ApplicationFees; 
-                retakeApp.CreatedByUserID = _CurrentUser.UserID;
+                retakeApp.CreatedByUserID = clsGlobal.User.UserID;
 
                 if (retakeApp.Save())
                 {

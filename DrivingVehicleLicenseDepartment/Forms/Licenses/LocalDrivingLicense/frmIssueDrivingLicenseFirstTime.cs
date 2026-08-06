@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -19,17 +20,15 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         public delegate void DatabackEventHandler();
         public event DatabackEventHandler DataBack;
 
-        private BLL.Users _CurrentUser = new BLL.Users();
         private BLL.Applications _App = new BLL.Applications();
         private LocalDrivingLicenseApplications _LocalApp = new LocalDrivingLicenseApplications();
         private BLL.Drivers _Driver = null;
         private BLL.Licenses _License = new BLL.Licenses();
 
-        public frmIssueDrivingLicenseFirstTime(BLL.Users user, int LocalAppID)
+        public frmIssueDrivingLicenseFirstTime(int LocalAppID)
         {
             InitializeComponent();
 
-            _CurrentUser = user;
             _LocalApp = LocalDrivingLicenseApplications.Find(LocalAppID);
             _App = _LocalApp.ApplicationInfo;
 
@@ -38,11 +37,10 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
         }
 
-        public frmIssueDrivingLicenseFirstTime(BLL.Users user, LocalDrivingLicenseApplications localApp)
+        public frmIssueDrivingLicenseFirstTime(LocalDrivingLicenseApplications localApp)
         {
             InitializeComponent();
 
-            _CurrentUser = user;
             _LocalApp = localApp;
             _App = _LocalApp.ApplicationInfo;
 
@@ -53,7 +51,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
         {
             _Driver = new BLL.Drivers();
             _Driver.PersonID = _App.ApplicantPersonID;
-            _Driver.CreatedByUserID = _CurrentUser.UserID;
+            _Driver.CreatedByUserID = clsGlobal.User.UserID;
             _Driver.CreatedDate = DateTime.Now;
         }
 
@@ -76,7 +74,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
             _License.PaidFees = _LocalApp.LicenseClassInfo.ClassFees;
             _License.IsActive = true;
             _License.IssueReason = (int)BLL.Licenses.enIssueReason.FirstTime;
-            _License.CreatedByUserID = _CurrentUser.UserID;
+            _License.CreatedByUserID = clsGlobal.User.UserID;
 
             if (_License.Save())
             {

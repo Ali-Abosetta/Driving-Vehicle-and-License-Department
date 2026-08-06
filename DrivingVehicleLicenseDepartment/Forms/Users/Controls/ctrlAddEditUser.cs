@@ -49,11 +49,12 @@ namespace DrivingVehicleLicenseDepartment.Forms.Users.Controls
             get
             {
                 return
-                    (
+                (
                     !string.IsNullOrEmpty(txtUsername.Text) &&
                     !string.IsNullOrEmpty(txtPassword.Text) &&
-                    !string.IsNullOrEmpty(txtConfirmPassword.Text)
-                    );
+                    !string.IsNullOrEmpty(txtConfirmPassword.Text) &&
+                    (txtPassword.Text == txtConfirmPassword.Text)
+                );
             }
         }
 

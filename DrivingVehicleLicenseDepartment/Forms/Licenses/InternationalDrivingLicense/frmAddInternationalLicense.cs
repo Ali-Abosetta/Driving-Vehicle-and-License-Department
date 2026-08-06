@@ -9,20 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.CustomControls;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense
 {
     public partial class frmAddInternationalLicense : KryptonForm
     {
-        private BLL.Users _CurrentUser;
         private BLL.Licenses _License;
         private InternationalLicenses _InternationalLicense;
         private BLL.Drivers _Driver;
-        public frmAddInternationalLicense(BLL.Users currentUser)
+        public frmAddInternationalLicense()
         {
             InitializeComponent();
-            _CurrentUser = currentUser;
         }
 
         private void ctrlLicenseApplicationWithFilter1_OnLicenseSelected(object sender, EventArgs e)
@@ -91,8 +90,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
                 application.PaidFees = appType.ApplicationFees;
             }
 
-            application.CreatedByUserID = _CurrentUser.UserID;
-            application.CreatedByUserInfo = _CurrentUser;
+            application.CreatedByUserID = clsGlobal.User.UserID;
+            application.CreatedByUserInfo = clsGlobal.User;
 
             application.ApplicantPersonID = ctrlLicenseApplicationWithFilter1.License.DriverInfo.PersonID;
 
@@ -128,7 +127,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLic
             internationalLicense.IssueDate = DateTime.Now;
             internationalLicense.ExpirationDate = DateTime.Now.AddYears(1); 
             internationalLicense.IsActive = true;
-            internationalLicense.CreatedByUserID = _CurrentUser.UserID;
+            internationalLicense.CreatedByUserID = clsGlobal.User.UserID;
 
             if (!internationalLicense.Save())
             {

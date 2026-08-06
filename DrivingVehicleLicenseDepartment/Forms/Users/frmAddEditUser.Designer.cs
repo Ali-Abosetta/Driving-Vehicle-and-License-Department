@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BLL.Users users2 = new BLL.Users();
+            BLL.Users users1 = new BLL.Users();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new Krypton.Toolkit.KryptonButton();
-            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonInfoWithFilter();
+            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonInfoWithFilter();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.btnPrevious = new Krypton.Toolkit.KryptonButton();
             this.addEditUser1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlAddEditUser();
@@ -118,12 +118,13 @@
             this.addEditUser1.Name = "addEditUser1";
             this.addEditUser1.Size = new System.Drawing.Size(590, 279);
             this.addEditUser1.TabIndex = 0;
-            users2.IsActive = false;
-            users2.Password = "";
-            users2.PersonID = -1;
-            users2.UserID = -1;
-            users2.UserName = "";
-            this.addEditUser1.User = users2;
+            users1.IsActive = false;
+            users1.Password = "";
+            users1.PersonID = -1;
+            users1.PersonInfo = null;
+            users1.UserID = -1;
+            users1.UserName = "";
+            this.addEditUser1.User = users1;
             // 
             // btnSave
             // 
@@ -149,13 +150,16 @@
             // 
             // frmAddEditUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 646);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddEditUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditUser";
             this.tabControl1.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);
@@ -168,7 +172,7 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpPersonalInfo;
-        private CustomControls.ctrlPersonInfoWithFilter personInfroWithFilter1;
+        private DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonInfoWithFilter personInfroWithFilter1;
         private System.Windows.Forms.TabPage tpLoginInfo;
         private Krypton.Toolkit.KryptonButton btnNext;
         private Krypton.Toolkit.KryptonButton btnSave;

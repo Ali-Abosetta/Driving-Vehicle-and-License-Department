@@ -122,6 +122,7 @@ namespace BLL
             this.CreatedByUserID = CreatedByUserID;
             this.CreatedDate = CreatedDate;
 
+            Mode = enMode.Update;
         }
         public Drivers()
         {

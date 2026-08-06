@@ -32,19 +32,19 @@
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.dgvUsers = new Krypton.Toolkit.KryptonDataGridView();
             this.cmsUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showUserDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PaletteDGVs = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
             this.btnAddNew = new Krypton.Toolkit.KryptonButton();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.txtSearch = new Krypton.Toolkit.KryptonTextBox();
             this.cmbFilter = new Krypton.Toolkit.KryptonComboBox();
-            this.showUserDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbMainUserPhoto = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.cmsUsers.SuspendLayout();
@@ -95,15 +95,68 @@
             this.cmsUsers.Name = "cmsPeople";
             this.cmsUsers.Size = new System.Drawing.Size(182, 244);
             // 
+            // showUserDetailsToolStripMenuItem
+            // 
+            this.showUserDetailsToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.PersonDetails_32;
+            this.showUserDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.showUserDetailsToolStripMenuItem.Name = "showUserDetailsToolStripMenuItem";
+            this.showUserDetailsToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.showUserDetailsToolStripMenuItem.Text = "Show user details";
+            this.showUserDetailsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.showUserDetailsToolStripMenuItem.Click += new System.EventHandler(this.showUserDetailsToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
             // 
+            // addNewPersonToolStripMenuItem
+            // 
+            this.addNewPersonToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Add_New_User_321;
+            this.addNewPersonToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.addNewPersonToolStripMenuItem.Text = "Add new user";
+            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.AddUser);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Edit_User_32;
+            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.EditUser);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Delete_User_32;
+            this.deleteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteUser);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            this.sendEmailToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.send_email_32;
+            this.sendEmailToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
+            // phoneCallToolStripMenuItem
+            // 
+            this.phoneCallToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.call_32;
+            this.phoneCallToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
+            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
+            this.phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
             // PaletteDGVs
             // 
@@ -133,7 +186,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(350, 345);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(271, 21);
+            this.txtSearch.Size = new System.Drawing.Size(271, 30);
             this.txtSearch.TabIndex = 16;
             this.txtSearch.TextChanged += new System.EventHandler(this.Search);
             // 
@@ -141,63 +194,10 @@
             // 
             this.cmbFilter.Location = new System.Drawing.Point(141, 346);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(190, 20);
+            this.cmbFilter.Size = new System.Drawing.Size(190, 29);
             this.cmbFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbFilter.TabIndex = 15;
             this.cmbFilter.Text = "cmbUsersFields";
-            // 
-            // showUserDetailsToolStripMenuItem
-            // 
-            this.showUserDetailsToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.PersonDetails_32;
-            this.showUserDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.showUserDetailsToolStripMenuItem.Name = "showUserDetailsToolStripMenuItem";
-            this.showUserDetailsToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
-            this.showUserDetailsToolStripMenuItem.Text = "Show user details";
-            this.showUserDetailsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showUserDetailsToolStripMenuItem.Click += new System.EventHandler(this.showUserDetailsToolStripMenuItem_Click);
-            // 
-            // addNewPersonToolStripMenuItem
-            // 
-            this.addNewPersonToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Add_New_User_321;
-            this.addNewPersonToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
-            this.addNewPersonToolStripMenuItem.Text = "Add new user";
-            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.AddUser);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Edit_User_32;
-            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.EditUser);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Delete_User_32;
-            this.deleteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteUser);
-            // 
-            // sendEmailToolStripMenuItem
-            // 
-            this.sendEmailToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.send_email_32;
-            this.sendEmailToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
-            this.sendEmailToolStripMenuItem.Text = "Send Email";
-            // 
-            // phoneCallToolStripMenuItem
-            // 
-            this.phoneCallToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.call_32;
-            this.phoneCallToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(181, 38);
-            this.phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
             // pbMainUserPhoto
             // 
@@ -211,9 +211,8 @@
             // 
             // frmUsers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 677);
+            this.ControlBox = false;
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.btnAddNew);
@@ -221,7 +220,11 @@
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.pbMainUserPhoto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmUsers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUsers";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.cmsUsers.ResumeLayout(false);

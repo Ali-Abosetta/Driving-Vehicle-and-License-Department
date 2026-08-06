@@ -101,7 +101,7 @@
             // frmReleaseDetainedLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ClientSize = new System.Drawing.Size(843, 806);
             this.Controls.Add(this.ctrlReleaseLicenseWithFilter1);
             this.Controls.Add(this.kryptonLabel1);

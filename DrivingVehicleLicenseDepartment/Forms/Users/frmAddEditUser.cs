@@ -31,7 +31,7 @@ namespace DrivingVehicleLicenseDepartment.Forms
             user = Users.Find(UserID);
             addEditUser1.User = user;
 
-            People person = user.PersonInfo;
+            BLL.People person = user.PersonInfo;
             personInfroWithFilter1.ctrlPersonCardEditable1.Person = person;
 
 

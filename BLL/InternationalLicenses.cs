@@ -234,6 +234,8 @@ namespace BLL
             this.IsActive = IsActive;
             this.CreatedByUserID = CreatedByUserID;
 
+            Mode = enMode.Update;
+
         }
         public InternationalLicenses()
         {

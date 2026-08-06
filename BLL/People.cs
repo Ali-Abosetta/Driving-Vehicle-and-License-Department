@@ -11,9 +11,8 @@ namespace BLL
 {
     public class People
     {
-
         
-        public enMode Mode = enMode.AddNew;
+        private enMode Mode = enMode.AddNew;
 
         public int PersonID { get; set; }
         public string NationalNo { get; set; }
@@ -21,12 +20,17 @@ namespace BLL
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
-        public string FullName { 
+        public string FullName 
+        { 
             get
             {
                 StringBuilder sb = new StringBuilder(FirstName + " " + SecondName + " ");
+
                 if (!string.IsNullOrWhiteSpace(ThirdName))
+                {
                     sb.Append(ThirdName + " ");
+                }
+
                 sb.Append(LastName);
 
                 return sb.ToString();
@@ -114,6 +118,8 @@ namespace BLL
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
 
+            Mode = enMode.Update;
+
         }
         public People()
         {
@@ -181,9 +187,12 @@ namespace BLL
 
         public static bool IsExists(int PersonID)
         {
-
             return PeopleDataAccess.IsExistsInPeopleByPersonID(PersonID);
+        }
 
+        public static bool IsExistsByNationalNo(string NationalNo)
+        {
+            return PeopleDataAccess.IsExistsInPeopleByNationalNo(NationalNo);
         }
 
         private bool _AddNewToPeople()

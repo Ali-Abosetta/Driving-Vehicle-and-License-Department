@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BLL.Users users2 = new BLL.Users();
+            BLL.Users users1 = new BLL.Users();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
             this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlUserCardEditable();
             this.SuspendLayout();
@@ -52,21 +52,25 @@
             this.userCardEditable1.Name = "userCardEditable1";
             this.userCardEditable1.Size = new System.Drawing.Size(882, 500);
             this.userCardEditable1.TabIndex = 0;
-            users2.IsActive = false;
-            users2.Password = "";
-            users2.PersonID = -1;
-            users2.UserID = -1;
-            users2.UserName = "";
-            this.userCardEditable1.User = users2;
+            users1.IsActive = false;
+            users1.Password = "";
+            users1.PersonID = -1;
+            users1.PersonInfo = null;
+            users1.UserID = -1;
+            users1.UserName = "";
+            this.userCardEditable1.User = users1;
             // 
             // frmUserCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 571);
+            this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.userCardEditable1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmUserCard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUserCard";
             this.ResumeLayout(false);
 

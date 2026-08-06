@@ -21,7 +21,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
 
 
         private Users user;
-        private People _person
+        private BLL.People _person
         {
             get
             {
@@ -78,12 +78,15 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense
             btnSave.Enabled = true;
 
             addEditApplication1.ApplicantPersonID = personInfroWithFilter1.PersonID;
+
+            btnNext.Focus();
         }
 
         private void personInfroWithFilter1_OnPersonNotFound(object sender, EventArgs e)
         {
             btnNext.Enabled = false;
             btnSave.Enabled = false;
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

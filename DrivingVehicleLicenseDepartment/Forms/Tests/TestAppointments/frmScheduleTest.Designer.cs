@@ -64,7 +64,7 @@
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDate.Location = new System.Drawing.Point(152, 322);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(139, 23);
+            this.dtpDate.Size = new System.Drawing.Size(139, 29);
             this.dtpDate.TabIndex = 60;
             // 
             // lblTitle
@@ -102,7 +102,7 @@
             // 
             this.kryptonLabel7.Location = new System.Drawing.Point(10, 353);
             this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(90, 25);
+            this.kryptonLabel7.Size = new System.Drawing.Size(90, 27);
             this.kryptonLabel7.TabIndex = 45;
             this.kryptonLabel7.Values.Text = "Fees:";
             // 
@@ -110,7 +110,7 @@
             // 
             this.kryptonLabel6.Location = new System.Drawing.Point(10, 322);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(90, 25);
+            this.kryptonLabel6.Size = new System.Drawing.Size(90, 27);
             this.kryptonLabel6.TabIndex = 46;
             this.kryptonLabel6.Values.Text = "Date:";
             // 
@@ -118,7 +118,7 @@
             // 
             this.kryptonLabel5.Location = new System.Drawing.Point(10, 291);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(90, 25);
+            this.kryptonLabel5.Size = new System.Drawing.Size(90, 27);
             this.kryptonLabel5.TabIndex = 47;
             this.kryptonLabel5.Values.Text = "Trial:";
             // 
@@ -126,7 +126,7 @@
             // 
             this.kryptonLabel4.Location = new System.Drawing.Point(10, 260);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(90, 25);
+            this.kryptonLabel4.Size = new System.Drawing.Size(90, 27);
             this.kryptonLabel4.TabIndex = 48;
             this.kryptonLabel4.Values.Text = "Name:";
             // 
@@ -134,7 +134,7 @@
             // 
             this.kryptonLabel3.Location = new System.Drawing.Point(10, 229);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(90, 25);
+            this.kryptonLabel3.Size = new System.Drawing.Size(90, 27);
             this.kryptonLabel3.TabIndex = 49;
             this.kryptonLabel3.Values.Text = "D. Class:";
             // 
@@ -142,7 +142,7 @@
             // 
             this.lblFees.Location = new System.Drawing.Point(152, 353);
             this.lblFees.Name = "lblFees";
-            this.lblFees.Size = new System.Drawing.Size(90, 25);
+            this.lblFees.Size = new System.Drawing.Size(90, 27);
             this.lblFees.TabIndex = 50;
             this.lblFees.Values.Text = "N/A";
             // 
@@ -150,7 +150,7 @@
             // 
             this.lblTrial.Location = new System.Drawing.Point(152, 291);
             this.lblTrial.Name = "lblTrial";
-            this.lblTrial.Size = new System.Drawing.Size(90, 25);
+            this.lblTrial.Size = new System.Drawing.Size(90, 27);
             this.lblTrial.TabIndex = 51;
             this.lblTrial.Values.Text = "N/A";
             // 
@@ -158,7 +158,7 @@
             // 
             this.lblName.Location = new System.Drawing.Point(152, 260);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(90, 25);
+            this.lblName.Size = new System.Drawing.Size(90, 27);
             this.lblName.TabIndex = 52;
             this.lblName.Values.Text = "N/A";
             // 
@@ -166,7 +166,7 @@
             // 
             this.lblDClass.Location = new System.Drawing.Point(152, 229);
             this.lblDClass.Name = "lblDClass";
-            this.lblDClass.Size = new System.Drawing.Size(90, 25);
+            this.lblDClass.Size = new System.Drawing.Size(90, 27);
             this.lblDClass.TabIndex = 53;
             this.lblDClass.Values.Text = "N/A";
             // 
@@ -174,7 +174,7 @@
             // 
             this.lblDLAppID.Location = new System.Drawing.Point(152, 198);
             this.lblDLAppID.Name = "lblDLAppID";
-            this.lblDLAppID.Size = new System.Drawing.Size(90, 25);
+            this.lblDLAppID.Size = new System.Drawing.Size(90, 27);
             this.lblDLAppID.TabIndex = 54;
             this.lblDLAppID.Values.Text = "N/A";
             // 
@@ -182,7 +182,7 @@
             // 
             this.kryptonLabel2.Location = new System.Drawing.Point(10, 198);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(90, 25);
+            this.kryptonLabel2.Size = new System.Drawing.Size(114, 27);
             this.kryptonLabel2.TabIndex = 55;
             this.kryptonLabel2.Values.Text = "D.L.App.ID:";
             // 
@@ -266,9 +266,8 @@
             // 
             // frmScheduleTest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 608);
+            this.ControlBox = false;
             this.Controls.Add(this.gbRetakeTest);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.lblTitle);
@@ -286,7 +285,11 @@
             this.Controls.Add(this.lblDClass);
             this.Controls.Add(this.lblDLAppID);
             this.Controls.Add(this.kryptonLabel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmScheduleTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmScheduleTest";
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbRetakeTest.Panel)).EndInit();

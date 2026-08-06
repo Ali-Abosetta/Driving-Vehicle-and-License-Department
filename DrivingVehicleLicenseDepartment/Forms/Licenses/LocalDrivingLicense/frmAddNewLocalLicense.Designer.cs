@@ -31,7 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new Krypton.Toolkit.KryptonButton();
-            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonInfoWithFilter();
+            this.personInfroWithFilter1 = new DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonInfoWithFilter();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
             this.addEditApplication1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlAddEditApplication();
             this.btnPrevious = new Krypton.Toolkit.KryptonButton();
@@ -147,13 +147,12 @@
             // 
             // frmAddNewLocalLicense
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 646);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Name = "frmAddNewLocalLicense";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddNewLocalLicense";
             this.tabControl1.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);
@@ -167,7 +166,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpPersonalInfo;
         private Krypton.Toolkit.KryptonButton btnNext;
-        private CustomControls.ctrlPersonInfoWithFilter personInfroWithFilter1;
+        private DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonInfoWithFilter personInfroWithFilter1;
         private System.Windows.Forms.TabPage tpApplicationInfo;
         private Krypton.Toolkit.KryptonButton btnPrevious;
         private Krypton.Toolkit.KryptonButton btnSave;

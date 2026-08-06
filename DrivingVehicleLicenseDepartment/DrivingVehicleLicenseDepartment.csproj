@@ -141,10 +141,16 @@
     <Compile Include="CustomControls\ctrlLicenseApplicationWithFilter.Designer.cs">
       <DependentUpon>ctrlLicenseApplicationWithFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\ctrlPersonCardEditable.cs">
+    <Compile Include="Forms\People\Controls\ctrlPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\ctrlPersonCardEditable.Designer.cs">
+    <Compile Include="Forms\People\Controls\ctrlPersonCard.Designer.cs">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\People\Controls\ctrlPersonCardEditable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\People\Controls\ctrlPersonCardEditable.Designer.cs">
       <DependentUpon>ctrlPersonCardEditable.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ctrlReleaseLicenseWithFilter.cs">
@@ -171,10 +177,10 @@
     <Compile Include="CustomControls\ctrlRetakeTestInfo.Designer.cs">
       <DependentUpon>ctrlRetakeTestInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\ctrlPersonInfoWithFilter.cs">
+    <Compile Include="Forms\People\Controls\ctrlPersonInfoWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\ctrlPersonInfoWithFilter.Designer.cs">
+    <Compile Include="Forms\People\Controls\ctrlPersonInfoWithFilter.Designer.cs">
       <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ctrlUserCardEditable.cs">
@@ -207,6 +213,7 @@
     <Compile Include="Forms\Drivers\frmDrivers.Designer.cs">
       <DependentUpon>frmDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Global\clsGlobal.cs" />
     <Compile Include="Forms\Licenses\Applications\frmRenewLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,7 +417,10 @@
     <EmbeddedResource Include="CustomControls\ctrlLicenseApplicationWithFilter.resx">
       <DependentUpon>ctrlLicenseApplicationWithFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\ctrlPersonCardEditable.resx">
+    <EmbeddedResource Include="Forms\People\Controls\ctrlPersonCard.resx">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\People\Controls\ctrlPersonCardEditable.resx">
       <DependentUpon>ctrlPersonCardEditable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlReleaseLicenseWithFilter.resx">
@@ -425,7 +435,7 @@
     <EmbeddedResource Include="CustomControls\ctrlRetakeTestInfo.resx">
       <DependentUpon>ctrlRetakeTestInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\ctrlPersonInfoWithFilter.resx">
+    <EmbeddedResource Include="Forms\People\Controls\ctrlPersonInfoWithFilter.resx">
       <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ctrlUserCardEditable.resx">

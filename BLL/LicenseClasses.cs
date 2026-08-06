@@ -31,7 +31,7 @@ namespace BLL
             this.DefaultValidityLength = DefaultValidityLength;
             this.ClassFees = ClassFees;
 
-
+            Mode = enMode.Update;
         }
         public LicenseClasses()
         {

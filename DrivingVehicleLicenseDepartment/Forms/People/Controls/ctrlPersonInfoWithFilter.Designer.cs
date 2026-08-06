@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.CustomControls
+﻿namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
 {
     partial class ctrlPersonInfoWithFilter 
     {
@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             BLL.People people1 = new BLL.People();
+            BLL.Countries countries1 = new BLL.Countries();
             this.gbFilter = new Krypton.Toolkit.KryptonGroupBox();
             this.txtSearch = new Krypton.Toolkit.KryptonTextBox();
             this.btnSearch = new Krypton.Toolkit.KryptonButton();
             this.btnAddNew = new Krypton.Toolkit.KryptonButton();
             this.cmbFilter = new Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonCardEditable();
+            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonCardEditable();
             ((System.ComponentModel.ISupportInitialize)(this.gbFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbFilter.Panel)).BeginInit();
             this.gbFilter.Panel.SuspendLayout();
@@ -62,8 +63,9 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(326, 14);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(289, 30);
+            this.txtSearch.Size = new System.Drawing.Size(289, 21);
             this.txtSearch.TabIndex = 15;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // btnSearch
             // 
@@ -91,10 +93,10 @@
             // 
             this.cmbFilter.Items.AddRange(new object[] {
             "National No.",
-            "PersonID"});
+            "Person ID"});
             this.cmbFilter.Location = new System.Drawing.Point(114, 16);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(194, 29);
+            this.cmbFilter.Size = new System.Drawing.Size(194, 20);
             this.cmbFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbFilter.TabIndex = 1;
             this.cmbFilter.Text = "kryptonComboBox1";
@@ -112,6 +114,9 @@
             this.ctrlPersonCardEditable1.Location = new System.Drawing.Point(11, 102);
             this.ctrlPersonCardEditable1.Name = "ctrlPersonCardEditable1";
             people1.Address = "";
+            countries1.CountryID = 100;
+            countries1.CountryName = "Libya";
+            people1.CountryInfo = countries1;
             people1.DateOfBirth = new System.DateTime(2008, 6, 30, 20, 35, 27, 112);
             people1.Email = "";
             people1.FirstName = "";
@@ -128,12 +133,12 @@
             this.ctrlPersonCardEditable1.Size = new System.Drawing.Size(875, 377);
             this.ctrlPersonCardEditable1.TabIndex = 0;
             // 
-            // PersonInfoWithFilter
+            // ctrlPersonInfoWithFilter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.gbFilter);
             this.Controls.Add(this.ctrlPersonCardEditable1);
-            this.Name = "PersonInfoWithFilter";
+            this.Name = "ctrlPersonInfoWithFilter";
             this.Size = new System.Drawing.Size(897, 485);
             this.Load += new System.EventHandler(this.PersonInfroWithFilter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gbFilter.Panel)).EndInit();

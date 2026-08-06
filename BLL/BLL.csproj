@@ -57,6 +57,7 @@
     <Compile Include="Tests.cs" />
     <Compile Include="TestTypes.cs" />
     <Compile Include="Users.cs" />
+    <Compile Include="Utils\clsValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

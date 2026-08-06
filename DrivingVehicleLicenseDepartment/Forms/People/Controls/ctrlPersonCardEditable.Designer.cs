@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.CustomControls
+﻿namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
 {
     partial class ctrlPersonCardEditable
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblPicture = new Krypton.Toolkit.KryptonLinkLabel();
+            this.lblEditPic = new Krypton.Toolkit.KryptonLinkLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.txtFirstName = new Krypton.Toolkit.KryptonTextBox();
@@ -39,7 +39,6 @@
             this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             this.txtLastName = new Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            this.textBoxesPalette = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
             this.txtNational = new Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
@@ -58,19 +57,20 @@
             this.pbPicture = new Krypton.Toolkit.KryptonPictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ofdEditPicture = new System.Windows.Forms.OpenFileDialog();
+            this.lblRemovePic = new Krypton.Toolkit.KryptonLinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCountries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblPicture
+            // lblEditPic
             // 
-            this.lblPicture.Location = new System.Drawing.Point(740, 290);
-            this.lblPicture.Name = "lblPicture";
-            this.lblPicture.Size = new System.Drawing.Size(116, 27);
-            this.lblPicture.TabIndex = 13;
-            this.lblPicture.Values.Text = "Edit picture";
-            this.lblPicture.LinkClicked += new System.EventHandler(this.lblPicture_LinkClicked);
+            this.lblEditPic.Location = new System.Drawing.Point(740, 290);
+            this.lblEditPic.Name = "lblEditPic";
+            this.lblEditPic.Size = new System.Drawing.Size(116, 27);
+            this.lblEditPic.TabIndex = 13;
+            this.lblEditPic.Values.Text = "Edit picture";
+            this.lblEditPic.LinkClicked += new System.EventHandler(this.lblEditPic_LinkClicked);
             // 
             // kryptonLabel1
             // 
@@ -92,18 +92,20 @@
             // 
             this.txtFirstName.Location = new System.Drawing.Point(91, 43);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(163, 21);
+            this.txtFirstName.Size = new System.Drawing.Size(163, 30);
             this.txtFirstName.TabIndex = 1;
             this.txtFirstName.Tag = "First Name";
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLettersTextBoxes_KeyPress);
             this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
             // 
             // txtSecondName
             // 
             this.txtSecondName.Location = new System.Drawing.Point(291, 43);
             this.txtSecondName.Name = "txtSecondName";
-            this.txtSecondName.Size = new System.Drawing.Size(163, 21);
+            this.txtSecondName.Size = new System.Drawing.Size(163, 30);
             this.txtSecondName.TabIndex = 2;
             this.txtSecondName.Tag = "Second Name";
+            this.txtSecondName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLettersTextBoxes_KeyPress);
             this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
             // 
             // kryptonLabel3
@@ -118,9 +120,10 @@
             // 
             this.txtThirdName.Location = new System.Drawing.Point(491, 43);
             this.txtThirdName.Name = "txtThirdName";
-            this.txtThirdName.Size = new System.Drawing.Size(163, 21);
+            this.txtThirdName.Size = new System.Drawing.Size(163, 30);
             this.txtThirdName.TabIndex = 3;
             this.txtThirdName.Tag = "Third Name";
+            this.txtThirdName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLettersTextBoxes_KeyPress);
             // 
             // kryptonLabel4
             // 
@@ -134,9 +137,10 @@
             // 
             this.txtLastName.Location = new System.Drawing.Point(691, 43);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(163, 21);
+            this.txtLastName.Size = new System.Drawing.Size(163, 30);
             this.txtLastName.TabIndex = 4;
             this.txtLastName.Tag = "Last Name";
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLettersTextBoxes_KeyPress);
             this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
             // 
             // kryptonLabel5
@@ -147,19 +151,14 @@
             this.kryptonLabel5.TabIndex = 9;
             this.kryptonLabel5.Values.Text = "Last Name:";
             // 
-            // textBoxesPalette
-            // 
-            this.textBoxesPalette.BaseFont = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxesPalette.UseThemeFormChromeBorderWidth = Krypton.Toolkit.InheritBool.True;
-            // 
             // txtNational
             // 
             this.txtNational.Location = new System.Drawing.Point(138, 101);
             this.txtNational.Name = "txtNational";
-            this.txtNational.Size = new System.Drawing.Size(193, 21);
+            this.txtNational.Size = new System.Drawing.Size(193, 30);
             this.txtNational.TabIndex = 5;
             this.txtNational.Tag = "National Number";
-            this.txtNational.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
+            this.txtNational.Validating += new System.ComponentModel.CancelEventHandler(this.NationalNo_Validating);
             // 
             // kryptonLabel6
             // 
@@ -182,7 +181,7 @@
             this.dtpBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpBirth.Location = new System.Drawing.Point(491, 104);
             this.dtpBirth.Name = "dtpBirth";
-            this.dtpBirth.Size = new System.Drawing.Size(204, 23);
+            this.dtpBirth.Size = new System.Drawing.Size(204, 29);
             this.dtpBirth.TabIndex = 6;
             // 
             // kryptonLabel8
@@ -211,7 +210,7 @@
             // 
             // kryptonLabel11
             // 
-            this.kryptonLabel11.Location = new System.Drawing.Point(363, 215);
+            this.kryptonLabel11.Location = new System.Drawing.Point(406, 215);
             this.kryptonLabel11.Name = "kryptonLabel11";
             this.kryptonLabel11.Size = new System.Drawing.Size(122, 27);
             this.kryptonLabel11.TabIndex = 18;
@@ -219,9 +218,9 @@
             // 
             // cmbCountries
             // 
-            this.cmbCountries.Location = new System.Drawing.Point(491, 213);
+            this.cmbCountries.Location = new System.Drawing.Point(515, 213);
             this.cmbCountries.Name = "cmbCountries";
-            this.cmbCountries.Size = new System.Drawing.Size(204, 20);
+            this.cmbCountries.Size = new System.Drawing.Size(180, 29);
             this.cmbCountries.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.cmbCountries.TabIndex = 11;
             this.cmbCountries.Text = "kryptonComboBox1";
@@ -264,20 +263,23 @@
             // 
             this.txtPhone.Location = new System.Drawing.Point(491, 158);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(204, 21);
+            this.txtPhone.Size = new System.Drawing.Size(204, 30);
             this.txtPhone.TabIndex = 9;
             this.txtPhone.Tag = "Phone Number";
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigitsTextBoxes_KeyPress);
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(138, 212);
+            this.txtEmail.Location = new System.Drawing.Point(91, 212);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(193, 21);
+            this.txtEmail.Size = new System.Drawing.Size(290, 30);
             this.txtEmail.TabIndex = 10;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // pbPicture
             // 
+            this.pbPicture.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Male_512;
             this.pbPicture.Location = new System.Drawing.Point(723, 101);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(140, 180);
@@ -293,6 +295,17 @@
             // 
             this.ofdEditPicture.FileName = "openFileDialog1";
             this.ofdEditPicture.Title = "Chose person picture";
+            // 
+            // lblRemovePic
+            // 
+            this.lblRemovePic.Enabled = false;
+            this.lblRemovePic.Location = new System.Drawing.Point(727, 323);
+            this.lblRemovePic.Name = "lblRemovePic";
+            this.lblRemovePic.Size = new System.Drawing.Size(151, 27);
+            this.lblRemovePic.TabIndex = 13;
+            this.lblRemovePic.Values.Text = "Remove picture";
+            this.lblRemovePic.Visible = false;
+            this.lblRemovePic.LinkClicked += new System.EventHandler(this.lblRemovePic_LinkClicked);
             // 
             // ctrlPersonCardEditable
             // 
@@ -321,7 +334,8 @@
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.kryptonLabel2);
             this.Controls.Add(this.kryptonLabel1);
-            this.Controls.Add(this.lblPicture);
+            this.Controls.Add(this.lblRemovePic);
+            this.Controls.Add(this.lblEditPic);
             this.Controls.Add(this.pbPicture);
             this.Name = "ctrlPersonCardEditable";
             this.Size = new System.Drawing.Size(881, 377);
@@ -346,7 +360,6 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private Krypton.Toolkit.KryptonTextBox txtLastName;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private Krypton.Toolkit.KryptonCustomPaletteBase textBoxesPalette;
         private Krypton.Toolkit.KryptonTextBox txtNational;
         private Krypton.Toolkit.KryptonLabel kryptonLabel6;
         private Krypton.Toolkit.KryptonLabel kryptonLabel7;
@@ -364,6 +377,7 @@
         private System.Windows.Forms.OpenFileDialog ofdEditPicture;
         public Krypton.Toolkit.KryptonRadioButton rbMale;
         public Krypton.Toolkit.KryptonRadioButton rbFemale;
-        public Krypton.Toolkit.KryptonLinkLabel lblPicture;
+        public Krypton.Toolkit.KryptonLinkLabel lblEditPic;
+        public Krypton.Toolkit.KryptonLinkLabel lblRemovePic;
     }
 }

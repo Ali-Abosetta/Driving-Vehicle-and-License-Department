@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DrivingVehicleLicenseDepartment.Forms.People;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
@@ -53,7 +54,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
         {
 
             string NationalNo = dgvLicenses.CurrentRow.Cells["National No."].Value.ToString();
-            People person = People.FindByNationalNo(NationalNo);
+            BLL.People person = BLL.People.FindByNationalNo(NationalNo);
 
             using (frmLicenseHistory frm = new frmLicenseHistory(person))
             {
@@ -64,7 +65,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses
         private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string NationalNo = dgvLicenses.CurrentRow.Cells["National No."].Value.ToString();
-            People person = People.FindByNationalNo(NationalNo);
+            BLL.People person = BLL.People.FindByNationalNo(NationalNo);
 
             using (frmPersonCard card = new frmPersonCard(person))
             {

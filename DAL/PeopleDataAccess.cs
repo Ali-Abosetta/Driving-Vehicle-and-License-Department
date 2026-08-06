@@ -36,47 +36,36 @@ namespace DAL
                         {
 
                             PersonID = (int)reader["PersonID"];
-
                             NationalNo = (string)reader["NationalNo"];
-
                             FirstName = (string)reader["FirstName"];
-
                             SecondName = (string)reader["SecondName"];
 
                             if (reader["ThirdName"] != System.DBNull.Value)
-
                             {
-
                                 ThirdName = (string)reader["ThirdName"];
-
                             }
 
                             else
-
+                            {
                                 ThirdName = string.Empty;
+                            }
 
 
                             LastName = (string)reader["LastName"];
-
                             DateOfBirth = (DateTime)reader["DateOfBirth"];
-
                             Gendor = Convert.ToInt32(reader["Gendor"]);
-
                             Address = (string)reader["Address"];
-
                             Phone = (string)reader["Phone"];
 
                             if (reader["Email"] != System.DBNull.Value)
-
                             {
-
                                 Email = (string)reader["Email"];
-
                             }
 
                             else
-
+                            {
                                 Email = string.Empty;
+                            }
 
 
                             NationalityCountryID = (int)reader["NationalityCountryID"];
@@ -91,7 +80,7 @@ namespace DAL
 
                             else
 
-                                ImagePath = string.Empty;
+                                ImagePath = null;
 
 
 
@@ -157,16 +146,14 @@ namespace DAL
                             SecondName = (string)reader["SecondName"];
 
                             if (reader["ThirdName"] != System.DBNull.Value)
-
                             {
-
                                 ThirdName = (string)reader["ThirdName"];
-
                             }
 
                             else
-
+                            {
                                 ThirdName = string.Empty;
+                            }
 
 
                             LastName = (string)reader["LastName"];
@@ -204,7 +191,7 @@ namespace DAL
 
                             else
 
-                                ImagePath = string.Empty;
+                                ImagePath = null;
 
 
 
@@ -237,8 +224,6 @@ namespace DAL
         }
 
         public static bool IsExistsInPeopleByPersonID(int PersonID)
-
-
         {
 
             int isExists = -1;
@@ -280,6 +265,32 @@ namespace DAL
 
             return (isExists > 0);
 
+        }
+
+        public static bool IsExistsInPeopleByNationalNo(string NationalNo)
+        {
+            int isExists = -1;
+            using (SqlConnection connection = new SqlConnection(clsConnectionString.ConnectionString))
+            {
+                string query = "SELECT Found=1 FROM People WHERE NationalNo = @NationalNo";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+                    try
+                    {
+                        connection.Open();
+                        isExists = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+                }
+            }
+
+            return isExists > 0;
         }
         public static int AddNewToPeople(string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName, DateTime DateOfBirth, int Gendor, string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
 
@@ -350,10 +361,15 @@ namespace DAL
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
 
-            if (Email != "")
+            if (string.IsNullOrWhiteSpace(Email))
+            {
                 command.Parameters.AddWithValue("@Email", Email);
+            }
             else
+            {
                 command.Parameters.AddWithValue("@Email", System.DBNull.Value);
+            }
+
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
             if (!string.IsNullOrWhiteSpace(ImagePath))
@@ -424,36 +440,40 @@ namespace DAL
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
 
-            if (ThirdName != "")
-
+            if (!string.IsNullOrWhiteSpace(ThirdName))
+            {
                 command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            }
 
             else
-
+            {
                 command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value);
+            }
             command.Parameters.AddWithValue("@LastName", LastName);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             command.Parameters.AddWithValue("@Gendor", Gendor);
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
 
-            if (Email != "")
-
+            if (string.IsNullOrWhiteSpace(Email))
+            {
                 command.Parameters.AddWithValue("@Email", Email);
-
+            }
             else
-
+            {
                 command.Parameters.AddWithValue("@Email", System.DBNull.Value);
+            }
+
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
             if (!string.IsNullOrWhiteSpace(ImagePath))
-
+            {
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
-
+            }
             else
-
+            {
                 command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
-
+            }
 
 
             try

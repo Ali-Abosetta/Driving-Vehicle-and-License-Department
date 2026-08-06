@@ -12,6 +12,7 @@ using DrivingVehicleLicenseDepartment.Forms;
 using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
 using DrivingVehicleLicenseDepartment.Forms.Drivers;
 using DrivingVehicleLicenseDepartment.Forms.Licenses;
+using DrivingVehicleLicenseDepartment.Forms.People;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.Applications;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.DetainLicenses;
 using DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense;

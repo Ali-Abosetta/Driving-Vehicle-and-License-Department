@@ -11,40 +11,19 @@ using BLL;
 using Krypton.Toolkit;
 using DrivingVehicleLicenseDepartment.CustomControls;
 
-namespace DrivingVehicleLicenseDepartment
+namespace DrivingVehicleLicenseDepartment.Forms.People
 {
     public partial class frmPersonCard : KryptonForm
     {
-        private void MakeCardReadOnly()
-        {
-
-            ctrlPersonCardEditable1.Enabled = false;
-
-            ctrlPersonCardEditable1.lblPicture.Visible = false;
-
-            if (ctrlPersonCardEditable1.Person.Gendor == 0)
-            {
-                ctrlPersonCardEditable1.rbFemale.Visible = false;
-                ctrlPersonCardEditable1.rbMale.Visible = true;
-            }
-            else
-            {
-                ctrlPersonCardEditable1.rbMale.Visible = false;
-                ctrlPersonCardEditable1.rbFemale.Visible = true;
-            }
-        }
-
         public frmPersonCard(int PersonID)
         {
             InitializeComponent();
-            MakeCardReadOnly();
-            ctrlPersonCardEditable1.Person = People.Find(PersonID);
+            ctrlPersonCard1.Person = BLL.People.Find(PersonID);
         }
-        public frmPersonCard(People person)
+        public frmPersonCard(BLL.People person)
         {
             InitializeComponent();
-            MakeCardReadOnly();
-            ctrlPersonCardEditable1.Person = person;
+            ctrlPersonCard1.Person = person;
         }
 
 

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             BLL.People people1 = new BLL.People();
+            BLL.Countries countries1 = new BLL.Countries();
             this.kryptonGroupBox1 = new Krypton.Toolkit.KryptonGroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -38,7 +39,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvInternationalLicenses = new Krypton.Toolkit.KryptonDataGridView();
             this.kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
-            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonCardEditable();
+            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonCardEditable();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
@@ -71,7 +72,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1244, 210);
+            this.tabControl1.Size = new System.Drawing.Size(1244, 201);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -80,7 +81,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1236, 184);
+            this.tabPage1.Size = new System.Drawing.Size(1236, 175);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Local";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -100,7 +101,7 @@
             this.dgvLocalLicenses.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
             this.dgvLocalLicenses.ReadOnly = true;
             this.dgvLocalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLocalLicenses.Size = new System.Drawing.Size(1230, 178);
+            this.dgvLocalLicenses.Size = new System.Drawing.Size(1230, 169);
             this.dgvLocalLicenses.TabIndex = 24;
             // 
             // PaletteDGVs
@@ -153,7 +154,9 @@
             this.ctrlPersonCardEditable1.Location = new System.Drawing.Point(379, 75);
             this.ctrlPersonCardEditable1.Name = "ctrlPersonCardEditable1";
             people1.Address = "";
-            people1.CountryInfo = null;
+            countries1.CountryID = 100;
+            countries1.CountryName = "Libya";
+            people1.CountryInfo = countries1;
             people1.DateOfBirth = new System.DateTime(2008, 7, 25, 14, 14, 56, 779);
             people1.Email = "";
             people1.FirstName = "";
@@ -175,20 +178,23 @@
             this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
             this.kryptonLabel1.Location = new System.Drawing.Point(489, 12);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(193, 35);
+            this.kryptonLabel1.Size = new System.Drawing.Size(211, 35);
             this.kryptonLabel1.TabIndex = 5;
             this.kryptonLabel1.Values.Text = "Licenses History";
             // 
             // frmLicenseHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 702);
+            this.ControlBox = false;
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.kryptonPictureBox1);
             this.Controls.Add(this.kryptonGroupBox1);
             this.Controls.Add(this.ctrlPersonCardEditable1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLicenseHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLicenseHistory";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
@@ -207,7 +213,7 @@
 
         #endregion
 
-        private CustomControls.ctrlPersonCardEditable ctrlPersonCardEditable1;
+        private DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonCardEditable ctrlPersonCardEditable1;
         private Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;

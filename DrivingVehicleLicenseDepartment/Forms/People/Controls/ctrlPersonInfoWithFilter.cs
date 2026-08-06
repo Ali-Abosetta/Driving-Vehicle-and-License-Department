@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using Krypton.Toolkit;
+using DrivingVehicleLicenseDepartment.Forms.People;
 
-namespace DrivingVehicleLicenseDepartment.CustomControls
+namespace DrivingVehicleLicenseDepartment.Forms.People.Controls
 {
     public partial class ctrlPersonInfoWithFilter  : UserControl
     {
@@ -31,9 +32,13 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
             ctrlPersonCardEditable1.Enabled = false;
         }
 
-        private void AddPerson(object sender, People person)
+        private void AddPerson(object sender, BLL.People person)
         {
             this.ctrlPersonCardEditable1.Person = person;
+            if (person != null)
+            {
+                OnPersonSelected?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -69,13 +74,13 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
 
             if (!string.IsNullOrWhiteSpace(selectedFilter))
             {
-                People person = null;
+                BLL.People person = null;
 
                 switch (selectedFilter)
                 {
                     case "National No.":
 
-                        person = People.FindByNationalNo(txtSearch.Text.Trim());
+                        person = BLL.People.FindByNationalNo(txtSearch.Text.Trim());
                             if (person == null)
                             {
                                 _NotFoundMessageBox($"This {selectedFilter}" +
@@ -87,7 +92,7 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                     case "PersonID":
                         if (int.TryParse(txtSearch.Text.Trim(), out int personID))
                         {
-                            person = People.Find(personID);
+                            person = BLL.People.Find(personID);
                             if (person == null)
                             {
                                 _NotFoundMessageBox($"This {selectedFilter} " +
@@ -113,6 +118,19 @@ namespace DrivingVehicleLicenseDepartment.CustomControls
                 }
             }
 
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) //The char 13 is Enter key.
+            {
+                btnSearch.PerformClick();
+            }
+
+            if (cmbFilter.Text == "Person ID")
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
         }
     }
 }

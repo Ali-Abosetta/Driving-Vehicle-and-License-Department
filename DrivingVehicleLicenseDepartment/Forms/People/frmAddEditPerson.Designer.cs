@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment
+﻿namespace DrivingVehicleLicenseDepartment.Forms.People
 {
     partial class frmAddEditPerson
     {
@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BLL.People people1 = new BLL.People();
+            BLL.People people2 = new BLL.People();
+            BLL.Countries countries2 = new BLL.Countries();
             this.btnCancel = new Krypton.Toolkit.KryptonButton();
             this.btnSave = new Krypton.Toolkit.KryptonButton();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.lblID = new Krypton.Toolkit.KryptonLabel();
             this.lblTitle = new Krypton.Toolkit.KryptonLabel();
-            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonCardEditable();
+            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonCardEditable();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -89,34 +90,41 @@
             // 
             this.ctrlPersonCardEditable1.Location = new System.Drawing.Point(12, 77);
             this.ctrlPersonCardEditable1.Name = "ctrlPersonCardEditable1";
-            people1.Address = "";
-            people1.DateOfBirth = new System.DateTime(2008, 6, 30, 7, 41, 56, 36);
-            people1.Email = "";
-            people1.FirstName = "";
-            people1.Gendor = 0;
-            people1.ImagePath = null;
-            people1.LastName = "";
-            people1.NationalityCountryID = 100;
-            people1.NationalNo = "";
-            people1.PersonID = -1;
-            people1.Phone = "";
-            people1.SecondName = "";
-            people1.ThirdName = "";
-            this.ctrlPersonCardEditable1.Person = people1;
+            people2.Address = "";
+            countries2.CountryID = 100;
+            countries2.CountryName = "Libya";
+            people2.CountryInfo = countries2;
+            people2.DateOfBirth = new System.DateTime(2008, 6, 30, 7, 41, 56, 36);
+            people2.Email = "";
+            people2.FirstName = "";
+            people2.Gendor = 0;
+            people2.ImagePath = null;
+            people2.LastName = "";
+            people2.NationalityCountryID = 100;
+            people2.NationalNo = "";
+            people2.PersonID = -1;
+            people2.Phone = "";
+            people2.SecondName = "";
+            people2.ThirdName = "";
+            this.ctrlPersonCardEditable1.Person = people2;
             this.ctrlPersonCardEditable1.Size = new System.Drawing.Size(868, 377);
             this.ctrlPersonCardEditable1.TabIndex = 0;
             // 
             // frmAddEditPerson
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AcceptButton = this.btnSave;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(891, 524);
+            this.ControlBox = false;
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.ctrlPersonCardEditable1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddEditPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditPerson";
@@ -127,7 +135,7 @@
 
         #endregion
 
-        private CustomControls.ctrlPersonCardEditable ctrlPersonCardEditable1;
+        private DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonCardEditable ctrlPersonCardEditable1;
         private Krypton.Toolkit.KryptonButton btnCancel;
         private Krypton.Toolkit.KryptonButton btnSave;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;

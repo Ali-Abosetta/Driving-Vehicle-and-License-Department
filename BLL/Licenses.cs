@@ -247,7 +247,7 @@ namespace BLL
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
 
-
+            Mode = enMode.Update;
         }
         public Licenses()
         {

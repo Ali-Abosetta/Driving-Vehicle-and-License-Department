@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BLL.Users users2 = new BLL.Users();
+            BLL.Users users1 = new BLL.Users();
             this.userCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlUserCardEditable();
             this.txtNewPassword = new Krypton.Toolkit.KryptonTextBox();
             this.txtConfirmPassword = new Krypton.Toolkit.KryptonTextBox();
@@ -45,16 +45,18 @@
             // userCardEditable1
             // 
             this.userCardEditable1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userCardEditable1.Enabled = false;
             this.userCardEditable1.Location = new System.Drawing.Point(0, 0);
             this.userCardEditable1.Name = "userCardEditable1";
             this.userCardEditable1.Size = new System.Drawing.Size(887, 500);
             this.userCardEditable1.TabIndex = 0;
-            users2.IsActive = false;
-            users2.Password = "";
-            users2.PersonID = -1;
-            users2.UserID = -1;
-            users2.UserName = "";
-            this.userCardEditable1.User = users2;
+            users1.IsActive = false;
+            users1.Password = "";
+            users1.PersonID = -1;
+            users1.PersonInfo = null;
+            users1.UserID = -1;
+            users1.UserName = "";
+            this.userCardEditable1.User = users1;
             // 
             // txtNewPassword
             // 
@@ -123,8 +125,6 @@
             // 
             // frmChangePassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 643);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNewPassword);
@@ -134,7 +134,9 @@
             this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.kryptonLabel3);
             this.Controls.Add(this.userCardEditable1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmChangePassword";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

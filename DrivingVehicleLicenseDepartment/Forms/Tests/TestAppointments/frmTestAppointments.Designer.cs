@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.dgvAppointments = new Krypton.Toolkit.KryptonDataGridView();
             this.cmsAppointments = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PaletteDGVs = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.lblTitle = new Krypton.Toolkit.KryptonLabel();
@@ -38,8 +40,6 @@
             this.btnSchedule = new Krypton.Toolkit.KryptonButton();
             this.ctrlApplicationBasicInfo1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlApplicationBasicInfo();
             this.ctrlDrivingLicenseApplicationInfo1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlDrivingLicenseApplicationInfo();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbPicture = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.cmsAppointments.SuspendLayout();
@@ -73,6 +73,24 @@
             this.cmsAppointments.Name = "cmsAppointments";
             this.cmsAppointments.Size = new System.Drawing.Size(137, 80);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.edit_32;
+            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(136, 38);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.EditScheduledTest);
+            // 
+            // takeTestToolStripMenuItem
+            // 
+            this.takeTestToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Test_32;
+            this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(136, 38);
+            this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
+            // 
             // PaletteDGVs
             // 
             this.PaletteDGVs.BaseFont = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -82,7 +100,7 @@
             // 
             this.kryptonLabel2.Location = new System.Drawing.Point(6, 609);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(92, 25);
+            this.kryptonLabel2.Size = new System.Drawing.Size(141, 27);
             this.kryptonLabel2.TabIndex = 22;
             this.kryptonLabel2.Values.Text = "Appointments:";
             // 
@@ -91,7 +109,7 @@
             this.lblTitle.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
             this.lblTitle.Location = new System.Drawing.Point(269, 144);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(237, 35);
+            this.lblTitle.Size = new System.Drawing.Size(322, 35);
             this.lblTitle.TabIndex = 19;
             this.lblTitle.Values.Text = "Vision Test Appointments";
             // 
@@ -133,24 +151,6 @@
             this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(784, 133);
             this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 20;
             // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.edit_32;
-            this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(136, 38);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.EditScheduledTest);
-            // 
-            // takeTestToolStripMenuItem
-            // 
-            this.takeTestToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Test_32;
-            this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(136, 38);
-            this.takeTestToolStripMenuItem.Text = "Take Test";
-            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
-            // 
             // pbPicture
             // 
             this.pbPicture.Location = new System.Drawing.Point(301, 10);
@@ -162,9 +162,8 @@
             // 
             // frmTestAppointments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 875);
+            this.ControlBox = false;
             this.Controls.Add(this.dgvAppointments);
             this.Controls.Add(this.kryptonLabel2);
             this.Controls.Add(this.lblTitle);
@@ -173,7 +172,11 @@
             this.Controls.Add(this.ctrlApplicationBasicInfo1);
             this.Controls.Add(this.ctrlDrivingLicenseApplicationInfo1);
             this.Controls.Add(this.pbPicture);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmTestAppointments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTestAppointments";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
             this.cmsAppointments.ResumeLayout(false);

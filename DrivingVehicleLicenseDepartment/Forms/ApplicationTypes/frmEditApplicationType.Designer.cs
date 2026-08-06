@@ -132,7 +132,7 @@
             // frmEditApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ClientSize = new System.Drawing.Size(488, 346);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtFees);

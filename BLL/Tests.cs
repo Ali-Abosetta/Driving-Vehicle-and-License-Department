@@ -127,6 +127,7 @@ namespace BLL
             this.Notes = Notes;
             this.CreatedByUserID = CreatedByUserID;
 
+            Mode = enMode.Update;
         }
         public Tests()
         {

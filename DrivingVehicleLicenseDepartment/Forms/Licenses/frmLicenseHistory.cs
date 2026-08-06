@@ -18,12 +18,12 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses
         private DataTable _LocalLicensesTable = new DataTable();
         private DataTable _InternationalLicenseTable = new DataTable();
 
-        private People _Person = new People();
+        private BLL.People _Person = new BLL.People();
         public frmLicenseHistory(int PersonID)
         {
             InitializeComponent();
 
-            _Person = People.Find(PersonID);
+            _Person = BLL.People.Find(PersonID);
             ctrlPersonCardEditable1.Person = _Person;
             _LocalLicensesTable = BLL.Licenses.GetDriverLocalLicensesSummary(PersonID);
             dgvLocalLicenses.DataSource = _LocalLicensesTable;

@@ -94,7 +94,7 @@
             // frmIssueDrivingLicenseFirstTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ClientSize = new System.Drawing.Size(800, 567);
             this.Controls.Add(this.btnIssue);
             this.Controls.Add(this.btnClose);

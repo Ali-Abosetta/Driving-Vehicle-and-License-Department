@@ -145,9 +145,8 @@
             // 
             // frmEditTestTypes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 481);
+            this.ControlBox = false;
             this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.rtbDescription);
             this.Controls.Add(this.lblID);
@@ -159,7 +158,11 @@
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditTestTypes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditTestTypes";
             this.Load += new System.EventHandler(this.frmEditTestTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

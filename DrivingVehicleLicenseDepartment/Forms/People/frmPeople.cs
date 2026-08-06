@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using BLL;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment
+namespace DrivingVehicleLicenseDepartment.Forms.People
 {
     public partial class frmPeople : KryptonForm
     {
@@ -23,7 +23,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void _LoadPeople()
         {
-            _PeopleTable = People.GetPeopleSummary();
+            _PeopleTable = BLL.People.GetPeopleSummary();
             dgvPeople.DataSource = _PeopleTable;
         }
         public frmPeople()
@@ -32,7 +32,7 @@ namespace DrivingVehicleLicenseDepartment
 
             _LoadPeople();
 
-            cmbFilter.DataSource = People.GetSearchFilters();
+            cmbFilter.DataSource = BLL.People.GetSearchFilters();
 
             cmbFilter.SelectedIndex = 0;
 
@@ -78,7 +78,7 @@ namespace DrivingVehicleLicenseDepartment
 
         private void DeletePerson(object sender, EventArgs e)
         {
-            if (People.IsExists(SelectedPersonID))
+            if (BLL.People.IsExists(SelectedPersonID))
             {
                 string FullName = dgvPeople.CurrentRow.Cells["First Name"].Value.ToString()
                     + " " + dgvPeople.CurrentRow.Cells["Second Name"].Value.ToString()
@@ -92,7 +92,7 @@ namespace DrivingVehicleLicenseDepartment
                 if (KryptonMessageBox.Show(message, "", KryptonMessageBoxButtons.YesNo,
                     KryptonMessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    if (People.DeleteFromPeopleByPersonID(SelectedPersonID))
+                    if (BLL.People.DeleteFromPeopleByPersonID(SelectedPersonID))
                     { 
                         _PeopleTable.Rows.Find(SelectedPersonID).Delete();
                     }
@@ -108,7 +108,7 @@ namespace DrivingVehicleLicenseDepartment
             }
         }
 
-        private void frmAddEditPerson_DataBack(object sender, People Person)
+        private void frmAddEditPerson_DataBack(object sender, BLL.People Person)
         {
 
             DataRow rowToEdit = _PeopleTable.Rows.Find(Person.PersonID);
@@ -123,7 +123,7 @@ namespace DrivingVehicleLicenseDepartment
             }
         }
 
-        private void dgvPeopleAddPerson(People Person)
+        private void dgvPeopleAddPerson(BLL.People Person)
         {
             DataRow row = _PeopleTable.NewRow();
 
@@ -145,7 +145,7 @@ namespace DrivingVehicleLicenseDepartment
             _PeopleTable.Rows.Add(row);
 
         }
-        private void dgvPeopleEditPerson(People Person, DataRow rowToEdit)
+        private void dgvPeopleEditPerson(BLL.People Person, DataRow rowToEdit)
         {
 
             if (rowToEdit != null)

@@ -23,7 +23,7 @@ namespace BLL
             this.CountryID = CountryID;
             this.CountryName = CountryName;
 
-
+            Mode = enMode.Update;
         }
         public Countries()
         {

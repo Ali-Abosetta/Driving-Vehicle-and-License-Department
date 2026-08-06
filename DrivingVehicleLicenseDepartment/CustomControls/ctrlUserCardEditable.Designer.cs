@@ -36,7 +36,7 @@
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.lblUserID = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
-            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.CustomControls.ctrlPersonCardEditable();
+            this.ctrlPersonCardEditable1 = new DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonCardEditable();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -147,7 +147,7 @@
 
         #endregion
 
-        private ctrlPersonCardEditable ctrlPersonCardEditable1;
+        private DrivingVehicleLicenseDepartment.Forms.People.Controls.ctrlPersonCardEditable ctrlPersonCardEditable1;
         private Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;

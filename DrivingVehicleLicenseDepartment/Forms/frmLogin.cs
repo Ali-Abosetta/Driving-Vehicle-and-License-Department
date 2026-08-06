@@ -20,16 +20,6 @@ namespace DrivingVehicleLicenseDepartment
             InitializeComponent();
         }
 
-        private bool IsValidUserNameOrPassword(Users user)
-        {
-            if (user == null || !user.Password.Equals(txtPassword.Text))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
@@ -53,7 +43,7 @@ namespace DrivingVehicleLicenseDepartment
                     clsGlobal.RememberCredentials("", "");
                 }
 
-                using (frmMain Main = new frmMain())
+                using (frmMain Main = new frmMain(this))
                 {
                     this.Hide();
                     Main.ShowDialog();

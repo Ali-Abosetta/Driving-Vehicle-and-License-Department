@@ -26,19 +26,18 @@ namespace DrivingVehicleLicenseDepartment
 {
     public partial class frmMain : KryptonForm
     {
-        public frmMain(int UserID)
-        {
-            InitializeComponent();
-        }
 
-        public frmMain()
+        private frmLogin _Login;
+        public frmMain(frmLogin login)
         {
             InitializeComponent();
+            _Login = login;
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            _Login.Show();
+            this.Close();
         }
 
         private void btnPeople_Click(object sender, EventArgs e)
@@ -52,7 +51,11 @@ namespace DrivingVehicleLicenseDepartment
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            clsGlobal.Logout();
+            _Login.Show();
             this.Close();
+
         }
 
         private void currentUserInformationToolStripMenuItem_Click(object sender, EventArgs e)

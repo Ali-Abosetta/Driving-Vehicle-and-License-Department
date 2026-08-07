@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Applications.ApplicationTypes
 {
     partial class frmEditApplicationTyps
     {
@@ -44,7 +44,6 @@
             // 
             // btnSave
             // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Location = new System.Drawing.Point(12, 280);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(216, 52);
@@ -115,7 +114,7 @@
             this.txtFees.Size = new System.Drawing.Size(293, 30);
             this.txtFees.TabIndex = 12;
             this.txtFees.Tag = "fees text box";
-            this.txtFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
+            this.txtFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
             // 
             // lblID
             // 
@@ -129,10 +128,8 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // frmEditApplication
+            // frmEditApplicationTyps
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ClientSize = new System.Drawing.Size(488, 346);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtFees);
@@ -143,8 +140,9 @@
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
-            this.Name = "frmEditApplication";
-            this.Text = "frmEditApplication";
+            this.Name = "frmEditApplicationTyps";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit application type";
             this.Load += new System.EventHandler(this.frmEditApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

@@ -11,6 +11,7 @@ using BLL;
 using DrivingVehicleLicenseDepartment.CustomControls;
 using DrivingVehicleLicenseDepartment.Properties;
 using DrivingVehicleLicenseDepartment.Global;
+using DrivingVehicleLicenseDepartment.Forms.Licenses;
 using Krypton.Toolkit;
 using static BLL.TestTypes;
 
@@ -161,12 +162,12 @@ namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestAppointments
 
             if (_isRetake)
             {
-                Applications retakeApp = new Applications();
+                BLL.Applications retakeApp = new BLL.Applications();
 
                 retakeApp.ApplicantPersonID = _LocalApp.ApplicationInfo.ApplicantPersonID;
                 retakeApp.ApplicationDate = DateTime.Now;
                 retakeApp.ApplicationTypeID = (int)BLL.ApplicationsTypes.enApplicationType.RetakeTest; 
-                retakeApp.ApplicationStatus = (int)Applications.enStatus.New;
+                retakeApp.ApplicationStatus = (int)BLL.Applications.enStatus.New;
                 retakeApp.LastStatusDate = DateTime.Now;
                 retakeApp.PaidFees = _RetakeAppInfo.ApplicationFees; 
                 retakeApp.CreatedByUserID = clsGlobal.User.UserID;

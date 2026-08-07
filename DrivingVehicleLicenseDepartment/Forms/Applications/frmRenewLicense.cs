@@ -10,26 +10,34 @@ using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.Global;
 using DrivingVehicleLicenseDepartment.CustomControls;
+using DrivingVehicleLicenseDepartment.Forms.Licenses.InternationalDrivingLicense;
+using DrivingVehicleLicenseDepartment.Forms.Licenses.LocalDrivingLicense;
+using DrivingVehicleLicenseDepartment.Forms.Licenses;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
+namespace DrivingVehicleLicenseDepartment.Forms.Applications
 {
-    public partial class frmReplaceLicense : Form
+    public partial class frmRenewLicense : KryptonForm
     {
         private BLL.Licenses _OldLicense;
-        public frmReplaceLicense()
+        public frmRenewLicense()
         {
             InitializeComponent();
         }
 
-        private void ctrlReplacementLicenseWithFilter1_OnLicenseSelected(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ctrlRenewLicenseWithFilter1_OnLicenseSelected(object sender, EventArgs e)
         {
             lblShowLicenseHistory.Enabled = true;
-            _OldLicense = ctrlReplacementLicenseWithFilter1.OldLicense;
+            _OldLicense = ctrlRenewLicenseWithFilter1.OldLicense;
 
-            if (!ctrlReplacementLicenseWithFilter1.OldLicense.IsActive)
+            if (ctrlRenewLicenseWithFilter1.OldLicense.ExpirationDate > DateTime.Now)
             {
-                KryptonMessageBox.Show("This license is not active.", "Inactive license warning"
+                KryptonMessageBox.Show("This license is not expaired yet.", "Unexpaired license warning"
                     , KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning, false);
                 return;
             }
@@ -39,13 +47,8 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
             application.ApplicationStatus = (int)BLL.Applications.enStatus.New;
 
             BLL.ApplicationsTypes appType = null;
-
-            int AppTypeID = ctrlReplacementLicenseWithFilter1.rbDamaged.Checked ?
-                (int)BLL.ApplicationsTypes.enApplicationType.ReplaceDamagedDrivingLicense
-                : (int)BLL.ApplicationsTypes.enApplicationType.ReplaceLostDrivingLicense;
-
             appType = ApplicationsTypes
-               .Find(AppTypeID);
+               .Find((int)ApplicationsTypes.enApplicationType.RenewDrivingLicense);
 
             if (appType != null)
             {
@@ -57,11 +60,16 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
             application.CreatedByUserID = clsGlobal.User.UserID;
             application.CreatedByUserInfo = clsGlobal.User;
 
-            application.ApplicantPersonID = ctrlReplacementLicenseWithFilter1.OldLicense.DriverInfo.PersonID;
+            application.ApplicantPersonID = ctrlRenewLicenseWithFilter1.OldLicense.DriverInfo.PersonID;
 
-            ctrlReplacementLicenseWithFilter1.Application = application;
+            ctrlRenewLicenseWithFilter1.Application = application;
 
-            btnReplace.Enabled = true;
+            btnRenew.Enabled = true;
+        }
+
+        private void ctrlRenewLicenseWithFilter1_OnLicenseNotFound(object sender, EventArgs e)
+        {
+
         }
 
         private void lblShowLicenseHistory_LinkClicked(object sender, EventArgs e)
@@ -72,23 +80,22 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void lblShowLicenseInfo_LinkClicked(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
-        private void btnReplace_Click(object sender, EventArgs e)
+        private void btnRenew_Click(object sender, EventArgs e)
         {
             bool isConfirmed = KryptonMessageBox.Show($"Are you sure that you want to" +
-                                $" replace the license with ID {_OldLicense.LicenseID}?",
-                                "Confirm", KryptonMessageBoxButtons.YesNo,
-                                KryptonMessageBoxIcon.Question, false)
-                == DialogResult.Yes;
+                $" renew the license with ID {_OldLicense.LicenseID}?",
+                "Confirm", KryptonMessageBoxButtons.YesNo,
+                KryptonMessageBoxIcon.Question, false) == DialogResult.Yes;
 
             if (isConfirmed)
             {
                 BLL.Applications application = new BLL.Applications();
-                application = ctrlReplacementLicenseWithFilter1.Application;
+                application = ctrlRenewLicenseWithFilter1.Application;
                 application.ApplicationStatus = (int)BLL.Applications.enStatus.Completed;
                 application.LastStatusDate = DateTime.Now;
 
@@ -100,7 +107,7 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
                 }
 
                 BLL.Licenses NewLisences = new BLL.Licenses();
-
+                
                 NewLisences.ApplicationID = application.ApplicationID;
                 NewLisences.ApplicationInfo = application;
 
@@ -111,21 +118,19 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
                 NewLisences.LicenseClassInfo = _OldLicense.LicenseClassInfo;
 
                 NewLisences.IssueDate = DateTime.Now;
-                NewLisences.ExpirationDate = _OldLicense.ExpirationDate;
+                NewLisences.ExpirationDate = DateTime.Now.AddYears(NewLisences.LicenseClassInfo.DefaultValidityLength);
 
-                NewLisences.Notes = _OldLicense.Notes;
-                NewLisences.PaidFees = 0;
+                NewLisences.Notes = ctrlRenewLicenseWithFilter1.Notes;
+                NewLisences.PaidFees = ctrlRenewLicenseWithFilter1.NewFees;
                 NewLisences.IsActive = true;
-                NewLisences.IssueReason = ctrlReplacementLicenseWithFilter1.rbDamaged.Checked ?
-                    (int)BLL.Licenses.enIssueReason.DamagedReplacement 
-                    : (int)BLL.Licenses.enIssueReason.LostReplacement;
+                NewLisences.IssueReason = (int)BLL.Licenses.enIssueReason.Renewal;
 
                 NewLisences.CreatedByUserID = clsGlobal.User.UserID;
                 NewLisences.CreatedByUserInfo = clsGlobal.User;
 
                 _OldLicense.IsActive = false;
 
-                if (!_OldLicense.Save())
+                if(!_OldLicense.Save())
                 {
                     KryptonMessageBox.Show("Failed to update the old license active status.",
                         "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
@@ -134,13 +139,13 @@ namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
 
                 if (!NewLisences.Save())
                 {
-                    KryptonMessageBox.Show("Failed to repalce the license.",
+                    KryptonMessageBox.Show("Failed to renew the license.",
                         "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
                     return;
                 }
 
-                KryptonMessageBox.Show($"The license replaced successfully " +
-                    $"with new ID {NewLisences.LicenseID}", "Successful replacement",
+                KryptonMessageBox.Show($"The license renewed successfully " +
+                    $"with new ID {NewLisences.LicenseID}", "Successful renew",
                     KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information, false);
 
                 lblShowLicenseInfo.Enabled = true;

@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using Enum;
 
 namespace BLL
 {
     public class TestTypes
     {
 
-        enum enMode { AddNew = 0, Update = 1 };
         private enMode Mode = enMode.AddNew;
 
         public enum enTestType

@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.Forms.Licenses.Applications
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Applications
 {
     partial class frmRenewLicense
     {

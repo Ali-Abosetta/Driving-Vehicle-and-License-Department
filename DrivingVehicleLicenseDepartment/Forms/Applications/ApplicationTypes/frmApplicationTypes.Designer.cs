@@ -1,4 +1,4 @@
-﻿namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
+﻿namespace DrivingVehicleLicenseDepartment.Forms.Applications.ApplicationTypes
 {
     partial class frmApplicationTypes
     {
@@ -73,15 +73,15 @@
             this.cmsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editApplicationToolStripMenuItem});
             this.cmsApplications.Name = "cmsApplications";
-            this.cmsApplications.Size = new System.Drawing.Size(197, 64);
+            this.cmsApplications.Size = new System.Drawing.Size(199, 64);
             // 
             // editApplicationToolStripMenuItem
             // 
             this.editApplicationToolStripMenuItem.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.edit_32;
             this.editApplicationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.editApplicationToolStripMenuItem.Name = "editApplicationToolStripMenuItem";
-            this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
-            this.editApplicationToolStripMenuItem.Text = "Edit Application";
+            this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(198, 38);
+            this.editApplicationToolStripMenuItem.Text = "Edit application type";
             this.editApplicationToolStripMenuItem.Click += new System.EventHandler(this.EditApplicationType);
             // 
             // PaletteDGVs
@@ -113,15 +113,14 @@
             // 
             // frmApplicationTypes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ClientSize = new System.Drawing.Size(936, 620);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dgvApplications);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.kryptonPictureBox1);
             this.Name = "frmApplicationTypes";
-            this.Text = "frmApplicationTypes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Application types list";
             this.Load += new System.EventHandler(this.frmApplicationTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).EndInit();
             this.cmsApplications.ResumeLayout(false);

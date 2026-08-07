@@ -192,16 +192,16 @@
     <Compile Include="Forms\Users\Controls\ctrlUserCard.Designer.cs">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ApplicationTypes\frmApplicationTypes.cs">
+    <Compile Include="Forms\Applications\ApplicationTypes\frmApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ApplicationTypes\frmApplicationTypes.Designer.cs">
+    <Compile Include="Forms\Applications\ApplicationTypes\frmApplicationTypes.Designer.cs">
       <DependentUpon>frmApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ApplicationTypes\frmEditApplicationType.cs">
+    <Compile Include="Forms\Applications\ApplicationTypes\frmEditApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ApplicationTypes\frmEditApplicationType.Designer.cs">
+    <Compile Include="Forms\Applications\ApplicationTypes\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Drivers\frmDriverLicenseInfo.cs">
@@ -218,16 +218,16 @@
     </Compile>
     <Compile Include="Global\clsFormsUtil.cs" />
     <Compile Include="Global\clsGlobal.cs" />
-    <Compile Include="Forms\Licenses\Applications\frmRenewLicense.cs">
+    <Compile Include="Forms\Applications\frmRenewLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Licenses\Applications\frmRenewLicense.Designer.cs">
+    <Compile Include="Forms\Applications\frmRenewLicense.Designer.cs">
       <DependentUpon>frmRenewLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Licenses\Applications\frmReplaceLicense.cs">
+    <Compile Include="Forms\Applications\frmReplaceLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Licenses\Applications\frmReplaceLicense.Designer.cs">
+    <Compile Include="Forms\Applications\frmReplaceLicense.Designer.cs">
       <DependentUpon>frmReplaceLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Licenses\DetainLicenses\frmDetainedLicenses.cs">
@@ -445,10 +445,10 @@
     <EmbeddedResource Include="Forms\Users\Controls\ctrlUserCard.resx">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ApplicationTypes\frmApplicationTypes.resx">
+    <EmbeddedResource Include="Forms\Applications\ApplicationTypes\frmApplicationTypes.resx">
       <DependentUpon>frmApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ApplicationTypes\frmEditApplicationType.resx">
+    <EmbeddedResource Include="Forms\Applications\ApplicationTypes\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Drivers\frmDriverLicenseInfo.resx">
@@ -457,10 +457,10 @@
     <EmbeddedResource Include="Forms\Drivers\frmDrivers.resx">
       <DependentUpon>frmDrivers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Licenses\Applications\frmRenewLicense.resx">
+    <EmbeddedResource Include="Forms\Applications\frmRenewLicense.resx">
       <DependentUpon>frmRenewLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Licenses\Applications\frmReplaceLicense.resx">
+    <EmbeddedResource Include="Forms\Applications\frmReplaceLicense.resx">
       <DependentUpon>frmReplaceLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Licenses\DetainLicenses\frmDetainedLicenses.resx">

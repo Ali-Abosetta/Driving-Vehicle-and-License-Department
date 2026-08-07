@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using DrivingVehicleLicenseDepartment.Forms.ApplicationTypes;
+using DrivingVehicleLicenseDepartment.Forms.Applications.ApplicationTypes;
 using Krypton.Toolkit;
 
 namespace DrivingVehicleLicenseDepartment.Forms.Tests.TestTyps

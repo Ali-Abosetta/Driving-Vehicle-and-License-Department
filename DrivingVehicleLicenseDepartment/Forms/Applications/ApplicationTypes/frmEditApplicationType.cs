@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DrivingVehicleLicenseDepartment.CustomControls;
+using DrivingVehicleLicenseDepartment.Global;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
+namespace DrivingVehicleLicenseDepartment.Forms.Applications.ApplicationTypes
 {
     public partial class frmEditApplicationTyps : KryptonForm
     {
@@ -19,16 +20,16 @@ namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
         public delegate void DataBackEventHandler(object sender, ApplicationsTypes app);
         public event DataBackEventHandler DataBack;
 
-        private ApplicationsTypes _app = new ApplicationsTypes();
+        private ApplicationsTypes _appType = new ApplicationsTypes();
         public frmEditApplicationTyps(ApplicationsTypes app)
         {
             InitializeComponent();
-            _app = app;
+            _appType = app;
         }
         public frmEditApplicationTyps(int ApplicationID)
         {
             InitializeComponent();
-            _app = ApplicationsTypes.Find(ApplicationID);
+            _appType = ApplicationsTypes.Find(ApplicationID);
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -37,17 +38,32 @@ namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _app.ApplicationTypeTitle = txtTitle.Text;
-            _app.ApplicationFees = Convert.ToDecimal(txtFees.Text);
 
-            if (_app.Save())
+            if 
+            (
+                string.IsNullOrWhiteSpace(txtTitle.Text) ||
+                string.IsNullOrWhiteSpace(txtFees.Text) ||
+                !clsFormsUtil.IsNumber(txtFees.Text)
+            )
+            {
+                KryptonMessageBox.Show($"Error: Please fillout the form with valid data{Environment.NewLine}" +
+                    $"and take a look at the validation messages on the red points.",
+                    "Error", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error, false);
+
+                return;
+            }
+
+            _appType.ApplicationTypeTitle = txtTitle.Text;
+            _appType.ApplicationFees = Convert.ToDecimal(txtFees.Text);
+
+            if (_appType.Save())
             {
                 KryptonMessageBox.Show("Data Saved Successfully.",
                     "Saved", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
 
-                DataBack?.Invoke(this, _app);
+                DataBack?.Invoke(this, _appType);
             }
-            
+
             else
             {
                 KryptonMessageBox.Show("Error: Data Is not Saved Successfully.",
@@ -57,9 +73,9 @@ namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
 
         private void frmEditApplication_Load(object sender, EventArgs e)
         {
-            lblID.Text = _app.ApplicationTypeID.ToString();
-            txtTitle.Text = _app.ApplicationTypeTitle;
-            txtFees.Text = _app.ApplicationFees.ToString();
+            lblID.Text = _appType.ApplicationTypeID.ToString();
+            txtTitle.Text = _appType.ApplicationTypeTitle;
+            txtFees.Text = _appType.ApplicationFees.ToString();
         }
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
@@ -70,6 +86,25 @@ namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
                 e.Cancel = false;
                 errorProvider1.SetError(textbox, $"The {textbox.Tag.ToString()} should be assigned!");
             }
+
+        }
+
+        private void txtFees_Validating(object sender, CancelEventArgs e)
+        {
+            KryptonTextBox textBox = (KryptonTextBox)sender;
+
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                txtTitle_Validating(sender, e);
+                return;
+            }
+
+            if (!clsFormsUtil.IsNumber(txtFees.Text))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBox, $"This text box is numbers only!");
+            }
+
         }
     }
 }

@@ -72,7 +72,7 @@
             this.MinimizeBox = false;
             this.Name = "frmUserCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmUserCard";
+            this.Text = "User card";
             this.ResumeLayout(false);
 
         }

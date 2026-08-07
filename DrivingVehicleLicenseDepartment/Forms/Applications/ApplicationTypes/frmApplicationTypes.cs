@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BLL;
 using Krypton.Toolkit;
 
-namespace DrivingVehicleLicenseDepartment.Forms.ApplicationTypes
+namespace DrivingVehicleLicenseDepartment.Forms.Applications.ApplicationTypes
 {
     public partial class frmApplicationTypes : KryptonForm
     {

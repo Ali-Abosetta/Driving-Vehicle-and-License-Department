@@ -27,12 +27,14 @@ namespace DrivingVehicleLicenseDepartment.Forms.Users
         {
             InitializeComponent();
             _Mode = enMode.AddNew;
+            this.Text = "Add new user";
         }
         public frmAddEditUser(int UserID)
         {
             InitializeComponent();
 
             _Mode = enMode.Update;
+            this.Text = "Edit user";
 
             _User = BLL.Users.Find(UserID);
             addEditUser1.User = _User;

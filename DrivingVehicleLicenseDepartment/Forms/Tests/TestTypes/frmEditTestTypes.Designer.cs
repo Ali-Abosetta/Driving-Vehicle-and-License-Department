@@ -59,6 +59,7 @@
             this.txtFees.Size = new System.Drawing.Size(308, 30);
             this.txtFees.TabIndex = 21;
             this.txtFees.Tag = "fees text box";
+            this.txtFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
             // 
             // txtTitle
             // 
@@ -67,6 +68,7 @@
             this.txtTitle.Size = new System.Drawing.Size(308, 30);
             this.txtTitle.TabIndex = 20;
             this.txtTitle.Tag = "title text box";
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.TextBox_Validating);
             // 
             // kryptonLabel4
             // 
@@ -103,9 +105,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(17, 412);
+            this.btnSave.Location = new System.Drawing.Point(12, 412);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(216, 52);
+            this.btnSave.Size = new System.Drawing.Size(237, 52);
             this.btnSave.TabIndex = 14;
             this.btnSave.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnSave.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Save_32;
@@ -115,9 +117,9 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(254, 412);
+            this.btnCancel.Location = new System.Drawing.Point(259, 412);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(216, 52);
+            this.btnCancel.Size = new System.Drawing.Size(237, 52);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnCancel.Values.Image = global::DrivingVehicleLicenseDepartment.Properties.Resources.Close_32;
@@ -133,7 +135,9 @@
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.Size = new System.Drawing.Size(308, 125);
             this.rtbDescription.TabIndex = 24;
+            this.rtbDescription.Tag = "Description text box";
             this.rtbDescription.Text = "";
+            this.rtbDescription.Validating += new System.ComponentModel.CancelEventHandler(this.RichTextBox_Validating);
             // 
             // kryptonLabel5
             // 
@@ -145,7 +149,7 @@
             // 
             // frmEditTestTypes
             // 
-            this.ClientSize = new System.Drawing.Size(488, 481);
+            this.ClientSize = new System.Drawing.Size(508, 481);
             this.ControlBox = false;
             this.Controls.Add(this.kryptonLabel5);
             this.Controls.Add(this.rtbDescription);
